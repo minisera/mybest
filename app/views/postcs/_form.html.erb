@@ -1,0 +1,27 @@
+<%= form_with(model: postc, local: true) do |form| %>
+  <% if postc.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(postc.errors.count, "error") %> prohibited this postc from being saved:</h2>
+
+      <ul>
+        <% postc.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :title %>
+    <%= form.text_field :title %>
+  </div>
+
+  <div class="field">
+    <%= form.label :story %>
+    <%= form.text_area :story %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
