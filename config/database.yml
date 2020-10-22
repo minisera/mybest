@@ -24,8 +24,10 @@ test:
   database: mybest_test
 
 production:
-  <<: *default
+  <adapter: mysql2
+  encoding: utf8mb4
   database: mybest_production
   username: root
   password: <%= ENV['DATABASE_PASSWORD'] %>
   socket: /var/lib/mysql/mysql.sock
+  
