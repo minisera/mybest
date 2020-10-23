@@ -4,6 +4,7 @@
     = fa_icon "search"
     = fa_icon "bell"
     %a マイページ
+    = link_to "signout", destroy_user_session_path, method: "delete"
     %a 投稿する
     = link_to "singin", new_user_session_path
     = link_to "singup", new_user_registration_path
