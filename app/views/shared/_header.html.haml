@@ -5,5 +5,5 @@
     = fa_icon "bell"
     %a マイページ
     %a 投稿する
-    %a signup
-    %a signin
+    = link_to "singin", new_user_session_path
+    = link_to "singup", new_user_registration_path
