@@ -1,3 +1,31 @@
-// Place all the styles related to the posts controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: https://sass-lang.com/
+
+header {
+  display: flex;
+  justify-content: space-between;
+  margin: 20px;
+  height: 50px;
+  .header-left{
+    font-size: 30px;
+  }
+  .header-right{
+    .fa{
+      font-size: 20px;
+      margin-left: 20px;
+    }
+    a{
+      margin-left: 20px;
+      font-size: 20px;
+    }
+  }
+}
+
+footer {
+  margin: 20px;
+  height: 50px;
+  .title {
+    font-size: 30px;
+  }
+  .message {
+    padding-left: 10px;
+  }
+}
