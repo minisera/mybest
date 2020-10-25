@@ -1,1 +1,7 @@
 マイページ
+- if @user.profile_image.attached?
+  = image_tag @user.profile_image.variant(resize: "200x200")
+.user_name
+  = @user.name
+.user_profile
+  = @user.profile
