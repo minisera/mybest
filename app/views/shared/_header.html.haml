@@ -1,5 +1,5 @@
 %header
-  .header-left Mybest
+  = link_to "Mybest", root_path,class: "header-left"
   .header-right
     - if user_signed_in?
       = fa_icon "search"
