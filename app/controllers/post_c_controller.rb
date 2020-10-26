@@ -8,7 +8,7 @@ class PostCController < ApplicationController
     if @post_c.save
       redirect_to user_url(current_user.id)
     else
-      render :nwe
+      render :new
     end
   end
 

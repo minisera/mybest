@@ -2,7 +2,7 @@
 
 新規投稿ページ
 
-= form_with model: @post_c,url: post_c_index_path, method: :post do |f|
+= form_with model: @post_c,url: post_c_index_path, method: :post,local: true do |f|
   .filed
     = f.label :title
     %br/
