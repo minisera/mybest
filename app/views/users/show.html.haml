@@ -18,4 +18,5 @@
 .profile_botomm
   - if @user.post_cs
     - @user.post_cs .each do |post|
-      = post
+      = post.title
+      = image_tag post.image.variant(resize: "200x200")

@@ -17,7 +17,7 @@ class PostCController < ApplicationController
   end
 
   def show
-    
+    @post_c = PostC.find(params[:id])
   end
 
 private
