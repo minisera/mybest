@@ -1,5 +1,74 @@
 = render partial: 'shared/header'
+.wrapper
+  .container
+    .clothes_index
+      .posts_title Clothes
+      .tags
+        .trending_tag Trending
+        .new_tag New
+      .posts_index
+        - if @post_cs
+          - @post_cs .each do |post|
+            .post_item_list
+              .post_image
+                = image_tag post.image.variant(resize: "200x200")
+              .post_main 
+                .post_title
+                  = post.title
+                .post_user
+                  .user_avatar
+                    = image_tag post.user.profile_image.variant(resize: "50x50")
+                  .post_user_info
+                    .post_user_name 
+                      = post.user.name
+                    .post_info
+                      .post_favorite いいね
+                      .post_date 1日前
 
+  -# .clothes_index
+  -#   .clothes_title Clothes
+  -#   .tags
+  -#     .trending_tag Trending
+  -#     .new_tag New
+  -#   .posts_index
+  -#     .post_item_list
+  -#     - if @post_cs
+  -#       - @post_cs .each do |post|
+  -#         .post_image
+  -#           = image_tag post.image.variant(resize: "200x200")
+  -#         .post_main
+  -#           .post_title 
+  -#             = post.title
+  -#           .post_user
+  -#             .user_avatar
+  -#             = image_tag post.user.profile_image.variant(resize: "50x50")
+  -#             .user_name 
+  -#               = post.user.name
+  -#             .post_info
+  -#               .post_favorite いいね
+  -#               .post_date 1日前
 
+  -# .clothes_index
+  -#   .clothes_title Clothes
+  -#   .tags
+  -#     .trending_tag Trending
+  -#     .new_tag New
+  -#   .post_index
+  -#     .post_item_list
+  -#     - if @post_cs
+  -#       - @post_cs .each do |post|
+  -#         .post_image
+  -#           = image_tag post.image.variant(resize: "200x200")
+  -#         .post_main
+  -#           .post_title 
+  -#             = post.title
+  -#           .post_user
+  -#             .user_avatar
+  -#             = image_tag post.user.profile_image.variant(resize: "50x50")
+  -#             .user_name 
+  -#               = post.user.name
+  -#             .post_info
+  -#               .post_favorite いいね
+  -#               .post_date 1日前
 
 = render partial: 'shared/footer'

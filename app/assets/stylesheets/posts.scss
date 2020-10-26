@@ -1,31 +1,147 @@
-
+// header
 header {
-  display: flex;
-  justify-content: space-between;
-  margin: 20px;
-  height: 50px;
-  .header-left{
-    font-size: 30px;
-  }
-  .header-right{
-    .fa{
-      font-size: 20px;
-      margin-left: 20px;
+  .header_wrapper {
+    height: 70px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 0 40px;
+    background-color: #FFFFFF;
+    .header-left{
+      font-size: 30px;
     }
-    a{
-      margin-left: 20px;
-      font-size: 20px;
+    .header-right{
+      .fa{
+        font-size: 20px;
+        margin-left: 20px;
+      }
+      a{
+        margin-left: 20px;
+        font-size: 20px;
+      }
     }
   }
 }
 
-footer {
-  margin: 20px;
-  height: 50px;
+a {
+  text-decoration: none;
+}
+
+// footer
+.footer_wrapper {
+  height: 150px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 40px;
+  background-color: #FFFFFF;
   .title {
     font-size: 30px;
   }
-  .message {
-    padding-left: 10px;
+}
+
+// トップページ一覧
+.wrapper {
+  .container {
+    padding: 40px 0 ;
+    margin: 0 auto;
+    background-color:#e5e5e5;
+    .clothes_index {
+      max-width: 960px;
+      padding: 0 40px;
+      margin: 0 auto;
+      .posts_title {
+        font-size: 50px;
+      }
+      .tags {
+        display: flex;
+        .trending_tag {
+          font-size: 30px;
+          padding-left: 20px;
+        }
+        .new_tag {
+          font-size: 30px;
+          padding-left: 20px;
+        }
+      }
+      .posts_index {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: center;
+        padding-top: 40px;
+        .post_item_list {
+          display: flex;
+          min-width: 360px;
+          padding-top: 40px;
+          .post_image img{
+            border-radius: 20px;
+          }
+          .post_main {
+            padding-left: 30px;
+            .post_title {
+              font-size: 20px;
+            }
+            .post_user {
+              display: flex;
+              padding-top: 50px;
+              .user_avatar img {
+                border-radius: 50%;
+                width: 50px;
+                height: 50px;
+              }
+              .post_user_info {
+                padding-left: 20px;
+                .post_info {
+                  display: flex;
+                  justify-content: space-between;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+// 新規投稿ページ
+
+.new_wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 40px;
+  .new_form {
+    margin: 0 auto;
+    .new_messages {
+      .message1 {
+        font-size: 30px;
+        text-align: center;
+      }
+      .message2 {
+        font-size: 30px;
+        text-align: center;
+      }
+    }
+    form {
+      justify-content: center;
+      display: flex;
+      align-items: center;
+      .form_wrapper {
+        .filed {
+          text-align: center;
+          padding-top: 40px;
+        }
+        .actions {
+          display: flex;
+          justify-content: center;
+        }
+      }
+    }
   }
 }

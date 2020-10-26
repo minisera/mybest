@@ -1,12 +1,14 @@
 %header
-  = link_to "Mybest", root_path,class: "header-left"
-  .header-right
-    - if user_signed_in?
-      = fa_icon "search"
-      = fa_icon "bell"
-      = link_to "マイページ", user_path(current_user)
-      = link_to "signout", destroy_user_session_path, method: "delete"
-      %a 投稿する
-    - else   
-      = link_to "singin", new_user_session_path
-      = link_to "singup", new_user_registration_path
+  .header_wrapper
+    .header_left
+      = link_to "Mybest", root_path,class: "header-left"
+    .header-right
+      - if user_signed_in?
+        = fa_icon "search"
+        = fa_icon "bell"
+        = link_to "マイページ", user_path(current_user)
+        = link_to "signout", destroy_user_session_path, method: "delete"
+        = link_to "投稿する", new_post_c_path
+      - else   
+        = link_to "singin", new_user_session_path
+        = link_to "singup", new_user_registration_path
