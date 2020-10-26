@@ -46,6 +46,14 @@ footer {
       }
       .tags {
         display: flex;
+        .trending_tag {
+          font-size: 30px;
+          padding-left: 20px;
+        }
+        .new_tag {
+          font-size: 30px;
+          padding-left: 20px;
+        }
       }
       .posts_index {
         display: flex;
