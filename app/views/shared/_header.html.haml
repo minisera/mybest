@@ -6,7 +6,7 @@
       = fa_icon "bell"
       = link_to "マイページ", user_path(current_user)
       = link_to "signout", destroy_user_session_path, method: "delete"
-      %a 投稿する
+      = link_to "投稿する", new_post_c_path
     - else   
       = link_to "singin", new_user_session_path
       = link_to "singup", new_user_registration_path

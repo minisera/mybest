@@ -16,3 +16,6 @@
         .user_followers フォローされた人数
 .user_tabs
 .profile_botomm
+  - if @user.post_cs
+    - @user.post_cs .each do |post|
+      = post
