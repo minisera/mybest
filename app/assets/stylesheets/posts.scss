@@ -108,3 +108,40 @@ a {
     }
   }
 }
+
+// 新規投稿ページ
+
+.new_wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 40px;
+  .new_form {
+    margin: 0 auto;
+    .new_messages {
+      .message1 {
+        font-size: 30px;
+        text-align: center;
+      }
+      .message2 {
+        font-size: 30px;
+        text-align: center;
+      }
+    }
+    form {
+      justify-content: center;
+      display: flex;
+      align-items: center;
+      .form_wrapper {
+        .filed {
+          text-align: center;
+          padding-top: 40px;
+        }
+        .actions {
+          display: flex;
+          justify-content: center;
+        }
+      }
+    }
+  }
+}

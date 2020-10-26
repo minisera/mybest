@@ -1,31 +1,39 @@
 = render 'shared/header'
 
-新規投稿ページ
+.new_wrapper
+  .new_form
+    .new_messages
+      .message1 あなたのお気に入りを登録しよう
+      .message2
+        -# = "服はあと#{5 - current_user.post_c.count}つ登録できます"
+    = form_with model: @post_c,url: post_c_index_path, method: :post,local: true do |f|
+      .form_wrapper
+        .filed
+          = f.label :title
+          .comment
+          %br/
+          = f.text_field :title,autofocus: true, autoocmplete: "title"
+        .field
+          = f.label :image
+          %br/
+          = f.file_field :image
+        .filed
+          = f.label :place
+          %br/
+          = f.text_field :place,autofocus: true, autoocmplete: "place"
+        .filed
+          = f.label :brand
+          %br/
+          = f.text_field :brand,autofocus: true, autoocmplete: "brand"
+        .filed
+          = f.label :story
+          %br/
+          = f.text_area :story,autofocus: true, autoocmplete: "story"
+        .filed
+          = f.label :evidence
+          %br/
+          = f.text_area :evidence,autofocus: true, autoocmplete: "evidence"
+        .actions
+          = f.submit "お気に入りを登録する"
 
-= form_with model: @post_c,url: post_c_index_path, method: :post,local: true do |f|
-  .filed
-    = f.label :title
-    %br/
-    = f.text_field :title,autofocus: true, autoocmplete: "title"
-  .field
-    = f.label :image
-    %br/
-    = f.file_field :image
-  .filed
-    = f.label :place
-    %br/
-    = f.text_field :place,autofocus: true, autoocmplete: "place"
-  .filed
-    = f.label :brand
-    %br/
-    = f.text_field :brand,autofocus: true, autoocmplete: "brand"
-  .filed
-    = f.label :story
-    %br/
-    = f.text_area :story,autofocus: true, autoocmplete: "story"
-  .filed
-    = f.label :evidence
-    %br/
-    = f.text_area :evidence,autofocus: true, autoocmplete: "evidence"
-  .actions
-    = f.submit "お気に入りを登録する"
+= render partial: 'shared/footer'
