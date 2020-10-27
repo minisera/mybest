@@ -8,7 +8,8 @@
       .profile_top
         .user_name
           = @user.name
-        .edit 編集
+        .edit
+          = link_to '編集',edit_user_registration_path
       .user_profile
         = @user.profile
       .user_follow
