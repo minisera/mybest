@@ -14,7 +14,9 @@
         .field
           .field_name 画像を入れてね
           = f.file_field :image
-          .image_preview プレビュー入ります
+          #image_preview
+          - if @post_c.image.attached?
+            = image_tag @post_c.image.variant(resize: '200x200')
         .filed
           = f.label :brand
           %br/
