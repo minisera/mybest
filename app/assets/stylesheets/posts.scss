@@ -129,17 +129,22 @@ a {
       }
     }
     form {
+      padding-top: 40px;
       justify-content: center;
       display: flex;
       align-items: center;
-      .form_wrapper {
+      .form_right {
+        padding-left: 40px;
         .filed {
-          text-align: center;
           padding-top: 40px;
         }
         .actions {
-          display: flex;
-          justify-content: center;
+          padding-top: 20px;
+        }
+      }
+      .form_left {
+        .filed {
+          padding-top: 20px;
         }
       }
     }

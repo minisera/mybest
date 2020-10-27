@@ -1,22 +1,26 @@
 = render partial: 'shared/header'
-%h2 Log in
-= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
-  .field
-    = f.label :email
-    %br/
-    = f.email_field :email, autofocus: true, autocomplete: "email"
-  .field
-    = f.label :password
-    %br/
-    = f.password_field :password, autocomplete: "current-password"
-  - if devise_mapping.rememberable?
-    .field
-      = f.check_box :remember_me
-      = f.label :remember_me
-  .actions
-    = f.submit "Log in"
-  .actions
-    = link_to 'ゲストログイン（閲覧用）', users_guest_sign_in_path, method: :post
-    
-= render "devise/shared/links"
-= render partial: 'shared/footer'
+
+
+.login_wrapper
+  .login_container
+    %h2 Log in
+    = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+      .field
+        = f.label :email
+        %br/
+        = f.email_field :email, autofocus: true, autocomplete: "email"
+      .field
+        = f.label :password
+        %br/
+        = f.password_field :password, autocomplete: "current-password"
+      - if devise_mapping.rememberable?
+        .field
+          = f.check_box :remember_me
+          = f.label :remember_me
+      .actions
+        = f.submit "Log in"
+      .actions
+        = link_to 'ゲストログイン（閲覧用）', users_guest_sign_in_path, method: :post
+        
+    = render "devise/shared/links"
+    = render partial: 'shared/footer'

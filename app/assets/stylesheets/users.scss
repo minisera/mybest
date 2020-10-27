@@ -1,3 +1,4 @@
+// マイページ
 .profile_wrapper {
   display: flex;
   justify-content: center;
@@ -22,4 +23,27 @@
 
 .user_name {
   font-size: 30px;
+}
+
+
+// ログインページ
+.login_wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 40px;
+  .login_container {
+    h2 {
+      font-size: 30px;
+    }
+    form {
+      padding-top: 40px;
+      .field {
+        padding-top: 20px;
+      }
+      .actions {
+        padding-top: 20px;
+      }
+    }
+  }
 }
