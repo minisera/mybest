@@ -1,27 +1,51 @@
+// if (document.URL.match( /new/ ) || document.URL.match( /edit/ )) {
+//   document.addEventListener('DOMContentLoaded', function(){
+//     const ImageList = document.getElementById('image_preview');
+//     document.getElementById('post_c_image').addEventListener('change', function(e){
+//       const imageContent = document.querySelector('img');
+//       if (imageContent){
+//         imageContent.remove();
+//       }
+//       const file = e.target.files[0];
+//       const blob = window.URL.createObjectURL(file);
+//       const imageElement = document.createElement('div');
+//       const blobImage = document.createElement('img');
+//       blobImage.setAttribute('src', blob);
+//       imageElement.appendChild(blobImage);
+//       ImageList.appendChild(imageElement);
+//     });
+//   });
+// }
 
-$(document).on("turbolinks:load", function () {
-  $("#post_c_image").on("change", function (e) {
-    var files = e.target.files;
-    var d = new $.Deferred().resolve();
-    $.each(files, function (i, file) {
-      d = d.then(function () {
-        return previewImage(file);
-      });
+if (document.URL.match( /new/ ) || document.URL.match( /edit/ )) {
+  document.addEventListener('DOMContentLoaded', function(){
+    const ImageList = document.getElementById('image_preview');
+    
+    const createImageHTML = (blob) => {
+      // 画像を表示するためのdiv要素を生成
+      const imageElement = document.createElement('div');
+      
+      // 表示する画像を生成
+      const blobImage = document.createElement('img');
+      blobImage.setAttribute('src', blob);
+      blobImage.setAttribute('class', "image_pre");
+
+      // 生成したHTMLの要素をブラウザに表示させる
+      imageElement.appendChild(blobImage);
+      ImageList.appendChild(imageElement);
+    };
+
+    document.getElementById('post_c_image').addEventListener('change', function(e){
+      // 画像が表示されている場合のみ、すでに存在している画像を削除する
+      const imageContent = document.querySelector('img');
+      if (imageContent){
+        imageContent.remove();
+      }
+
+      const file = e.target.files[0];
+      const blob = window.URL.createObjectURL(file);
+
+      createImageHTML(blob);
     });
   });
- 
-  var previewImage = function (imageFile) {
-    var reader = new FileReader();
-    var img = new Image();
-    var def = $.Deferred();
-    reader.onload = function (e) {
-      // 画像を表示
-      $("#image_preview").empty();
-      $("#image_preview").append(img);
-      img.src = e.target.result;
-      def.resolve(img);
-    };
-    reader.readAsDataURL(imageFile);
-    return def.promise();
-  };
-});
+}
