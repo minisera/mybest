@@ -15,5 +15,8 @@
       = f.label :remember_me
   .actions
     = f.submit "Log in"
+  .actions
+    = link_to 'ゲストログイン（閲覧用）', users_guest_sign_in_path, method: :post
+    
 = render "devise/shared/links"
 = render partial: 'shared/footer'
