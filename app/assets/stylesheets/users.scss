@@ -28,22 +28,79 @@
 
 // ログインページ
 .login_wrapper {
+  height: 100vh;
+  background-color:#e5e5e5;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding-top: 40px;
+  padding: 40px 0;
   .login_container {
-    h2 {
-      font-size: 30px;
+    .login_icon {
+      display: flex;
+      justify-content: center;
+      .fa {
+        font-size: 75px;
+        display: inline-block;
+      }
     }
     form {
-      padding-top: 40px;
+      padding-top: 20px;
       .field {
         padding-top: 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        input {
+          padding: 10px;
+          border: 0 solid;
+          border-bottom: 1px solid;
+          background-color:#e5e5e5;
+          &:focus {
+            background-color: white;
+            color: #333333;
+            border: 0 solid;
+            border-bottom: 1px solid;
+            outline: 0;
+            transition: 250ms background ease-in;
+          }
+        }
+        .user_remember_me {
+          padding-left: 10px;
+        }
       }
       .actions {
+        display: flex;
+        justify-content: center;
         padding-top: 20px;
+        input {
+          padding: 0 10px;
+          &:hover{
+            cursor: pointer;
+          }
+        }
+        a {
+          padding: 5px 10px;
+          border: 0 solid;
+          border-bottom: 1px solid ;
+          background-color:#e5e5e5;
+          &:hover {
+            background-color: white;
+            color: #333333;
+            border: 0 solid;
+            border-bottom: 1px solid;
+            outline: 0;
+            transition: 250ms background ease-in;
+          }
+        }
       }
     }
+  }
+}
+
+// ユーザー管理リンク集
+.user_links {
+  padding-top: 40px;
+  input {
+    color: white;
   }
 }
