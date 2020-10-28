@@ -76,6 +76,24 @@
         .user_remember_me {
           padding-left: 10px;
         }
+        textarea {
+          width: 300px;
+          height: 100px;
+        }
+        label {
+          padding: 10px;
+          border: 0 solid;
+          border-bottom: 1px solid;
+          background-color:#e5e5e5;
+          &:hover {
+            background-color: white;
+            color: #5a1818;
+            border: 0 solid;
+            border-bottom: 1px solid;
+            outline: 0;
+            transition: 250ms background ease-in;
+          }          
+        }
       }
       .actions {
         display: flex;
@@ -104,6 +122,10 @@
       }
     }
   }
+}
+
+.hidden {
+  display: none;
 }
 
 // ユーザー管理リンク集

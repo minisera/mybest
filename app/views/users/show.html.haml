@@ -10,6 +10,7 @@
           = @user.name
         .edit
           = link_to '編集',edit_user_registration_path
+          = link_to 'Profile編集',edit_user_path(current_user)
       .user_profile
         = @user.profile
       .user_follow
