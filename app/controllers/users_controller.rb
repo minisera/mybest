@@ -9,10 +9,14 @@ class UsersController < ApplicationController
 
   def update
     @user = User.find(current_user.id)
-    if @user.save
-      redirect_to user_path(current_user)
+    if @user.update(user_params)
+      redirect_to user_url(current_user)
     else
       render :edit
     end
+  end
+private
+  def user_params
+    params.require(:user).permit(:name,:profile_image)
   end
 end

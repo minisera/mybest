@@ -26,7 +26,7 @@
 }
 
 
-// ログインページ
+// ログインページ、アカウント編集、プロフィール編集
 .login_wrapper {
   height: 100vh;
   background-color:#e5e5e5;
@@ -126,6 +126,21 @@
 
 .hidden {
   display: none;
+}
+
+#image_preview {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 40px;
+  div{
+    .profile_image_pre {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      object-fit:cover;
+    }
+  }
 }
 
 // ユーザー管理リンク集
