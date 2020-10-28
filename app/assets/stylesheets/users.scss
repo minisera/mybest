@@ -43,6 +43,15 @@
         display: inline-block;
       }
     }
+    .cancel_my_account {
+      display: flex;
+      justify-content: center;
+      .button_to {
+        input {
+          padding:0 10px;
+        }
+      }
+    }
     form {
       padding-top: 20px;
       .field {
