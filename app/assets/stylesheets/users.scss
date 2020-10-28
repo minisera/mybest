@@ -57,7 +57,7 @@
           background-color:#e5e5e5;
           &:focus {
             background-color: white;
-            color: #333333;
+            color: #5a1818;
             border: 0 solid;
             border-bottom: 1px solid;
             outline: 0;
@@ -100,7 +100,8 @@
 // ユーザー管理リンク集
 .user_links {
   padding-top: 40px;
-  input {
-    color: white;
+  a {
+    color: #999999;
+    font-size: 15px;
   }
 }
