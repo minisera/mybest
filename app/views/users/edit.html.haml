@@ -4,7 +4,9 @@
   .login_container
     .login_icon
       = fa_icon "user"
+    .user_profile_image
     #image_preview
+      = image_tag @user.profile_image
     = form_with model: @user, local: true do |f|
       .field
         %label(for="user_profile_image")

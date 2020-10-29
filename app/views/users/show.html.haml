@@ -1,5 +1,6 @@
 = render 'shared/header'
-.profile_wrapper
+
+.profile_top
   .profile_container
     .profile_image
       - if @user.profile_image.attached?
@@ -17,8 +18,23 @@
         .user_following フォロー人数
         .user_followers フォローされた人数
 .user_tabs
-.profile_botomm
-  - if @user.post_cs
-    - @user.post_cs .each do |post|
-      = post.title
-      = image_tag post.image.variant(resize: "200x200")
+  .my_post 自分の投稿一覧タグ
+  .pickup_post ピックアップ一覧タグ
+.profile_bottom
+  .my_posts
+    .my_clothes
+      .posts_title Clothes
+      .post_blocks
+        - if @user.post_cs
+          - @user.post_cs .each do |post|
+            .post_block
+              .post_image
+                = image_tag post.image.variant(resize: "200x200")
+              .post_title
+                = post.title
+              .post_info
+                .left_info
+                  .tag シャツ
+                .right_info
+                  .post_favorite ♡1
+                  .deys_ago 1日前
