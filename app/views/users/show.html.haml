@@ -6,7 +6,7 @@
       - if @user.profile_image.attached?
         = image_tag @user.profile_image.variant(resize: "200x200")
     .profile_main
-      .profile_top
+      .profile_name_edit
         .user_name
           = @user.name
         .edit
@@ -17,10 +17,10 @@
       .user_follow
         .user_following フォロー人数
         .user_followers フォローされた人数
-.user_tabs
-  .my_post 自分の投稿一覧タグ
-  .pickup_post ピックアップ一覧タグ
 .profile_bottom
+  .user_tabs
+    .my_post 自分の投稿一覧タグ
+    .pickup_post ピックアップ一覧タグ
   .my_posts
     .my_clothes
       .posts_title Clothes

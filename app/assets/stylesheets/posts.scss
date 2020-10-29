@@ -113,12 +113,11 @@ a {
 
 .new_wrapper {
   background-color: #EEEEEE;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   padding: 40px 0 ;
   .new_form {
     margin: 0 auto;
+    padding: 0 40px;
+    width: 960px;
     .new_messages {
       .message1 {
         font-size: 30px;
@@ -131,34 +130,59 @@ a {
     }
     form {
       padding-top: 40px;
-      justify-content: center;
       display: flex;
       align-items: center;
-      .form_right {
-        padding-left: 40px;
-        border-left: solid;
-        border-color: grey;
+      .form_right {  
+        padding-left: 50px;
+        width: 50%;
         .filed {
           padding-top: 20px;
+          .file_form {
+            display: flex;
+          }
           textarea {
             width: 400px;
             height: 150px;
-            padding: 0.5em 1em;
-            margin: 2em 0;
-            color: #5d627b;
-            background: white;
-            border-top: solid 5px #5d627b;
-            box-shadow: 0 3px 5px rgba(0, 0, 0, 0.22);
+            border: 2px solid #aaa;
+            border-radius: 4px;
+            margin: 8px 0;
+            outline: none;
+            padding: 8px;
+            transition: 0.3s;
+            &:focus {
+              border-color: dodgerBlue;
+              box-shadow: 0 0 8px 0 dodgerBlue;
+            }
           }
         }
       }
       .actions {
         padding-top: 40px;
+        input {
+          padding: 8px;
+          border: 2px solid #aaa;
+          border-radius: 4px;         
+        }
       }
     }
     .form_left {
+      border-right: solid;
+      border-color: #aaa;
+      width: 50%;
       .filed {
         padding-top: 20px;
+        input {
+          border: 2px solid #aaa;
+          border-radius: 4px;
+          margin: 8px 0;
+          outline: none;
+          padding: 8px;
+          transition: 0.3s;
+          &:focus {
+            border-color: dodgerBlue;
+            box-shadow: 0 0 8px 0 dodgerBlue;
+          }
+        }
       }
     }
   }
@@ -168,12 +192,24 @@ a {
   font-size: 20px;
   padding-top: 10px;
 }
-.image_pre {
-  max-width: 300px;
-  max-height: 300px;
-  width: 100%;
-  height: 100%;
-  border-radius: 15px;
+
+// プレビュー画像
+
+#image_preview {
+  .post_image_custom {
+    .post_image_pre {
+      width: 200px;
+      height: 200px;
+      border-radius: 15px;
+      object-fit: cover;
+    }    
+  }
 }
 
-
+label {
+  border-radius: 4px;
+  margin: 8px 0;
+  background-color: #aaa;
+  padding: 8px;
+  display: inline-block;
+}

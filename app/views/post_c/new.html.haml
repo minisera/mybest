@@ -12,9 +12,15 @@
           .filed_name 服の名前は？
           = f.text_field :title,autofocus: true, autoocmplete: "title"
         .field
-          .filed_name どんな見た目？
-          = f.file_field :image
+          .file_form
+            .filed_name どんな見た目？
+            %label(for="post_c_image")
+              ファイルを選択
+              = f.file_field :image,class: "hidden"
           #image_preview
+            .post_image_custom
+              = image_tag "/assets/no_image.png",class: "post_image_pre"
+          
         .filed
           .filed_name どこのブランド？
           = f.text_field :brand,autofocus: true, autoocmplete: "brand"
@@ -24,11 +30,9 @@
       .form_right
         .filed
           .filed_name 出会うまでのストーリーは？
-          .filed_comment （160文字以内）
           = f.text_area :story,autofocus: true, autoocmplete: "story"
         .filed
           .filed_name お気に入りのポイントは？
-          .filed_comment （160文字以内）
           = f.text_area :evidence,autofocus: true, autoocmplete: "evidence"
         .actions
           = f.submit "お気に入りをキロクする"
