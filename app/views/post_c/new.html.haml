@@ -3,37 +3,34 @@
 .new_wrapper
   .new_form
     .new_messages
-      .message1 あなたのお気に入りを登録しよう
+      .message1 あなたのお気に入りをキロクしよう
       .message2
-        -# = "服はあと#{5 - current_user.post_c.count}つ登録できます"
+        = "衣類はあと#{10 - current_user.post_cs.count}つ登録できます"
     = form_with model: @post_c,url: post_c_index_path, method: :post,local: true do |f|
-      .form_wrapper
+      .form_left
         .filed
-          = f.label :title
-          .comment
-          %br/
+          .filed_name 服の名前は？
           = f.text_field :title,autofocus: true, autoocmplete: "title"
         .field
-          = f.label :image
-          %br/
+          .filed_name どんな見た目？
           = f.file_field :image
+          #image_preview
         .filed
-          = f.label :place
-          %br/
-          = f.text_field :place,autofocus: true, autoocmplete: "place"
-        .filed
-          = f.label :brand
-          %br/
+          .filed_name どこのブランド？
           = f.text_field :brand,autofocus: true, autoocmplete: "brand"
         .filed
-          = f.label :story
-          %br/
+          .filed_nameどこで出会った？
+          = f.text_field :place,autofocus: true, autoocmplete: "place"
+      .form_right
+        .filed
+          .filed_name 出会うまでのストーリーは？
+          .filed_comment （160文字以内）
           = f.text_area :story,autofocus: true, autoocmplete: "story"
         .filed
-          = f.label :evidence
-          %br/
+          .filed_name お気に入りのポイントは？
+          .filed_comment （160文字以内）
           = f.text_area :evidence,autofocus: true, autoocmplete: "evidence"
         .actions
-          = f.submit "お気に入りを登録する"
+          = f.submit "お気に入りをキロクする"
 
 = render partial: 'shared/footer'

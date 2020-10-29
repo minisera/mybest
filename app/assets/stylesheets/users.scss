@@ -1,4 +1,5 @@
-.profile_wrapper {
+// マイページ
+.profile_top {
   display: flex;
   justify-content: center;
   .profile_container {
@@ -20,6 +21,185 @@
   }
 }
 
-.user_name {
-  font-size: 30px;
+.profile_bottom {
+  display: flex;
+  justify-content: center;
+  background-color: ghostwhite;
+  .my_posts {
+    padding: 0 40px;
+    margin:0 auto;
+    width: 80%;
+    .my_clothes {
+      display: flex;
+      justify-content: center;
+      .post_blocks {
+      display: flex;
+      flex-wrap: wrap;
+      max-width: 1100px;
+      .post_block {
+        width: 33%;
+        max-width: 300px;
+        padding: 20px;
+        margin: 20px;
+        background-color: rgb(201, 206, 219);
+        border-radius: 10px;
+        .post_title {
+          font-size: 20px;
+          font-weight: 200;
+          padding-left: 15%;
+
+        }
+        .post_image {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          img {
+            width: 200px;
+            height: 200px;
+            object-fit:cover;
+            border-radius: 25px;
+          }
+        }
+        .post_info {
+          display: flex;
+          justify-content: space-around;
+        }
+      }
+      } 
+      }
+  }
+}
+
+
+// ログインページ、アカウント編集、プロフィール編集
+.login_wrapper {
+  height: 100vh;
+  background-color:#e5e5e5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 0;
+  .login_container {
+    .login_icon {
+      display: flex;
+      justify-content: center;
+      .fa {
+        font-size: 75px;
+        display: inline-block;
+      }
+    }
+    .cancel_my_account {
+      display: flex;
+      justify-content: center;
+      .button_to {
+        input {
+          padding:0 10px;
+        }
+      }
+    }
+    form {
+      padding-top: 20px;
+      .field {
+        padding-top: 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        input {
+          padding: 10px;
+          border: 0 solid;
+          border-bottom: 1px solid;
+          background-color:#e5e5e5;
+          &:focus {
+            background-color: white;
+            color: #5a1818;
+            border: 0 solid;
+            border-bottom: 1px solid;
+            outline: 0;
+            transition: 250ms background ease-in;
+          }
+        }
+        .user_remember_me {
+          padding-left: 10px;
+        }
+        textarea {
+          width: 300px;
+          height: 100px;
+        }
+        label {
+          padding: 10px;
+          border: 0 solid;
+          border-bottom: 1px solid;
+          background-color:#e5e5e5;
+          &:hover {
+            background-color: white;
+            color: #5a1818;
+            border: 0 solid;
+            border-bottom: 1px solid;
+            outline: 0;
+            transition: 250ms background ease-in;
+          }          
+        }
+      }
+      .actions {
+        display: flex;
+        justify-content: center;
+        padding-top: 20px;
+        input {
+          padding: 0 10px;
+          &:hover{
+            cursor: pointer;
+          }
+        }
+        a {
+          padding: 5px 10px;
+          border: 0 solid;
+          border-bottom: 1px solid ;
+          background-color:#e5e5e5;
+          &:hover {
+            background-color: white;
+            color: #333333;
+            border: 0 solid;
+            border-bottom: 1px solid;
+            outline: 0;
+            transition: 250ms background ease-in;
+          }
+        }
+      }
+    }
+  }
+}
+
+.hidden {
+  display: none;
+}
+
+#image_preview {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 40px;
+  div{
+    .profile_image_pre {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      object-fit:cover;
+    }
+  }
+  img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit:cover;
+  }
+}
+
+
+// ユーザー管理リンク集
+.user_links {
+  padding-top: 40px;
+  a {
+    color: #999999;
+    font-size: 15px;
+  }
 }

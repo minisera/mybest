@@ -1,0 +1,20 @@
+= render partial: 'shared/header'
+
+.login_wrapper
+  .login_container
+    .login_icon
+      = fa_icon "user"
+    .user_profile_image
+    #image_preview
+      = image_tag @user.profile_image
+    = form_with model: @user, local: true do |f|
+      .field
+        %label(for="user_profile_image")
+          プロフィール画像を設定する
+          = f.file_field :profile_image, autofocus: true,class: "image_file hidden"
+      .field
+        = f.text_area :profile,placeholder: " Profile"
+      .actions
+        = f.submit "Update"
+
+= render partial: 'shared/footer'
