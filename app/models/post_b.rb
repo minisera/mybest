@@ -1,0 +1,2 @@
+class PostB < ApplicationRecord
+end
