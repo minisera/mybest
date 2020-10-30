@@ -1,4 +1,4 @@
-// 投稿画面
+// お気に入り投稿・編集画面
 if (document.URL.match( /new/ ) || document.URL.match( /edit/ )) {
   document.addEventListener('DOMContentLoaded', function(){
     const ImageList = document.getElementById('image_preview');
@@ -20,7 +20,7 @@ if (document.URL.match( /new/ ) || document.URL.match( /edit/ )) {
     
     document.getElementById('post_c_image').addEventListener('change', function(e){
       // 画像が表示されている場合のみ、すでに存在している画像を削除する
-      const imageContent = document.querySelector('img');
+      const imageContent = document.querySelector('.post_image_pre');
       if (imageContent){
         imageContent.remove();
       }
@@ -55,7 +55,7 @@ if (document.URL.match( /new/ ) || document.URL.match( /edit/ )) {
 
     document.getElementById('user_profile_image').addEventListener('change', function(e){
       // 画像が表示されている場合のみ、すでに存在している画像を削除する
-      const imageContent = document.querySelector('img');
+      const imageContent = document.querySelector('.profile_image_pre');
       if (imageContent){
         imageContent.remove();
       }

@@ -6,7 +6,8 @@
       = fa_icon "user"
     .user_profile_image
     #image_preview
-      = image_tag @user.profile_image
+      .user_image_custom
+        = image_tag @user.profile_image,class: "profile_image_pre"
     = form_with model: @user, local: true do |f|
       .field
         %label(for="user_profile_image")
@@ -16,5 +17,6 @@
         = f.text_area :profile,placeholder: " Profile"
       .actions
         = f.submit "Update"
+
 
 = render partial: 'shared/footer'
