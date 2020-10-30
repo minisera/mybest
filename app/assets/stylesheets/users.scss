@@ -1,18 +1,27 @@
 // マイページ
 .profile_top {
-  display: flex;
-  justify-content: center;
   .profile_container {
     padding: 40px 0;
     margin: 0 auto;
-    width: 1000px;
+    width: 960px;
     display: flex;
+    .profile_image {
+      img {
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;
+        object-fit:cover;
+      }
+    }
     .profile_main {
       margin-left: 30px;
-      width: 100%;
-      .profile_top{
+      .profile_name_edit {
         display: flex;
         justify-content: space-between;
+        .user_name {
+          font-size: 30px;
+          font-weight: 200;
+        }
       }
       .user_follow {
         display: flex;
@@ -22,32 +31,48 @@
 }
 
 .profile_bottom {
-  display: flex;
-  justify-content: center;
   background-color: ghostwhite;
+  padding: 40px 0;
+  .user_tabs{
+    margin: 0 auto;
+    padding: 0 40px;
+    width: 960px;
+    display: flex;
+    .my_post {
+      font-size: 25px;
+    }
+    .pickup_post {
+      font-size: 25px;
+      margin-left: 30px;
+    }
+  }
   .my_posts {
     padding: 0 40px;
     margin:0 auto;
-    width: 80%;
+    display: flex;
+    justify-content: center;
+    width: 960px;
     .my_clothes {
-      display: flex;
-      justify-content: center;
+      width: 100%;
+      .posts_title {
+        font-size: 50px;
+      }
       .post_blocks {
       display: flex;
       flex-wrap: wrap;
-      max-width: 1100px;
+      align-content: flex-start;
       .post_block {
-        width: 33%;
-        max-width: 300px;
-        padding: 20px;
-        margin: 20px;
-        background-color: rgb(201, 206, 219);
+        width: 30%;
+        padding: 20px 10px;
+        margin-top:40px;
+        margin-left: 20px;
+        background-color: white;
         border-radius: 10px;
         .post_title {
           font-size: 20px;
           font-weight: 200;
           padding-left: 15%;
-
+          padding-top: 10px;
         }
         .post_image {
           display: flex;
@@ -63,6 +88,7 @@
         .post_info {
           display: flex;
           justify-content: space-around;
+          padding-top: 10px;
         }
       }
       } 
@@ -173,24 +199,18 @@
   display: none;
 }
 
+// プレビュー画像
 #image_preview {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding-top: 40px;
-  div{
+  div user_image_custom {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     .profile_image_pre {
       width: 150px;
       height: 150px;
       border-radius: 50%;
       object-fit:cover;
     }
-  }
-  img {
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    object-fit:cover;
   }
 }
 

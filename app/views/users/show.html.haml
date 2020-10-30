@@ -6,21 +6,21 @@
       - if @user.profile_image.attached?
         = image_tag @user.profile_image.variant(resize: "200x200")
     .profile_main
-      .profile_top
+      .profile_name_edit
         .user_name
           = @user.name
         .edit
-          = link_to '編集',edit_user_registration_path
+          = link_to '設定',edit_user_registration_path
           = link_to 'Profile編集',edit_user_path(current_user)
       .user_profile
         = @user.profile
       .user_follow
         .user_following フォロー人数
         .user_followers フォローされた人数
-.user_tabs
-  .my_post 自分の投稿一覧タグ
-  .pickup_post ピックアップ一覧タグ
 .profile_bottom
+  .user_tabs
+    .my_post 自分の投稿一覧タグ
+    .pickup_post ピックアップ一覧タグ
   .my_posts
     .my_clothes
       .posts_title Clothes
@@ -38,3 +38,5 @@
                 .right_info
                   .post_favorite ♡1
                   .deys_ago 1日前
+
+= render partial: 'shared/footer'
