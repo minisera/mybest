@@ -1,0 +1,78 @@
+= render 'shared/header'
+
+.new_wrapper
+  .new_form
+    .new_messages
+      - if current_user.post_bs.size < 6
+        .message1 あなたのお気に入りをキロクしよう
+        .message2
+          = "本はあと#{3 - current_user.post_bs.size}つ登録できます"
+      - else 
+        .message1
+          上限に達しました。
+        .message2
+          本当にキロクしますか？
+    - if current_user.post_bs.size < 6
+      = form_with model: @post_b,url: post_b_index_path, method: :post,local: true do |f|
+        .form_left
+          .filed
+            .filed_name 本の名前は？
+            = f.text_field :title,autofocus: true, autoocmplete: "title"
+          .field
+            .file_form
+              .filed_name どんな見た目？
+              %label(for="post_b_image")
+                ファイルを選択
+                = f.file_field :image,class: "hidden"
+            #image_preview
+              .post_image_custom
+                = image_tag "/assets/no_image.png",class: "post_image_pre"
+            
+          .filed
+            .filed_name どこのブランド？
+            = f.text_field :brand,autofocus: true, autoocmplete: "brand"
+          .filed
+            .filed_nameどこで出会った？
+            = f.text_field :place,autofocus: true, autoocmplete: "place"
+        .form_right
+          .filed
+            .filed_name 出会うまでのストーリーは？
+            = f.text_area :story,autofocus: true, autoocmplete: "story"
+          .filed
+            .filed_name お気に入りのポイントは？
+            = f.text_area :evidence,autofocus: true, autoocmplete: "evidence"
+          .actions
+            = f.submit "お気に入りをキロクする"
+    - else
+      = form_with model: @post_b,url: post_b_index_path, method: :post,data: { confirm: "本当にキロクしますか？" },local: true do |f|
+        .form_left
+          .filed
+            .filed_name 服の名前は？
+            = f.text_field :title,autofocus: true, autoocmplete: "title"
+          .field
+            .file_form
+              .filed_name どんな見た目？
+              %label(for="post_b_image")
+                ファイルを選択
+                = f.file_field :image,class: "hidden"
+            #image_preview
+              .post_image_custom
+                = image_tag "/assets/no_image.png",class: "post_image_pre"
+            
+          .filed
+            .filed_name どこのブランド？
+            = f.text_field :brand,autofocus: true, autoocmplete: "brand"
+          .filed
+            .filed_nameどこで出会った？
+            = f.text_field :place,autofocus: true, autoocmplete: "place"
+        .form_right
+          .filed
+            .filed_name 出会うまでのストーリーは？
+            = f.text_area :story,autofocus: true, autoocmplete: "story"
+          .filed
+            .filed_name お気に入りのポイントは？
+            = f.text_area :evidence,autofocus: true, autoocmplete: "evidence"
+          .actions
+            = f.submit "お気に入りをキロクする"
+
+= render partial: 'shared/footer'

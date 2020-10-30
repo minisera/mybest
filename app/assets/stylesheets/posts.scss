@@ -54,14 +54,89 @@ a {
   }
 }
 
-// トップページ一覧
+// // トップページ一覧
+// .wrapper {
+//   .container {
+//     padding: 40px 0 ;
+//     background-color:#EEEEEE;
+//     .clothes_index {
+//       width: 960px;
+//       padding: 0 40px;
+//       margin: 0 auto;
+//       .posts_title {
+//         font-size: 50px;
+//       }
+//       .tags {
+//         display: flex;
+//         .trending_tag {
+//           font-size: 30px;
+//           padding-left: 20px;
+//         }
+//         .new_tag {
+//           font-size: 30px;
+//           padding-left: 20px;
+//         }
+//       }
+//       .posts_index {
+//         display: flex;
+//         flex-wrap: wrap;
+//         justify-content: space-between;
+//         align-items: center;
+//         padding-top: 40px;
+//         .post_item_list {
+//           background-color: white;
+//           display: flex;
+//           padding: 20px 16px;
+//           margin-top: 25px;
+//           border-radius: 15px;
+//           width: 400px;
+//           height: 200px;
+//           .post_image {
+//             img {
+//               width: 150px;
+//               height: 150px;
+//               object-fit: cover;
+//               border-radius: 15px;
+//             }
+//           }
+//           .post_main {
+//             padding-left: 30px;
+
+//             .post_title {
+//               font-size: 20px;
+//             }
+//             .post_user {
+//               display: flex;
+//               justify-content: space-between;
+//               margin-top: 30px;
+//               .user_avatar {
+//                 img {
+//                   border-radius: 50%;
+//                   width: 50px;
+//                   height: 50px;
+//                   object-fit: cover;
+//                 }
+//               }
+//               .post_user_info {
+//                 .post_info {
+//                 }
+//               }
+//             }
+//           }
+//         }
+//       }
+//     }
+//   }
+// }
+
+// トップページ一覧案２
 .wrapper {
   .container {
     padding: 40px 0 ;
-    background-color:#e5e5e5;
+    background-color: ghostwhite;
     .clothes_index {
       width: 960px;
-      padding: 0 40px;
+      padding: 40px;
       margin: 0 auto;
       .posts_title {
         font-size: 50px;
@@ -84,33 +159,50 @@ a {
         align-items: center;
         padding-top: 40px;
         .post_item_list {
-          display: flex;
-          min-width: 360px;
-          padding-top: 40px;
-          .post_image img{
-            border-radius: 20px;
+          // background-color: white;
+          padding: 20px 16px;
+          margin-top: 25px;
+          border-radius: 15px;;
+          height: 400px;
+          .post_image {
+            display: flex;
+            justify-content: center;
+            img {
+              width: 250px;
+              height: 250px;
+              object-fit: cover;
+              border-radius: 15px;
+            }
           }
           .post_main {
-            padding-left: 30px;
             .post_title {
               font-size: 20px;
+              margin-top: 4px;
             }
-            .post_user {
+            .post_favorite {
+              margin-top: 8px;
+            }
+            .post_info{
+              margin-top: 8px;
               display: flex;
-              padding-top: 50px;
-              .user_avatar img {
-                border-radius: 50%;
-                width: 50px;
-                height: 50px;
-              }
-              .post_user_info {
-                padding-left: 20px;
-                .post_info {
-                  display: flex;
-                  justify-content: space-between;
+              justify-content: space-between;
+              .post_user {
+                display: flex;
+                .user_avatar {
+                  img {
+                    border-radius: 50%;
+                    width: 50px;
+                    height: 50px;
+                    object-fit: cover;
+                  }
+                }
+                .post_user_name {
+                  font-size: 20px;
+                  margin-left: 10px;
+
                 }
               }
-            }
+            }            
           }
         }
       }

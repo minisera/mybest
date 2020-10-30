@@ -1,0 +1,2 @@
+module PostBHelper
+end

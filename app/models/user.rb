@@ -11,6 +11,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   has_one_attached :profile_image
   has_many :post_cs
+  has_many :post_bs
 
 
   def self.guest

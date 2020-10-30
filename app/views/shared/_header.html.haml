@@ -14,7 +14,9 @@
         .signout_icon
           = link_to "signout", destroy_user_session_path, method: "delete"
         .post_icon
-          = link_to "投稿する", new_post_c_path
+          = link_to "C投稿する", new_post_c_path
+        .post_icon
+          = link_to "B投稿する", new_post_b_path
       - else   
         .login_icon
           = link_to "Login", new_user_session_path
