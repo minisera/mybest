@@ -1,7 +1,7 @@
 // header
 header {
   .header_wrapper {
-    height: 70px;
+    height: 80px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -13,13 +13,23 @@ header {
       font-size: 30px;
     }
     .header-right{
+      display: flex;
+      align-items: center;
+      .fa_icon {
+        display: flex;
+      }
       .fa{
-        font-size: 20px;
-        margin-left: 20px;
+        font-size: 25px;
       }
       a{
         margin-left: 20px;
         font-size: 20px;
+        img {
+          width: 42px;
+          height: 42px;
+          border-radius: 50%;
+          object-fit:cover;          
+        }
       }
     }
   }
@@ -48,10 +58,9 @@ a {
 .wrapper {
   .container {
     padding: 40px 0 ;
-    margin: 0 auto;
     background-color:#e5e5e5;
     .clothes_index {
-      max-width: 960px;
+      width: 960px;
       padding: 0 40px;
       margin: 0 auto;
       .posts_title {

@@ -17,6 +17,6 @@
       .actions
         = f.submit "Update"
     .cancel_my_account
-      #{button_to "Cancel my account", registration_path(resource_name), data: { confirm: "本当に削除しますか？" }, method: :delete}
+      #{button_to "Cancel my account", registration_path(resource_name), data: { confirm: "本当にアカウントを削除しますか？" }, method: :delete}
 
 = render partial: 'shared/footer'

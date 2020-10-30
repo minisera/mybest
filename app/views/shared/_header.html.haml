@@ -4,11 +4,19 @@
       = link_to "Mybest", root_path,class: "header-left"
     .header-right
       - if user_signed_in?
-        = fa_icon "search"
-        = fa_icon "bell"
-        = link_to "マイページ", user_path(current_user)
-        = link_to "signout", destroy_user_session_path, method: "delete"
-        = link_to "投稿する", new_post_c_path
+        .fa_icon
+          =link_to "#" do
+            = fa_icon "search"
+          =link_to "#" do
+            = fa_icon "bell"
+        .header_icon
+          = link_to image_tag(current_user.profile_image), user_path(current_user)
+        .signout_icon
+          = link_to "signout", destroy_user_session_path, method: "delete"
+        .post_icon
+          = link_to "投稿する", new_post_c_path
       - else   
-        = link_to "Login", new_user_session_path
-        = link_to "Singup", new_user_registration_path
+        .login_icon
+          = link_to "Login", new_user_session_path
+        .signup_icon
+          = link_to "Singup", new_user_registration_path
