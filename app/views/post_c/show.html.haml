@@ -1,3 +1,45 @@
-= @post_c.title
-= image_tag @post_c.image.variant(resize: "200x200")
-= @post_c.place
+= render 'shared/header'
+
+.post_show_wrapper
+  .post_show_container
+    .top_container
+      .post_title
+        = @post_c.title
+      .post_user
+        .user_name
+          = @post_c.user.name
+        = link_to image_tag(@post_c.user.profile_image),user_path(@post_c.user),class: "user_image"
+    .midle_container
+      .post_image
+        = image_tag @post_c.image
+    .bottom_container
+      .bottom_wrapper 
+        .post_place
+          .form_title
+            = fa_icon "globe"
+            出会った場所
+          .form_content
+            = @post_c.place
+        .post_brand
+          .form_title
+            = fa_icon "bookmark"
+            ブランド
+          .form_content
+            = @post_c.brand
+        .post_story
+          .form_title
+            = fa_icon "map"
+            出会いのストーリ−
+          .form_text
+            = @post_c.story
+        .post_evidence
+          .form_title
+            = fa_icon "star"
+            お気に入りのポイント
+          .form_text
+            = @post_c.evidence
+        .top_return
+          この人のマイページに行く
+
+
+= render partial: 'shared/footer'
