@@ -6,19 +6,30 @@ class PostCController < ApplicationController
   def create
     @post_c = PostC.new(postc_params)
     if @post_c.save
-      redirect_to user_url(current_user.id)
+      redirect_to user_url(current_user)
     else
       render :new
     end
   end
 
-  def index
-    
+  def edit
+    @post_c = PostC.find(params[:id])
+  end
+  
+  def update
+    @post_c = PostC.find(params[:id])
+    if @post_c.update(postc_params)
+      redirect_to user_url(current_user)
+    else
+      render :edit
+    end
   end
 
   def show
     @post_c = PostC.find(params[:id])
   end
+
+
 
 private
 

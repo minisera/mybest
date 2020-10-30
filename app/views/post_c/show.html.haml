@@ -40,6 +40,9 @@
             = @post_c.evidence
         .top_return
           この人のマイページに行く
+        - if current_user
+          .post_edit
+            = link_to "お気に入りを編集する",edit_post_c_path(@post_c.id)
 
 
 = render partial: 'shared/footer'
