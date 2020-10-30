@@ -43,6 +43,8 @@
         - if current_user
           .post_edit
             = link_to "お気に入りを編集する",edit_post_c_path(@post_c.id)
+          .post_destroy
+            = link_to 'お気に入りを削除する',post_c_path(@post_c),method: :delete,data: { confirm: "本当に削除しますか？"}
 
 
 = render partial: 'shared/footer'

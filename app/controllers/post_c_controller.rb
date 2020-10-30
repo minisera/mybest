@@ -29,6 +29,11 @@ class PostCController < ApplicationController
     @post_c = PostC.find(params[:id])
   end
 
+  def destroy
+    @post_c = PostC.find(params[:id])
+    @post_c.destroy
+    redirect_to user_url(current_user)
+  end
 
 
 private
