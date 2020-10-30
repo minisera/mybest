@@ -28,7 +28,7 @@
         - if @user.post_cs
           - @user.post_cs .each do |post|
             .post_block
-              .post_image
+              =link_to post_c_path(post.id),class: "post_image" do
                 = image_tag post.image.variant(resize: "200x200")
               .post_title
                 = post.title

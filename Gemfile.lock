@@ -91,8 +91,6 @@ GEM
     erubi (1.9.0)
     erubis (2.7.0)
     ffi (1.13.1)
-    font-awesome-rails (4.7.0.5)
-      railties (>= 3.2, < 6.1)
     font-awesome-sass (5.15.1)
       sassc (>= 1.11)
     globalid (0.4.2)
@@ -256,7 +254,6 @@ DEPENDENCIES
   capistrano-rbenv
   capistrano3-unicorn
   devise
-  font-awesome-rails
   font-awesome-sass
   haml-rails
   image_processing (~> 1.2)
