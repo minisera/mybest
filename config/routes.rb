@@ -6,5 +6,6 @@ Rails.application.routes.draw do
   resources :posts
   resources :users
   resources :post_c
+  resources :post_b
   root to: "posts#index"
 end

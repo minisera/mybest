@@ -3,27 +3,27 @@
 .new_wrapper
   .new_form
     .new_messages
-      - if current_user.post_cs.size < 6
+      - if current_user.post_bs.size < 6
         .message1 あなたのお気に入りをキロクしよう
         .message2
-          = "衣類はあと#{6 - current_user.post_cs.size}つ登録できます"
+          = "本はあと#{3 - current_user.post_bs.size}つ登録できます"
       - else 
         .message1
           上限に達しました。
         .message2
           本当にキロクしますか？
-    - if current_user.post_cs.size < 6
-      = form_with model: @post_c,url: post_c_index_path, method: :post,local: true do |f|
+    - if current_user.post_bs.size < 6
+      = form_with model: @post_b,url: post_b_index_path, method: :post,local: true do |f|
         .form_left
           .filed
-            .filed_name 服の名前は？
+            .filed_name 本の名前は？
             = f.text_field :title,autofocus: true, autoocmplete: "title"
           .field
             .file_form
               .filed_name どんな見た目？
               %label(for="post_image")
                 ファイルを選択
-                = f.file_field :image,id: "post_image",class: "hidden"
+                = f.file_field :image,class: "hidden",id: "post_image"
             #image_preview
               .post_image_custom
                 = image_tag "/assets/no_image.png",class: "post_image_pre"
@@ -44,7 +44,7 @@
           .actions
             = f.submit "お気に入りをキロクする"
     - else
-      = form_with model: @post_c,url: post_c_index_path, method: :post,data: { confirm: "本当にキロクしますか？" },local: true do |f|
+      = form_with model: @post_b,url: post_b_index_path, method: :post,data: { confirm: "本当にキロクしますか？" },local: true do |f|
         .form_left
           .filed
             .filed_name 服の名前は？
@@ -52,9 +52,9 @@
           .field
             .file_form
               .filed_name どんな見た目？
-              %label(for="post_c_image")
+              %label(for="post_image")
                 ファイルを選択
-                = f.file_field :image,class: "hidden"
+                = f.file_field :image,id: "post_image",class: "hidden"
             #image_preview
               .post_image_custom
                 = image_tag "/assets/no_image.png",class: "post_image_pre"
