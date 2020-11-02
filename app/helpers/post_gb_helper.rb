@@ -1,0 +1,2 @@
+module PostGbHelper
+end
