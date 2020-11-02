@@ -131,78 +131,80 @@ a {
 
 // トップページ一覧案２
 .wrapper {
-  .container {
-    padding: 40px 0 ;
+  background-color: ghostwhite;
+  .mid_wrapper{
     background-color: ghostwhite;
-    .clothes_index {
-      width: 960px;
-      padding: 40px;
-      margin: 0 auto;
-      .posts_title {
-        font-size: 50px;
-      }
-      .tags {
-        display: flex;
-        .trending_tag {
-          font-size: 30px;
-          padding-left: 20px;
-        }
-        .new_tag {
-          font-size: 30px;
-          padding-left: 20px;
+    width: 1200px;
+    margin: 0 auto;
+    padding: 50px 40px 100px;
+    .container{
+      display: flex;
+      .search_wrapper {
+        width: 25%;
+        .search_container{
+          background-color: #FFFFFF;
+          padding: 0 25px;
         }
       }
-      .posts_index {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-between;
-        align-items: center;
-        padding-top: 40px;
-        .post_item_list {
-          // background-color: white;
-          padding: 20px 16px;
-          margin-top: 25px;
-          border-radius: 15px;;
-          height: 400px;
-          .post_image {
-            display: flex;
-            justify-content: center;
-            img {
-              width: 250px;
-              height: 250px;
-              object-fit: cover;
-              border-radius: 15px;
-            }
+      .main_wrapper {
+        width: 75%;
+        .main_container{
+          padding: 0 25px;
+          .posts_title {
+            font-size: 50px;
           }
-          .post_main {
-            .post_title {
-              font-size: 20px;
-              margin-top: 4px;
-            }
-            .post_favorite {
-              margin-top: 8px;
-            }
-            .post_info{
-              margin-top: 8px;
+          .clothes_index {
+            .posts_index {
               display: flex;
+              flex-wrap: wrap;
               justify-content: space-between;
-              .post_user {
-                display: flex;
-                .user_avatar {
+              align-items: center;
+              .post_item_list {
+                padding: 20px 16px;
+                margin-top: 25px;
+                border-radius: 15px;;
+                height: 400px;
+                .post_image {
+                  display: flex;
+                  justify-content: center;
                   img {
-                    border-radius: 50%;
-                    width: 50px;
-                    height: 50px;
+                    width: 230px;
+                    height: 230px;
                     object-fit: cover;
+                    border-radius: 15px;
                   }
                 }
-                .post_user_name {
-                  font-size: 20px;
-                  margin-left: 10px;
-
+                .post_main {
+                  .post_title {
+                    font-size: 20px;
+                    margin-top: 4px;
+                  }
+                  .post_favorite {
+                    margin-top: 8px;
+                  }
+                  .post_info{
+                    margin-top: 8px;
+                    display: flex;
+                    justify-content: space-between;
+                    .post_user {
+                      display: flex;
+                      .user_avatar {
+                        img {
+                          border-radius: 50%;
+                          width: 50px;
+                          height: 50px;
+                          object-fit: cover;
+                        }
+                      }
+                      .post_user_name {
+                        font-size: 20px;
+                        margin-left: 10px;    
+                      }
+                    }
+                  }            
                 }
               }
-            }            
+            }
           }
         }
       }

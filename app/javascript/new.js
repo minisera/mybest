@@ -18,7 +18,7 @@ if (document.URL.match( /new/ ) || document.URL.match( /edit/ )) {
       ImageList.appendChild(imageElement);
     };
     
-    document.getElementById('post_c_image').addEventListener('change', function(e){
+    document.getElementById('post_image').addEventListener('change', function(e){
       // 画像が表示されている場合のみ、すでに存在している画像を削除する
       const imageContent = document.querySelector('.post_image_pre');
       if (imageContent){
