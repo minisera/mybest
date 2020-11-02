@@ -12,6 +12,7 @@ class User < ApplicationRecord
   has_one_attached :profile_image
   has_many :post_cs
   has_many :post_bs
+  has_many :post_gs
 
 
   def self.guest

@@ -1,2 +1,0 @@
-class PostGbController < ApplicationController
-end
