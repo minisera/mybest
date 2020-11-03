@@ -1,6 +1,7 @@
 class PostC < ApplicationRecord
   belongs_to :user
   has_one_attached :image
+  has_many :like_cs
 
   with_options  presence: true do
     validates :image
@@ -18,4 +19,8 @@ class PostC < ApplicationRecord
       errors.add(:user, "登録の制限数を超えました")
     end
   end
+
+  def liked_by?(user)
+    like_cs.where(user_id: user.id).exists?
+end
 end

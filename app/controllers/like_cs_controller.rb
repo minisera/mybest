@@ -1,0 +1,12 @@
+class LikeCsController < ApplicationController
+  def create
+    like = current_user.like_cs.build(post_c_id: params[:post_c_id])
+    like.save
+    redirect_to root_url
+  end
+  def destroy
+    like = LikeC.find_by(post_c_id: params[:post_c_id],user_id: current_user.id)
+    like.destroy
+    redirect_to root_url
+  end
+end
