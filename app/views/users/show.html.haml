@@ -4,7 +4,7 @@
   .profile_container
     .profile_image
       - if @user.profile_image.attached?
-        = image_tag @user.profile_image.variant(resize: "200x200")
+        = image_tag @user.profile_image
     .profile_main
       .profile_name_edit
         .user_name
@@ -17,26 +17,26 @@
       .user_follow
         .user_following フォロー人数
         .user_followers フォローされた人数
-.profile_bottom
-  .user_tabs
-    .my_post 自分の投稿一覧タグ
-    .pickup_post ピックアップ一覧タグ
-  .my_posts
-    .my_clothes
-      .posts_title Clothes
-      .post_blocks
-        - if @user.post_cs
-          - @user.post_cs .each do |post|
-            .post_block
-              =link_to post_c_path(post.id),class: "post_image" do
-                = image_tag post.image.variant(resize: "200x200")
-              .post_title
-                = post.title
-              .post_info
-                .left_info
-                  .tag シャツ
-                .right_info
-                  .post_favorite ♡1
-                  .deys_ago 1日前
-
+.wrapper
+  .container_wrapper
+    .tags
+      .new_tags new_tag
+      .pickup_tags pickup_tag
+    .container
+      .index_wrapper
+        .index_container
+          .posts_title Clothes
+          .clothes_index
+            .posts_index
+              - if @user.post_cs
+                - @user.post_cs .each do |post|
+                  .post_item_list
+                    .post_image
+                      = link_to image_tag(post.image),post_c_path(post)
+                    .post_main 
+                      .post_title
+                        = post.title
+                      .post_favorite ♡10
+                      .post_info
+                        .post_date 1日前
 = render partial: 'shared/footer'

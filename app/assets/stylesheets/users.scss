@@ -30,69 +30,89 @@
   }
 }
 
-.profile_bottom {
+.wrapper {
   background-color: ghostwhite;
-  padding: 40px 0;
-  .user_tabs{
+  .container_wrapper{
+    background-color: ghostwhite;
+    width: 960px;
     margin: 0 auto;
-    padding: 0 40px;
-    width: 960px;
-    display: flex;
-    .my_post {
-      font-size: 25px;
-    }
-    .pickup_post {
-      font-size: 25px;
-      margin-left: 30px;
-    }
-  }
-  .my_posts {
-    padding: 0 40px;
-    margin:0 auto;
-    display: flex;
-    justify-content: center;
-    width: 960px;
-    .my_clothes {
-      width: 100%;
-      .posts_title {
-        font-size: 50px;
-      }
-      .post_blocks {
+    padding: 50px 40px 100px;
+    .tags {
       display: flex;
-      flex-wrap: wrap;
-      align-content: flex-start;
-      .post_block {
-        width: 30%;
-        padding: 20px 10px;
-        margin-top:40px;
-        margin-left: 20px;
-        background-color: white;
-        border-radius: 10px;
-        .post_title {
-          font-size: 20px;
-          font-weight: 200;
-          padding-left: 15%;
-          padding-top: 10px;
-        }
-        .post_image {
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          img {
-            width: 200px;
-            height: 200px;
-            object-fit:cover;
-            border-radius: 25px;
+      padding: 0 25px;
+      .new_tags {
+        padding-right: 40px;
+        font-size: 30px;
+      }
+      .pickup_tags {
+        padding-right: 40px;
+        font-size: 30px;
+      }
+    }
+    .container{
+      .index_wrapper {
+        .index_container{
+          padding: 0 25px;
+          .posts_title {
+            font-size: 50px;
+            margin-top: 20px;
+          }
+          .clothes_index {
+            .posts_index {
+              display: flex;
+              flex-wrap: wrap;
+              justify-content: space-between;
+              align-items: center;
+              .post_item_list {
+                padding: 20px 16px;
+                margin-top: 25px;
+                border-radius: 15px;;
+                height: 400px;
+                .post_image {
+                  display: flex;
+                  justify-content: center;
+                  img {
+                    width: 230px;
+                    height: 230px;
+                    object-fit: cover;
+                    border-radius: 15px;
+                  }
+                }
+                .post_main {
+                  .post_title {
+                    font-size: 20px;
+                    margin-top: 4px;
+                  }
+                  .post_favorite {
+                    margin-top: 8px;
+                  }
+                  .post_info{
+                    margin-top: 8px;
+                    display: flex;
+                    justify-content: space-between;
+                    .post_user {
+                      display: flex;
+                      .user_avatar {
+                        img {
+                          border-radius: 50%;
+                          width: 50px;
+                          height: 50px;
+                          object-fit: cover;
+                        }
+                      }
+                      .post_user_name {
+                        font-size: 20px;
+                        margin-left: 10px;    
+                      }
+                    }
+                  }            
+                }
+              }
+            }
           }
         }
-        .post_info {
-          display: flex;
-          justify-content: space-around;
-          padding-top: 10px;
-        }
       }
-      } 
-      }
+    }
   }
 }
 

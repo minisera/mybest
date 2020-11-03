@@ -50,5 +50,24 @@
                           .post_user_name 
                             = post.user.name
                         .post_date 1日前
+          .posts_title Goods 
+          .clothes_index
+            .posts_index
+              - if @post_gs
+                - @post_gs .each do |post|
+                  .post_item_list
+                    .post_image
+                      = link_to image_tag(post.image),post_b_path(post)
+                    .post_main 
+                      .post_title
+                        = post.title
+                      .post_favorite ♡10
+                      .post_info
+                        .post_user
+                          .user_avatar
+                            = link_to image_tag(post.user.profile_image),user_path(post.user)
+                          .post_user_name 
+                            = post.user.name
+                        .post_date 1日前
 
 = render partial: 'shared/footer'

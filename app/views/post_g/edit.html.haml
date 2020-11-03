@@ -1,0 +1,38 @@
+= render 'shared/header'
+
+.new_wrapper
+  .new_form
+    .new_messages
+      .message1 あなたのお気に入りをアップグレードしよう
+
+      = form_with model: @post_g,local: true do |f|
+        .form_left
+          .filed
+            .filed_name 服の名前は？
+            = f.text_field :title,autofocus: true, autoocmplete: "title"
+          .field
+            .file_form
+              .filed_name どんな見た目？
+              %label(for="post_g_image")
+                ファイルを選択
+                = f.file_field :image,class: "hidden"
+            #image_preview
+              .post_image_custom
+                = image_tag @post_g.image,class: "post_image_pre"            
+          .filed
+            .filed_name どこのブランド？
+            = f.text_field :brand,autofocus: true, autoocmplete: "brand"
+          .filed
+            .filed_nameどこで出会った？
+            = f.text_field :place,autofocus: true, autoocmplete: "place"
+        .form_right
+          .filed
+            .filed_name 出会うまでのストーリーは？
+            = f.text_area :story,autofocus: true, autoocmplete: "story"
+          .filed
+            .filed_name お気に入りのポイントは？
+            = f.text_area :evidence,autofocus: true, autoocmplete: "evidence"
+          .actions
+            = f.submit "お気に入りをキロクする"
+
+= render partial: 'shared/footer'

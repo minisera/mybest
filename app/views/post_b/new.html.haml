@@ -3,7 +3,7 @@
 .new_wrapper
   .new_form
     .new_messages
-      - if current_user.post_bs.size < 6
+      - if current_user.post_bs.size < 3
         .message1 あなたのお気に入りをキロクしよう
         .message2
           = "本はあと#{3 - current_user.post_bs.size}つ登録できます"
@@ -12,7 +12,7 @@
           上限に達しました。
         .message2
           本当にキロクしますか？
-    - if current_user.post_bs.size < 6
+    - if current_user.post_bs.size < 3
       = form_with model: @post_b,url: post_b_index_path, method: :post,local: true do |f|
         .form_left
           .filed
