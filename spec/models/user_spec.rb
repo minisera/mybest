@@ -3,6 +3,7 @@ require 'rails_helper'
 RSpec.describe User, type: :model do
   before do
     @user = FactoryBot.build(:user)
+    @user.profile_image = fixture_file_upload('public/image/output-image.png')
   end
 
   describe 'ユーザー新規登録' do
@@ -32,6 +33,13 @@ RSpec.describe User, type: :model do
         @user.email = 'aaaaaaa'
         @user.valid?
         expect(@user.errors.full_messages).to include('Eメールは不正な値です')
+      end
+      it "重複したemailが存在する場合登録できない" do
+        @user.save
+        another_user = FactoryBot.build(:user)
+        another_user.email = @user.email
+        another_user.valid?
+        expect(another_user.errors.full_messages).to include("Eメールはすでに存在します")
       end
       it "passwordが空では登録できない" do
         @user.password = ""

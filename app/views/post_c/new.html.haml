@@ -15,6 +15,7 @@
     - if current_user.post_cs.size < 6
       = form_with model: @post_c,url: post_c_index_path, method: :post,local: true do |f|
         .form_left
+          = render "shared/error_messages",model: f.object
           .filed
             .filed_name 服の名前は？
             = f.text_field :title,autofocus: true, autoocmplete: "title"
