@@ -8,6 +8,7 @@ class User < ApplicationRecord
   has_many :post_bs
   has_many :post_gs
   has_many :like_cs
+  has_many :like_post_cs, through: :like_cs, source: :post_c
   
   validates :name,presence: true
   

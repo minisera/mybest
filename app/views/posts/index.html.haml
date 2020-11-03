@@ -26,15 +26,15 @@
                       - if user_signed_in?
                         - if post.liked_by?(current_user)
                           %p
-                            %span いいね解除
+                            %span= fa_icon "thumbs-up alredy_icon"
                             = link_to post.like_cs.count,post_c_like_c_path(post.id),method: :delete
                         - else
                           %p
-                            %span いいね登録
+                            %span= fa_icon "thumbs-up yet_icon"
                             = link_to post.like_cs.count,post_c_like_c_path(post.id),method: :post
                       - else
                         %p
-                          %span いいね数
+                          %span= fa_icon "thumbs-up"
                           = post.like_cs.count
                       .post_info
                         .post_user

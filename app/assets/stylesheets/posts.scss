@@ -233,13 +233,20 @@ a {
     }    
   }
 }
-
 label {
   border-radius: 4px;
   margin: 8px 0;
   background-color: #aaa;
   padding: 8px;
   display: inline-block;
+}
+
+// いいね機能
+.fa-yet_icon {
+  color: #aaa;
+}
+.fa-already_icon {
+  color: black;
 }
 
 // 投稿詳細ページ
