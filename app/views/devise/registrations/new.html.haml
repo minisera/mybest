@@ -4,6 +4,7 @@
     .login_icon
       = fa_icon "sign-in"
     = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+      -# ログイン時のエラー文
       = render "devise/shared/error_messages", resource: resource
       .field
         = f.text_field :name, autofocus: true, autocomplete: "name",placeholder: "Name" 
