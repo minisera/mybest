@@ -5,7 +5,9 @@ Rails.application.routes.draw do
   end
   resources :posts
   resources :users
-  resources :post_c
+  resources :post_c do
+    resource :like_c,only: [:create,:destroy]
+  end
   resources :post_b
   resources :post_g
   root to: "posts#index"
