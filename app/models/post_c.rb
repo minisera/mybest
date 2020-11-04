@@ -22,5 +22,5 @@ class PostC < ApplicationRecord
 
   def liked_by?(user)
     like_cs.where(user_id: user.id).exists?
-end
+  end
 end

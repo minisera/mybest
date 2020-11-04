@@ -1,6 +1,7 @@
 class PostG < ApplicationRecord
   belongs_to :user
   has_one_attached :image
+  has_many :like_gs
 
   with_options  presence: true do
     validates :image
@@ -17,5 +18,9 @@ class PostG < ApplicationRecord
     if user && user.post_cs.size >= 10
       errors.add(:user, "登録の制限数を超えました")
     end
+  end
+  
+  def liked_by?(user)
+    like_gs.where(user_id: user.id).exists?
   end
 end

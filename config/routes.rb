@@ -8,7 +8,11 @@ Rails.application.routes.draw do
   resources :post_c do
     resource :like_c,only: [:create,:destroy]
   end
-  resources :post_b
-  resources :post_g
+  resources :post_b do
+    resource :like_b,only: [:create,:destroy]
+  end
+  resources :post_g do
+    resource :like_g,only: [:create,:destroy]
+  end
   root to: "posts#index"
 end
