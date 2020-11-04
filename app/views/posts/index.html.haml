@@ -25,13 +25,13 @@
                         = post.title
                       - if user_signed_in?
                         - if post.liked_by?(current_user)
-                          %p
+                          = link_to post_c_like_c_path(post.id),method: :delete do
                             %span= fa_icon "thumbs-up alredy_icon"
-                            = link_to post.like_cs.count,post_c_like_c_path(post.id),method: :delete
+                            = post.like_cs.count 
                         - else
-                          %p
+                          = link_to post_c_like_c_path(post.id),method: :post do
                             %span= fa_icon "thumbs-up yet_icon"
-                            = link_to post.like_cs.count,post_c_like_c_path(post.id),method: :post
+                            = post.like_cs.count
                       - else
                         %p
                           %span= fa_icon "thumbs-up"
@@ -43,7 +43,7 @@
                           .post_user_name 
                             = post.user.name
                         .post_date 1日前
-          .posts_title Books 
+          .posts_title Books
           .clothes_index
             .posts_index
               - if @post_bs
@@ -54,7 +54,19 @@
                     .post_main 
                       .post_title
                         = post.title
-                      .post_favorite ♡10
+                      - if user_signed_in?
+                        - if post.liked_by?(current_user)
+                          = link_to post_b_like_b_path(post.id),method: :delete do
+                            %span= fa_icon "thumbs-up alredy_icon"
+                            = post.like_bs.count 
+                        - else
+                          = link_to post_b_like_b_path(post.id),method: :post do
+                            %span= fa_icon "thumbs-up yet_icon"
+                            = post.like_bs.count
+                      - else
+                        %p
+                          %span= fa_icon "thumbs-up"
+                          = post.like_bs.count
                       .post_info
                         .post_user
                           .user_avatar
@@ -62,18 +74,30 @@
                           .post_user_name 
                             = post.user.name
                         .post_date 1日前
-          .posts_title Goods 
+          .posts_title Goods
           .clothes_index
             .posts_index
               - if @post_gs
                 - @post_gs .each do |post|
                   .post_item_list
                     .post_image
-                      = link_to image_tag(post.image),post_b_path(post)
+                      = link_to image_tag(post.image),post_g_path(post)
                     .post_main 
                       .post_title
                         = post.title
-                      .post_favorite ♡10
+                      - if user_signed_in?
+                        - if post.liked_by?(current_user)
+                          = link_to post_g_like_g_path(post.id),method: :delete do
+                            %span= fa_icon "thumbs-up alredy_icon"
+                            = post.like_gs.count 
+                        - else
+                          = link_to post_g_like_g_path(post.id),method: :post do
+                            %span= fa_icon "thumbs-up yet_icon"
+                            = post.like_gs.count
+                      - else
+                        %p
+                          %span= fa_icon "thumbs-up"
+                          = post.like_gs.count
                       .post_info
                         .post_user
                           .user_avatar
@@ -81,5 +105,6 @@
                           .post_user_name 
                             = post.user.name
                         .post_date 1日前
+
 
 = render partial: 'shared/footer'

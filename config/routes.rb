@@ -4,11 +4,15 @@ Rails.application.routes.draw do
     post 'users/guest_sign_in', to: 'users/sessions#new_guest'
   end
   resources :posts
-  resources :users,only: [:show,:edit]
+  resources :users,only: [:show,:edit,:update]
   resources :post_c do
     resource :like_c,only: [:create,:destroy]
   end
-  resources :post_b
-  resources :post_g
+  resources :post_b do
+    resource :like_b,only: [:create,:destroy]
+  end
+  resources :post_g do
+    resource :like_g,only: [:create,:destroy]
+  end
   root to: "posts#index"
 end
