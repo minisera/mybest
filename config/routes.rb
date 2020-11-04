@@ -4,7 +4,11 @@ Rails.application.routes.draw do
     post 'users/guest_sign_in', to: 'users/sessions#new_guest'
   end
   resources :posts
-  resources :users,only: [:show,:edit,:update]
+  resources :users,only: [:show,:edit,:update] do
+    resource :relationships, only: [:create,:destroy]
+    get :follows, on: :member
+    get :followers, on: :member
+  end
   resources :post_c do
     resource :like_c,only: [:create,:destroy]
   end
