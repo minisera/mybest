@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_04_071212) do
+ActiveRecord::Schema.define(version: 2020_11_04_072756) do
 
   create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.string "name", null: false
@@ -49,6 +49,15 @@ ActiveRecord::Schema.define(version: 2020_11_04_071212) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["post_c_id"], name: "index_like_cs_on_post_c_id"
     t.index ["user_id"], name: "index_like_cs_on_user_id"
+  end
+
+  create_table "like_gs", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "post_g_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["post_g_id"], name: "index_like_gs_on_post_g_id"
+    t.index ["user_id"], name: "index_like_gs_on_user_id"
   end
 
   create_table "post_bs", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
@@ -106,6 +115,8 @@ ActiveRecord::Schema.define(version: 2020_11_04_071212) do
   add_foreign_key "like_bs", "users"
   add_foreign_key "like_cs", "post_cs"
   add_foreign_key "like_cs", "users"
+  add_foreign_key "like_gs", "post_gs"
+  add_foreign_key "like_gs", "users"
   add_foreign_key "post_bs", "users"
   add_foreign_key "post_cs", "users"
   add_foreign_key "post_gs", "users"

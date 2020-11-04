@@ -1,0 +1,2 @@
+module LikeGHelper
+end
