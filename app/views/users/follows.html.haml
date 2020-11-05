@@ -1,0 +1,31 @@
+= render 'shared/header'
+
+.wrapper
+  .wrapper_inner
+    .follow_title 
+      #{@user.name}さんのフォローページ
+    .follow_tabs
+      .follow_tab フォロー中
+      .follow_tab フォロワー
+    .follow_lists
+      - if @users
+        - @users.each do |user|
+          .user_box
+            .user_box_content
+              = link_to user_path(user) do
+                = image_tag (user.profile_image),class: "user_box_content_image"
+              .user_box_content_text
+                .user_box_name
+                  = user.name
+                .user_box_profile
+                  = user.profile
+              - if user.followed_by?(current_user)
+                = link_to user_relationships_path(user),method: :delete,class: "user_box_content_followed" do
+                  = fa_icon "user-plus"
+                  %span フォロー中
+              - else
+                = link_to user_relationships_path(user),method: :post,class: "user_box_content_following" do
+                  = fa_icon "user-plus"
+                  %span フォロー
+
+= render partial: 'shared/footer'

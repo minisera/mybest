@@ -2,26 +2,31 @@
 
 .profile_top
   .profile_container
-    .profile_image
-      - if @user.profile_image.attached?
-        = image_tag @user.profile_image
+    - if @user.profile_image.attached?
+      = image_tag @user.profile_image,class: "user_profile_image"
     .profile_main
       .profile_name_edit
-        .user_name
-          = @user.name
-        .edit
-          = link_to '設定',edit_user_registration_path
-          = link_to 'Profile編集',edit_user_path(current_user)
-      .user_profile
-        = @user.profile
-      .user_follow
-        .user_following フォロー人数
-        .user_followers フォローされた人数
+        .user_name= @user.name
+        - if current_user == @user
+          .user_edits
+            = link_to '設定',edit_user_registration_path,class: "user_edit"
+            = link_to 'プロフィール編集',edit_user_path(current_user),class: "user_edit"
         - if current_user != @user
           - if @user.followed_by?(current_user)
-            = link_to "フォロー済み",user_relationships_path(@user.id),method: :delete
+            = link_to "フォロー中",user_relationships_path(@user.id),method: :delete,class: "follow_btn"
           - else  
-            = link_to "フォローする",user_relationships_path(@user.id),method: :create
+            = link_to "フォローする",user_relationships_path(@user.id),method: :create,class: "follow_btn"
+      .user_profile
+        = @user.profile
+      .user_follows
+        .user_follow
+          = link_to follows_user_path(@user) do
+            = @user.followings.count
+            %span フォロー中
+        .user_follow
+          = link_to followers_user_path(@user) do
+            = @user.followers.count
+            %span フォロワー
 .wrapper
   .container_wrapper
     .tags

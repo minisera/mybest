@@ -17,15 +17,15 @@ class UsersController < ApplicationController
   end
 
   def follows
-    user = User.find(params[:id])
-    @users = user.followings
-  end
-
-  def followrs
-    user = User.find(:params[:id])
-    @users = user.followers
+    @user = User.find(params[:id])
+    @users = @user.followings
   end
   
+  def followers
+    @user = User.find(params[:id])
+    @users = @user.followers
+  end
+
 private
   def user_params
     params.require(:user).permit(:name,:profile_image)
