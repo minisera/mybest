@@ -4,24 +4,21 @@
       = link_to "Mybest", root_path,class: "header-left"
     .header-right
       - if user_signed_in?
-        .fa_icon
-          =link_to "#" do
-            = fa_icon "search"
+        .nav_icon  
           =link_to "#" do
             = fa_icon "bell"
-        .header_icon
-          = link_to image_tag(current_user.profile_image), user_path(current_user)
-        .signout_icon
-          = link_to "signout", destroy_user_session_path, method: "delete"
-        .fa_icon
-          = link_to "#" do
-            =fa_icon "edit"
-        .post_icon
-          = link_to "C投稿する", new_post_c_path
-        .post_icon
-          = link_to "G投稿する", new_post_g_path
-        .post_icon
-          = link_to "B投稿する", new_post_b_path
+        .nav_icon
+          = image_tag (current_user.profile_image),id: "image_list"
+          .pulldown_lists#pulldown_image
+            = link_to "マイページ",user_path(current_user),class: "pulldown_list" 
+            = link_to "サインアウト", destroy_user_session_path, method: "delete",class: "pulldown_list" 
+        .nav_icon
+          = fa_icon "edit",id: "edit_list"
+          .pulldown_lists#pulldown_edit
+            = link_to "服をキロクする", new_post_c_path,class: "pulldown_list" 
+            = link_to "本をキロクする", new_post_b_path,class: "pulldown_list" 
+            = link_to "雑貨をキロクする", new_post_g_path,class: "pulldown_list" 
+            
       - else   
         .login_icon
           = link_to "Login", new_user_session_path

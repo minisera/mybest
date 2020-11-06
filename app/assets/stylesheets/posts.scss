@@ -5,7 +5,7 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    max-width: 960px;
+    width: 1200px;
     margin: 0 auto;
     padding: 0 40px;
     background-color: #FFFFFF;
@@ -15,21 +15,35 @@ header {
     .header-right{
       display: flex;
       align-items: center;
-      .fa_icon {
-        display: flex;
+      position: relative;
+      .pulldown_lists {
+        position: absolute;
+        right: 0px;
+        margin-top: 0px 10px;
+        padding: 10px;
+        background-color: #aaa;
+        border-radius: 10px;
+        display: none;
+        width: 180px;
+        .pulldown_list {
+          color: white;
+          display: block;
+        }
       }
       .fa{
         font-size: 25px;
       }
-      a{
+      .nav_icon {
         margin-left: 20px;
         font-size: 20px;
-        img {
-          width: 42px;
-          height: 42px;
-          border-radius: 50%;
-          object-fit:cover;          
-        }
+        cursor: pointer;
+      }
+      img {
+        width: 42px;
+        height: 42px;
+        border-radius: 50%;
+        object-fit:cover;
+        cursor: pointer;
       }
     }
   }
