@@ -5,7 +5,7 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 1200px;
+    max-width: 960px;
     margin: 0 auto;
     padding: 0 40px;
     background-color: #FFFFFF;
@@ -72,9 +72,8 @@ a {
 .wrapper {
   background-color: ghostwhite;
   .mid_wrapper{
-    width: 1200px;
+    max-width: 960px;
     margin: 0 auto;
-    // padding: 50px 40px 100px;
     .container{
       display: flex;
       .search_wrapper {
@@ -95,7 +94,6 @@ a {
             .posts_index {
               display: flex;
               flex-wrap: wrap;
-              justify-content: space-between;
               align-items: center;
               .post_item_list {
                 padding: 20px 16px;
@@ -106,8 +104,8 @@ a {
                   display: flex;
                   justify-content: center;
                   img {
-                    width: 230px;
-                    height: 230px;
+                    width: 180px;
+                    height: 180px;
                     object-fit: cover;
                     border-radius: 15px;
                   }
