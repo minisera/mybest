@@ -13,6 +13,9 @@
           = link_to image_tag(current_user.profile_image), user_path(current_user)
         .signout_icon
           = link_to "signout", destroy_user_session_path, method: "delete"
+        .fa_icon
+          = link_to "#" do
+            =fa_icon "edit"
         .post_icon
           = link_to "C投稿する", new_post_c_path
         .post_icon
