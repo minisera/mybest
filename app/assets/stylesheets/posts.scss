@@ -15,21 +15,35 @@ header {
     .header-right{
       display: flex;
       align-items: center;
-      .fa_icon {
-        display: flex;
+      position: relative;
+      .pulldown_lists {
+        position: absolute;
+        right: 0px;
+        margin-top: 0px 10px;
+        padding: 10px;
+        background-color: #aaa;
+        border-radius: 10px;
+        display: none;
+        width: 180px;
+        .pulldown_list {
+          color: white;
+          display: block;
+        }
       }
       .fa{
         font-size: 25px;
       }
-      a{
+      .nav_icon {
         margin-left: 20px;
         font-size: 20px;
-        img {
-          width: 42px;
-          height: 42px;
-          border-radius: 50%;
-          object-fit:cover;          
-        }
+        cursor: pointer;
+      }
+      img {
+        width: 42px;
+        height: 42px;
+        border-radius: 50%;
+        object-fit:cover;
+        cursor: pointer;
       }
     }
   }
@@ -58,9 +72,8 @@ a {
 .wrapper {
   background-color: ghostwhite;
   .mid_wrapper{
-    width: 1200px;
+    max-width: 960px;
     margin: 0 auto;
-    // padding: 50px 40px 100px;
     .container{
       display: flex;
       .search_wrapper {
@@ -81,7 +94,6 @@ a {
             .posts_index {
               display: flex;
               flex-wrap: wrap;
-              justify-content: space-between;
               align-items: center;
               .post_item_list {
                 padding: 20px 16px;
@@ -92,8 +104,8 @@ a {
                   display: flex;
                   justify-content: center;
                   img {
-                    width: 230px;
-                    height: 230px;
+                    width: 180px;
+                    height: 180px;
                     object-fit: cover;
                     border-radius: 15px;
                   }

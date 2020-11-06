@@ -55,7 +55,7 @@
 
 .wrapper {
   background-color: ghostwhite;
-  height: calc(100vh - 80px);
+  // height: calc(100vh - 80px);
   .container_wrapper{
     background-color: ghostwhite;
     width: 960px;
@@ -85,7 +85,6 @@
             .posts_index {
               display: flex;
               flex-wrap: wrap;
-              justify-content: space-between;
               align-items: center;
               .post_item_list {
                 padding: 20px 16px;
