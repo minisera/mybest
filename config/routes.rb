@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   end
   resources :post_c do
     resource :like_c,only: [:create,:destroy]
+    resource :pick_c,only: [:create,:destroy]
   end
   resources :post_b do
     resource :like_b,only: [:create,:destroy]

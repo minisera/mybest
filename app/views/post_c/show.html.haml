@@ -12,8 +12,34 @@
     .midle_container
       .post_image
         = image_tag @post_c.image
-    .bottom_container
-      .bottom_wrapper 
+    .bottom_wrapper 
+      .bottom_container
+        - if user_signed_in?
+          - if @post_c.picked_by?(current_user)
+            = link_to post_c_pick_c_path(@post_c.id),method: :delete do
+              %span= fa_icon "get-pocket alredy_icon"
+              = @post_c.pick_cs.count 
+          - else
+            = link_to post_c_pick_c_path(@post_c.id),method: :post do
+              %span= fa_icon "get-pocket yet_icon"
+              = @post_c.pick_cs.count
+        - else
+          %p
+            %span= fa_icon "thumbs-up"
+            = @post_c.pick_cs.count
+        - if user_signed_in?
+          - if @post_c.liked_by?(current_user)
+            = link_to post_c_like_c_path(@post_c.id),method: :delete do
+              %span= fa_icon "thumbs-up alredy_icon"
+              = @post_c.like_cs.count 
+          - else
+            = link_to post_c_like_c_path(@post_c.id),method: :post do
+              %span= fa_icon "thumbs-up yet_icon"
+              = @post_c.like_cs.count
+        - else
+          %p
+            %span= fa_icon "thumbs-up"
+            = @post_c.like_cs.count
         .post_place
           .form_title
             = fa_icon "globe"
@@ -38,8 +64,7 @@
             お気に入りのポイント
           .form_text
             = @post_c.evidence
-        .top_return
-          この人のマイページに行く
+        = link_to "この人のマイページに行く",user_path(@post_c.user)
         - if current_user
           .post_edit
             = link_to "お気に入りを編集する",edit_post_c_path(@post_c.id)

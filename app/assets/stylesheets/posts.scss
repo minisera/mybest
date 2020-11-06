@@ -313,11 +313,14 @@ label {
         }
       }
     }
-    .bottom_container {
+    .bottom_wrapper {
       padding-top: 30px;
-      .bottom_wrapper {
+      .bottom_container {
         width: 600px;
         margin: 0 auto;
+        a{
+          padding-left: 8px;
+        }
         .post_place {
           width: 100%;
           display: flex;
