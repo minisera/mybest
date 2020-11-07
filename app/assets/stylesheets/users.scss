@@ -61,15 +61,17 @@
     width: 960px;
     margin: 0 auto;
     padding: 50px 40px 100px;
-    .tags {
+    .post_tags {
       display: flex;
       padding: 0 25px;
-      .new_tags {
-        padding-right: 40px;
+      .post_tag_mybest {
+        margin-right: 40px;
         font-size: 30px;
+        display: block;
+        border-bottom: black solid 2px;
       }
-      .pickup_tags {
-        padding-right: 40px;
+      .post_tag_pick {
+        margin-right: 40px;
         font-size: 30px;
       }
     }

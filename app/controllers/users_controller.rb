@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :set_user,only: [:show,:follows,:followers]
+  before_action :set_user,only: [:show,:show_pick,:follows,:followers]
 
   def show
   end
@@ -23,6 +23,9 @@ class UsersController < ApplicationController
   
   def followers
     @users = @user.followers
+  end
+
+  def show_pick
   end
 
 private

@@ -29,9 +29,9 @@
             %span フォロワー
 .wrapper
   .container_wrapper
-    .tags
-      .new_tags new_tag
-      .pickup_tags pickup_tag
+    .post_tags
+      = link_to "Mybest",user_path(@user),class: "post_tag_mybest"
+      = link_to "Pick",show_pick_user_path(@user),class: "post_tag_pick"
     .container
       .index_wrapper
         .index_container
