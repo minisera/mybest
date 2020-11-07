@@ -1,13 +1,13 @@
 class PostGController < ApplicationController
-  before_action :set_post_g,only: [:edit,:update,:show,:destroy]
+  before_action :set_post,only: [:edit,:update,:show,:destroy]
 
   def new
-    @post_g = PostG.new
+    @post = PostC.new
   end
 
   def create
-    @post_g = PostG.new(postc_params)
-    if @post_g.save
+    @post = PostC.new(post_params)
+    if @post.save
       redirect_to user_url(current_user)
     else
       render :new
@@ -18,7 +18,7 @@ class PostGController < ApplicationController
   end
   
   def update
-    if @post_g.update(postc_params)
+    if @post.update(postc_params)
       redirect_to user_url(current_user)
     else
       render :edit
@@ -29,19 +29,18 @@ class PostGController < ApplicationController
   end
 
   def destroy
-    @post_g.destroy
+    @post.destroy
     redirect_to user_url(current_user)
   end
 
 
 private
 
-  def postc_params
-    params.require(:post_g).permit(:title,:image,:place,:brand,:story,:evidence).merge(user_id: current_user.id)
+  def post_params
+    params.require(:post_c).permit(:title,:image,:place,:brand,:story,:evidence).merge(user_id: current_user.id)
   end
 
-  def set_post_g
-    @post_g = PostG.find(params[:id])
+  def set_post
+    @post = PostC.find(params[:id])
   end
-
 end

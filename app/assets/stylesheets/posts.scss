@@ -76,13 +76,17 @@ a {
     margin: 0 auto;
     .container{
       display: flex;
-      .search_wrapper {
-        width: 25%;
-        .search_container{
-          background-color: #FFFFFF;
-          padding: 0 25px;
+    .search_container{
+      width: 25%;
+      background-color: #FFFFFF;
+      padding: 0 25px;
+      margin: 40px 0;
+      .search_tabs {
+        .search_tab {
+          display: block;
         }
       }
+      }      
       .main_wrapper {
         width: 75%;
         .main_container{

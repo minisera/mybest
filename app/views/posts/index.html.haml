@@ -3,13 +3,12 @@
 .wrapper
   .mid_wrapper
     .container
-      .search_wrapper
-        .search_container
-          .search_tab
-            .search_trending trending
-            .search_new new
-          .search_bar #####
-          .search_tags
+      .search_container
+        .search_tabs
+          = link_to "トレンド一覧表示",trend_index_posts_path,class: "search_tab"
+          = link_to "新着一覧表示",root_path,class: "search_tab"
+        .search_bar #####
+        .search_tags
       .main_wrapper
         .main_container
           .posts_title Clothes
