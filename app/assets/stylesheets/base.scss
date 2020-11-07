@@ -1,13 +1,22 @@
+// box-sizing
 *, *:before, *:after {
   -webkit-box-sizing: border-box;
   box-sizing: border-box
 }
 
+// aタグ統一
 a{
   color: #333333;
+  text-decoration: none;
   &:active{
     color: #333333;
+    text-decoration: none;
   }
+}
+
+// .hidden ＝ 隠す
+.hidden {
+  display: none;
 }
 
 // エラーメッセージ
@@ -17,4 +26,70 @@ a{
   text-align: center;
   border:2px solid #990000;
   padding:12px; font-weight:850;
+}
+
+// ヘッダー
+header {
+  .header_wrapper {
+    height: 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 0 40px;
+    background-color: #FFFFFF;
+    .header-left{
+      font-size: 30px;
+    }
+    .header-right{
+      display: flex;
+      align-items: center;
+      position: relative;
+      .pulldown_lists {
+        position: absolute;
+        right: 0px;
+        margin-top: 0px 10px;
+        padding: 10px;
+        background-color: #aaa;
+        border-radius: 10px;
+        display: none;
+        width: 180px;
+        .pulldown_list {
+          color: white;
+          display: block;
+        }
+      }
+      .fa{
+        font-size: 25px;
+      }
+      .nav_icon {
+        margin-left: 20px;
+        font-size: 20px;
+        cursor: pointer;
+      }
+      img {
+        width: 42px;
+        height: 42px;
+        border-radius: 50%;
+        object-fit:cover;
+        cursor: pointer;
+      }
+    }
+  }
+}
+
+// フッター
+.footer_wrapper {
+  height: 150px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 40px;
+  background-color: #FFFFFF;
+  .title {
+    font-size: 30px;
+  }
 }

@@ -1,13 +1,13 @@
 class PostBController < ApplicationController
-  before_action :set_post_b,only: [:edit,:update,:show,:destroy]
+  before_action :set_post,only: [:edit,:update,:show,:destroy]
 
   def new
-    @post_b = PostB.new
+    @post = PostB.new
   end
 
   def create
-    @post_b = PostB.new(postc_params)
-    if @post_b.save
+    @post = PostB.new(post_params)
+    if @post.save
       redirect_to user_url(current_user)
     else
       render :new
@@ -18,7 +18,7 @@ class PostBController < ApplicationController
   end
   
   def update
-    if @post_b.update(postc_params)
+    if @post.update(postc_params)
       redirect_to user_url(current_user)
     else
       render :edit
@@ -29,18 +29,18 @@ class PostBController < ApplicationController
   end
 
   def destroy
-    @post_b.destroy
+    @post.destroy
     redirect_to user_url(current_user)
   end
 
 
 private
 
-  def postc_params
+  def post_params
     params.require(:post_b).permit(:title,:image,:place,:brand,:story,:evidence).merge(user_id: current_user.id)
   end
 
-  def set_post_b
-    @post_b = PostB.find(params[:id])
+  def set_post
+    @post = PostB.find(params[:id])
   end
 end

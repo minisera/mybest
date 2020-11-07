@@ -4,47 +4,72 @@
   .post_show_container
     .top_container
       .post_title
-        = @post_b.title
+        = @post.title
       .post_user
         .user_name
-          = @post_b.user.name
-        = link_to image_tag(@post_b.user.profile_image),user_path(@post_b.user),class: "user_image"
+          = @post.user.name
+        = link_to image_tag(@post.user.profile_image),user_path(@post.user),class: "user_image"
     .midle_container
       .post_image
-        = image_tag @post_b.image
-    .bottom_container
-      .bottom_wrapper 
+        = image_tag @post.image
+    .bottom_wrapper 
+      .bottom_container
+        - if user_signed_in?
+          - if @post.picked_by?(current_user)
+            = link_to post_b_pick_b_path(@post.id),method: :delete do
+              %span= fa_icon "get-pocket alredy_icon"
+              = @post.pick_bs.count 
+          - else
+            = link_to post_b_pick_b_path(@post.id),method: :post do
+              %span= fa_icon "get-pocket yet_icon"
+              = @post.pick_bs.count
+        - else
+          %p
+            %span= fa_icon "thumbs-up"
+            = @post.pick_bs.count
+        - if user_signed_in?
+          - if @post.liked_by?(current_user)
+            = link_to post_b_like_b_path(@post.id),method: :delete do
+              %span= fa_icon "thumbs-up alredy_icon"
+              = @post.like_bs.count 
+          - else
+            = link_to post_b_like_b_path(@post.id),method: :post do
+              %span= fa_icon "thumbs-up yet_icon"
+              = @post.like_bs.count
+        - else
+          %p
+            %span= fa_icon "thumbs-up"
+            = @post.like_bs.count
         .post_place
           .form_title
             = fa_icon "globe"
             出会った場所
-          .form_content
-            = @post_b.place
+          .form_bontent
+            = @post.place
         .post_brand
           .form_title
             = fa_icon "bookmark"
             ブランド
           .form_content
-            = @post_b.brand
+            = @post.brand
         .post_story
           .form_title
             = fa_icon "map"
             出会いのストーリ−
           .form_text
-            = @post_b.story
+            = @post.story
         .post_evidence
           .form_title
             = fa_icon "star"
             お気に入りのポイント
           .form_text
-            = @post_b.evidence
-        .top_return
-          この人のマイページに行く
+            = @post.evidence
+        = link_to "この人のマイページに行く",user_path(@post.user)
         - if current_user
           .post_edit
-            = link_to "お気に入りを編集する",edit_post_b_path(@post_b.id)
+            = link_to "お気に入りを編集する",edit_post_b_path(@post.id)
           .post_destroy
-            = link_to 'お気に入りを削除する',post_b_path(@post_b),method: :delete,data: { confirm: "本当に削除しますか？"}
+            = link_to 'お気に入りを削除する',post_b_path(@post),method: :delete,data: { confirm: "本当に削除しますか？"}
 
 
 = render partial: 'shared/footer'

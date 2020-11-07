@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_04_080519) do
+ActiveRecord::Schema.define(version: 2020_11_07_052007) do
 
   create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.string "name", null: false
@@ -58,6 +58,33 @@ ActiveRecord::Schema.define(version: 2020_11_04_080519) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["post_g_id"], name: "index_like_gs_on_post_g_id"
     t.index ["user_id"], name: "index_like_gs_on_user_id"
+  end
+
+  create_table "pick_bs", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "post_b_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["post_b_id"], name: "index_pick_bs_on_post_b_id"
+    t.index ["user_id"], name: "index_pick_bs_on_user_id"
+  end
+
+  create_table "pick_cs", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "post_c_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["post_c_id"], name: "index_pick_cs_on_post_c_id"
+    t.index ["user_id"], name: "index_pick_cs_on_user_id"
+  end
+
+  create_table "pick_gs", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "post_g_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["post_g_id"], name: "index_pick_gs_on_post_g_id"
+    t.index ["user_id"], name: "index_pick_gs_on_user_id"
   end
 
   create_table "post_bs", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
@@ -127,6 +154,12 @@ ActiveRecord::Schema.define(version: 2020_11_04_080519) do
   add_foreign_key "like_cs", "users"
   add_foreign_key "like_gs", "post_gs"
   add_foreign_key "like_gs", "users"
+  add_foreign_key "pick_bs", "post_bs"
+  add_foreign_key "pick_bs", "users"
+  add_foreign_key "pick_cs", "post_cs"
+  add_foreign_key "pick_cs", "users"
+  add_foreign_key "pick_gs", "post_gs"
+  add_foreign_key "pick_gs", "users"
   add_foreign_key "post_bs", "users"
   add_foreign_key "post_cs", "users"
   add_foreign_key "post_gs", "users"

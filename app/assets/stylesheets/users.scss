@@ -42,7 +42,6 @@
           height: 35px;
         }
       }
-
       .user_follows {
         display: flex;
         .user_follow {
@@ -61,15 +60,17 @@
     width: 960px;
     margin: 0 auto;
     padding: 50px 40px 100px;
-    .tags {
+    .post_tags {
       display: flex;
       padding: 0 25px;
-      .new_tags {
-        padding-right: 40px;
+      .post_tag_mybest {
+        margin-right: 40px;
         font-size: 30px;
+        display: block;
+        border-bottom: black solid 2px;
       }
-      .pickup_tags {
-        padding-right: 40px;
+      .post_tag_pick {
+        margin-right: 40px;
         font-size: 30px;
       }
     }
@@ -238,11 +239,7 @@
   }
 }
 
-.hidden {
-  display: none;
-}
-
-// プレビュー画像
+// プロフィール編集時のプレビュー画像
 #image_preview {
   .user_image_custom {
     display: flex;
@@ -257,8 +254,7 @@
   }
 }
 
-
-// ユーザー管理リンク集
+// deviseデフォルトのユーザー管理リンク集
 .user_links {
   padding-top: 40px;
   a {
@@ -268,7 +264,7 @@
 }
 
 
-// フォロー一覧ページ
+// フォローユーザー一覧ページ
 .wrapper_inner {
   margin: 0 auto;
   width: 960px;

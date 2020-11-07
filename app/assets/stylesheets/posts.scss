@@ -1,76 +1,7 @@
-// header
-header {
-  .header_wrapper {
-    height: 80px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    max-width: 960px;
-    margin: 0 auto;
-    padding: 0 40px;
-    background-color: #FFFFFF;
-    .header-left{
-      font-size: 30px;
-    }
-    .header-right{
-      display: flex;
-      align-items: center;
-      position: relative;
-      .pulldown_lists {
-        position: absolute;
-        right: 0px;
-        margin-top: 0px 10px;
-        padding: 10px;
-        background-color: #aaa;
-        border-radius: 10px;
-        display: none;
-        width: 180px;
-        .pulldown_list {
-          color: white;
-          display: block;
-        }
-      }
-      .fa{
-        font-size: 25px;
-      }
-      .nav_icon {
-        margin-left: 20px;
-        font-size: 20px;
-        cursor: pointer;
-      }
-      img {
-        width: 42px;
-        height: 42px;
-        border-radius: 50%;
-        object-fit:cover;
-        cursor: pointer;
-      }
-    }
-  }
-}
-
-a {
-  text-decoration: none;
-}
-
-// footer
-.footer_wrapper {
-  height: 150px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  max-width: 960px;
-  margin: 0 auto;
-  padding: 0 40px;
-  background-color: #FFFFFF;
-  .title {
-    font-size: 30px;
-  }
-}
-
-// トップページ一覧
+// トップページ,投稿一覧
 .wrapper {
   background-color: ghostwhite;
+  padding: 40px 0;
   .mid_wrapper{
     max-width: 960px;
     margin: 0 auto;
@@ -79,72 +10,86 @@ a {
       .search_wrapper {
         width: 25%;
         .search_container{
+          padding:25px;
+          margin: 75px 0;
+          border-radius: 15px;
+          position: fixed;
+          height: 500px;
           background-color: #FFFFFF;
-          padding: 0 25px;
-        }
-      }
-      .main_wrapper {
-        width: 75%;
-        .main_container{
-          padding: 0 25px;
-          .posts_title {
-            font-size: 50px;
+          width: 240px;
+          .search_tabs {
+            .search_tab {
+              display: block;
+              font-size: 16px;
+              text-align: center;
+              padding: 5px 10px;
+              border-radius: 10px;
+              background-color: #aaa;
+              color: #eeeeee;
+              margin-bottom: 10px;
+              cursor: pointer;
+            }
           }
-          .clothes_index {
-            .posts_index {
-              display: flex;
-              flex-wrap: wrap;
-              align-items: center;
-              .post_item_list {
-                padding: 20px 16px;
-                margin-top: 25px;
-                border-radius: 15px;;
-                height: 400px;
-                .post_image {
+        }      
+      }
+      .main_container{
+        width: 75%;
+        padding: 0 25px;
+        .posts_title {
+          font-size: 50px;
+        }
+        .clothes_index {
+          .posts_index {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            .post_item_list {
+              padding: 20px 16px;
+              margin-top: 25px;
+              border-radius: 15px;;
+              .post_image {
+                display: flex;
+                justify-content: center;
+                img {
+                  width: 180px;
+                  height: 180px;
+                  object-fit: cover;
+                  border-radius: 15px;
+                }
+              }
+              .post_main {
+                .post_title {
+                  font-size: 20px;
+                  margin-top: 4px;
+                  padding-left: 8px;
+                }
+                a {
+                  padding-left: 8px;
+                }
+                .post_info{
+                  margin-top: 8px;
                   display: flex;
-                  justify-content: center;
-                  img {
-                    width: 180px;
-                    height: 180px;
-                    object-fit: cover;
-                    border-radius: 15px;
-                  }
-                }
-                .post_main {
-
-                  .post_title {
-                    font-size: 20px;
-                    margin-top: 4px;
-                    padding-left: 8px;
-                  }
-                  a {
-                    padding-left: 8px;
-                  }
-                  .post_info{
-                    margin-top: 8px;
+                  justify-content: space-between;
+                  .post_user {
                     display: flex;
-                    justify-content: space-between;
-                    .post_user {
-                      display: flex;
-                      .user_avatar {
-                        img {
-                          border-radius: 50%;
-                          width: 45px;
-                          height: 45px;
-                          object-fit: cover;
-                        }
-                      }
-                      .post_user_name {
-                        font-size: 20px;
-                        margin-left: 10px;
-                        padding-top: 15px;    
+                    .user_avatar {
+                      img {
+                        border-radius: 50%;
+                        width: 45px;
+                        height: 45px;
+                        object-fit: cover;
                       }
                     }
-                    .post_date {
-                      padding-top: 15px;
+                    .post_user_name {
+                      font-size: 20px;
+                      margin-left: 10px;
+                      padding-top: 15px;    
                     }
-                  }            
-                }
+                  }
+                  .post_date {
+                    padding-top: 15px;
+                  }
+                }            
               }
             }
           }
@@ -154,7 +99,8 @@ a {
   }
 }
 
-// 新規投稿ページ
+
+// 新規投稿ページ、投稿編集ページ
 
 .new_wrapper {
   background-color: #EEEEEE;
@@ -238,7 +184,7 @@ a {
   padding-top: 10px;
 }
 
-// プレビュー画像
+// 投稿新規登録および編集時のプレビュー画像
 
 #image_preview {
   .post_image_custom {
@@ -256,14 +202,6 @@ label {
   background-color: #aaa;
   padding: 8px;
   display: inline-block;
-}
-
-// いいね機能
-.fa-yet_icon {
-  color: #aaa;
-}
-.fa-already_icon {
-  color: black;
 }
 
 // 投稿詳細ページ
@@ -313,11 +251,14 @@ label {
         }
       }
     }
-    .bottom_container {
+    .bottom_wrapper {
       padding-top: 30px;
-      .bottom_wrapper {
+      .bottom_container {
         width: 600px;
         margin: 0 auto;
+        a{
+          padding-left: 8px;
+        }
         .post_place {
           width: 100%;
           display: flex;
@@ -364,4 +305,12 @@ label {
       }
     }
   }
+}
+
+// いいね機能 Pick機能アイコン
+.fa-yet_icon {
+  color: #aaa;
+}
+.fa-already_icon {
+  color: black;
 }
