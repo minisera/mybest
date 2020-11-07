@@ -2,11 +2,11 @@ class PostGController < ApplicationController
   before_action :set_post,only: [:edit,:update,:show,:destroy]
 
   def new
-    @post = PostC.new
+    @post = PostG.new
   end
 
   def create
-    @post = PostC.new(post_params)
+    @post = PostG.new(post_params)
     if @post.save
       redirect_to user_url(current_user)
     else
@@ -37,10 +37,10 @@ class PostGController < ApplicationController
 private
 
   def post_params
-    params.require(:post_c).permit(:title,:image,:place,:brand,:story,:evidence).merge(user_id: current_user.id)
+    params.require(:post_b).permit(:title,:image,:place,:brand,:story,:evidence).merge(user_id: current_user.id)
   end
 
   def set_post
-    @post = PostC.find(params[:id])
+    @post = PostG.find(params[:id])
   end
 end
