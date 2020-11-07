@@ -12,6 +12,10 @@ class User < ApplicationRecord
   has_many :like_gs
   has_many :pick_cs
   has_many :pick_post_cs, through: :pick_cs, source: :post_c
+  has_many :pick_bs
+  has_many :pick_post_bs, through: :pick_bs, source: :post_b
+  has_many :pick_gs
+  has_many :pick_post_gs, through: :pick_gs, source: :post_g
   # 自分がフォローした側
   has_many :active_relationships,class_name: "Relationship",foreign_key: :following_id
   has_many :followings, through: :active_relationships, source: :follower

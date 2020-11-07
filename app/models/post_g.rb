@@ -2,6 +2,7 @@ class PostG < ApplicationRecord
   belongs_to :user
   has_one_attached :image
   has_many :like_gs
+  has_many :pick_gs
 
   with_options  presence: true do
     validates :image
@@ -22,5 +23,9 @@ class PostG < ApplicationRecord
   
   def liked_by?(user)
     like_gs.where(user_id: user.id).exists?
+  end
+
+  def picked_by?(user)
+    pick_gs.where(user_id: user.id).exists?
   end
 end

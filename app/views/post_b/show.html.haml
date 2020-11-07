@@ -14,19 +14,19 @@
         = image_tag @post.image
     .bottom_wrapper 
       .bottom_container
-        -# - if user_signed_in?
-        -#   - if @post.picked_by?(current_user)
-        -#     = link_to post_b_pick_b_path(@post.id),method: :delete do
-        -#       %span= fa_icon "get-pocket alredy_icon"
-        -#       = @post.pick_bs.count 
-        -#   - else
-        -#     = link_to post_b_pick_b_path(@post.id),method: :post do
-        -#       %span= fa_icon "get-pocket yet_icon"
-        -#       = @post.pick_bs.count
-        -# - else
-        -#   %p
-        -#     %span= fa_icon "thumbs-up"
-        -#     = @post.pick_bs.count
+        - if user_signed_in?
+          - if @post.picked_by?(current_user)
+            = link_to post_b_pick_b_path(@post.id),method: :delete do
+              %span= fa_icon "get-pocket alredy_icon"
+              = @post.pick_bs.count 
+          - else
+            = link_to post_b_pick_b_path(@post.id),method: :post do
+              %span= fa_icon "get-pocket yet_icon"
+              = @post.pick_bs.count
+        - else
+          %p
+            %span= fa_icon "thumbs-up"
+            = @post.pick_bs.count
         - if user_signed_in?
           - if @post.liked_by?(current_user)
             = link_to post_b_like_b_path(@post.id),method: :delete do
