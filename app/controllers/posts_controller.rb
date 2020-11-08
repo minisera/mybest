@@ -3,6 +3,7 @@ class PostsController < ApplicationController
     @post_cs = PostC.includes(:user).order("created_at DESC")
     @post_bs = PostB.includes(:user).order("created_at DESC")
     @post_gs = PostG.includes(:user).order("created_at DESC")
+    @tags = PostB.tag_counts_on(:tags).order("count DESC")
   end
 
   def trend_index

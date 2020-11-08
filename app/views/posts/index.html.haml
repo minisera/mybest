@@ -8,12 +8,17 @@
           .search_tabs
             = link_to "トレンド一覧表示",trend_index_posts_path,class: "search_tab"
             = link_to "新着一覧表示",root_path,class: "search_tab"
-          .search_bar タグ入ります
+          .search_bar
+            - if @tags.present?
+              - @tags.each do |tag|
+                = link_to "#{tag.name}(#{tag.taggings_count})",tags_path(tag: tag.name)
+            - else
+              %p 登録されているタグはありません
           .search_tags
       .main_container
-        .posts_title 
-          Clothes
         .clothes_index
+          .posts_title 
+            Clothes
           .posts_index
             - if @post_cs
               - @post_cs .each do |post|

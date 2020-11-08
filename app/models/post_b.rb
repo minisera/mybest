@@ -1,4 +1,5 @@
 class PostB < ApplicationRecord
+  acts_as_taggable_on :tags
   belongs_to :user
   has_one_attached :image
   has_many :like_bs
