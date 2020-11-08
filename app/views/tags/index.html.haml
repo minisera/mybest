@@ -9,16 +9,59 @@
             = link_to "トレンド一覧表示",trend_index_posts_path,class: "search_tab"
             = link_to "新着一覧表示",root_path,class: "search_tab"
           .search_bar
-            - if @tags.present?
-              - @tags.each do |tag|
+            .tag_title 服のタグ
+            - if @tag_cs.present?
+              - @tag_cs.each do |tag|
+                = link_to "#{tag.name}(#{tag.taggings_count})",tags_path(tag: tag.name)
+            - else
+              %p 登録されているタグはありません
+            .tag_title 本のタグ
+            - if @tag_bs.present?
+              - @tag_bs.each do |tag|
+                = link_to "#{tag.name}(#{tag.taggings_count})",tags_path(tag: tag.name)
+            - else
+              %p 登録されているタグはありません
+            .tag_title 雑貨のタグ
+            - if @tag_gs.present?
+              - @tag_gs.each do |tag|
                 = link_to "#{tag.name}(#{tag.taggings_count})",tags_path(tag: tag.name)
             - else
               %p 登録されているタグはありません
           .search_tags
       .main_container
         .clothes_index
-          - if @posts.present?
-            - @posts.each do |post|
+          - if @post_cs.present?
+            - @post_cs.each do |post|
+              .posts_title #{@tag}に関する投稿
+              .posts_index
+                .post_item_list
+                  .post_image
+                    = link_to image_tag(post.image),post_c_path(post)
+                  .post_main 
+                    .post_title
+                      = post.title
+                    - if user_signed_in?
+                      - if post.liked_by?(current_user)
+                        = link_to post_c_like_c_path(post.id),method: :delete do
+                          %span= fa_icon "thumbs-up alredy_icon"
+                          = post.like_cs.count 
+                      - else
+                        = link_to post_c_like_c_path(post.id),method: :post do
+                          %span= fa_icon "thumbs-up yet_icon"
+                          = post.like_cs.count
+                    - else
+                      %p
+                        %span= fa_icon "thumbs-up"
+                        = post.like_cs.count
+                    .post_info
+                      .post_user
+                        .user_avatar
+                          = link_to image_tag(post.user.profile_image),user_path(post.user)
+                        .post_user_name 
+                          = post.user.name
+                      .post_date 1日前
+          - if @post_bs.present?
+            - @post_bs.each do |post|
               .posts_title #{@tag}に関する投稿
               .posts_index
                 .post_item_list
@@ -40,6 +83,36 @@
                       %p
                         %span= fa_icon "thumbs-up"
                         = post.like_bs.count
+                    .post_info
+                      .post_user
+                        .user_avatar
+                          = link_to image_tag(post.user.profile_image),user_path(post.user)
+                        .post_user_name 
+                          = post.user.name
+                      .post_date 1日前
+          - if @post_gs.present?
+            - @post_gs.each do |post|
+              .posts_title #{@tag}に関する投稿
+              .posts_index
+                .post_item_list
+                  .post_image
+                    = link_to image_tag(post.image),post_g_path(post)
+                  .post_main 
+                    .post_title
+                      = post.title
+                    - if user_signed_in?
+                      - if post.liked_by?(current_user)
+                        = link_to post_g_like_g_path(post.id),method: :delete do
+                          %span= fa_icon "thumbs-up alredy_icon"
+                          = post.like_cs.count 
+                      - else
+                        = link_to post_g_like_g_path(post.id),method: :post do
+                          %span= fa_icon "thumbs-up yet_icon"
+                          = post.like_gs.count
+                    - else
+                      %p
+                        %span= fa_icon "thumbs-up"
+                        = post.like_gs.count
                     .post_info
                       .post_user
                         .user_avatar

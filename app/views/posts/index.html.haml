@@ -9,12 +9,24 @@
             = link_to "トレンド一覧表示",trend_index_posts_path,class: "search_tab"
             = link_to "新着一覧表示",root_path,class: "search_tab"
           .search_bar
-            - if @tags.present?
-              - @tags.each do |tag|
+            .tag_title 服のタグ
+            - if @tag_cs.present?
+              - @tag_cs.each do |tag|
                 = link_to "#{tag.name}(#{tag.taggings_count})",tags_path(tag: tag.name)
             - else
               %p 登録されているタグはありません
-          .search_tags
+            .tag_title 本のタグ
+            - if @tag_bs.present?
+              - @tag_bs.each do |tag|
+                = link_to "#{tag.name}(#{tag.taggings_count})",tags_path(tag: tag.name)
+            - else
+              %p 登録されているタグはありません
+            .tag_title 雑貨のタグ
+            - if @tag_gs.present?
+              - @tag_gs.each do |tag|
+                = link_to "#{tag.name}(#{tag.taggings_count})",tags_path(tag: tag.name)
+            - else
+              %p 登録されているタグはありません
       .main_container
         .clothes_index
           .posts_title 
