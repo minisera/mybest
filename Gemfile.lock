@@ -56,6 +56,8 @@ GEM
       minitest (~> 5.1)
       tzinfo (~> 1.1)
       zeitwerk (~> 2.2, >= 2.2.2)
+    acts-as-taggable-on (6.5.0)
+      activerecord (>= 5.0, < 6.1)
     airbrussh (1.4.0)
       sshkit (>= 1.6.1, != 1.7.0)
     ast (2.4.1)
@@ -127,6 +129,8 @@ GEM
       ruby-vips (>= 2.0.17, < 3)
     jbuilder (2.10.1)
       activesupport (>= 5.0.0)
+    jquery-ui-rails (6.0.1)
+      railties (>= 3.2.16)
     kgio (2.11.3)
     listen (3.2.1)
       rb-fsevent (~> 0.10, >= 0.10.3)
@@ -296,6 +300,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  acts-as-taggable-on (~> 6.0)
   bootsnap (>= 1.4.2)
   byebug
   capistrano
@@ -311,6 +316,7 @@ DEPENDENCIES
   haml-rails
   image_processing (~> 1.2)
   jbuilder (~> 2.7)
+  jquery-ui-rails
   listen (~> 3.2)
   mini_magick
   mysql2 (>= 0.4.4)

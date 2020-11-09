@@ -4,8 +4,11 @@ Rails.application.routes.draw do
     post 'users/guest_sign_in', to: 'users/sessions#new_guest'
   end
 
+
   resource :posts,only: :index do
     get :trend_index, on: :member
+    get :about,on: :member
+    get :index, on: :member
   end
 
   resources :users,only: [:show,:edit,:update] do
@@ -29,6 +32,8 @@ Rails.application.routes.draw do
     resource :like_g,only: [:create,:destroy]
     resource :pick_g,only: [:create,:destroy]
   end
+
+  resources :tags,only: [:index]
   
-  root to: "posts#index"
+  root to: "posts#about"
 end

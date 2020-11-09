@@ -37,7 +37,7 @@ class PostCController < ApplicationController
 private
 
   def post_params
-    params.require(:post_c).permit(:title,:image,:place,:brand,:story,:evidence).merge(user_id: current_user.id)
+    params.require(:post_c).permit(:title,:image,:place,:brand,:story,:evidence,:tag_list).merge(user_id: current_user.id)
   end
 
   def set_post

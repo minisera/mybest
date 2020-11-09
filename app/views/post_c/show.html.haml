@@ -1,14 +1,16 @@
 = render 'shared/header'
 
-.post_show_wrapper
-  .post_show_container
+.wrapper
+  .wrapper_inner
     .top_container
-      .post_title
+      .top_container_title
         = @post.title
-      .post_user
-        .user_name
-          = @post.user.name
-        = link_to image_tag(@post.user.profile_image),user_path(@post.user),class: "user_image"
+      .top_container_info
+        %time= l @post.created_at
+        .post_user
+          = link_to image_tag(@post.user.profile_image),user_path(@post.user),class: "user_image"
+          .user_name
+            = @post.user.name
     .midle_container
       .post_image
         = image_tag @post.image
@@ -64,6 +66,7 @@
             お気に入りのポイント
           .form_text
             = @post.evidence
+        .comment コメントする
         = link_to "この人のマイページに行く",user_path(@post.user)
         - if current_user
           .post_edit

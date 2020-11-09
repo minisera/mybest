@@ -1,6 +1,7 @@
 %footer
   .footer_wrapper
-    .footer_left
-      .title
-        = link_to "Mybest", root_path,class: "header-left"
-      .message あなたの好きをみつける
+    .footer_container
+      = link_to posts_path do
+        = image_tag "login_page.png",class: "logo_image"
+        Mybest
+      .message あなたの好きをキロクしよう
