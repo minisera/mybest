@@ -1,6 +1,6 @@
 // トップページ,投稿一覧
 .wrapper {
-  background-color: ghostwhite;
+  background-color: #EEEEEE;
   padding: 40px 0;
   .mid_wrapper{
     max-width: 960px;
@@ -10,30 +10,32 @@
       .search_wrapper {
         width: 25%;
         .search_container{
-          padding:25px;
-          margin: 75px 0;
-          border-radius: 15px;
           position: fixed;
+          padding:20px 16px;
+          margin: 76px 0;
+          border-radius: 10px;
           height: 500px;
           background-color: #FFFFFF;
-          width: 240px;
           .search_tabs {
             .search_tab {
               display: block;
-              font-size: 16px;
+              font-size: 15px;
               text-align: center;
               padding: 5px 10px;
               border-radius: 10px;
               background-color: #aaa;
-              color: #eeeeee;
+              color: #FFFFFF;
               margin-bottom: 10px;
-              cursor: pointer;
             }
           }
           .search_tags {
+            .tag_title{
+              font-size: 15px;
+              margin-bottom: 10px;
+            }
             a {
               display: inline-block;
-              font-size: 16px;
+              font-size: 15px;
               text-align: center;
               padding: 5px 10px;
               border-radius: 10px;
@@ -46,9 +48,11 @@
       }
       .main_container{
         width: 75%;
-        padding: 0 25px;
+        margin: 0 25px;
         .posts_title {
-          font-size: 50px;
+          font-size: 40px;
+          padding-left: 20px;
+          border-bottom: solid 2px;
         }
         .posts_index {
           display: flex;
@@ -56,29 +60,25 @@
           align-items: center;
           .post_item_list {
             padding: 20px 16px;
-            margin-top: 25px;
-            border-radius: 15px;;
-            .post_image {
-              display: flex;
-              justify-content: center;
-              img {
+            a.post_image {
+              img{
                 width: 180px;
                 height: 180px;
                 object-fit: cover;
-                border-radius: 15px;
+                border-radius: 10px;
               }
             }
             .post_main {
               .post_title {
-                font-size: 20px;
-                margin-top: 4px;
-                padding-left: 8px;
+                font-size: 15px;
+                margin-top: 10px;
               }
               a {
-                padding-left: 8px;
+                margin-top: 10px;
+                display: block;
               }
               .post_info{
-                margin-top: 8px;
+                margin-top: 10px;
                 display: flex;
                 justify-content: space-between;
                 .post_user {
@@ -86,19 +86,22 @@
                   .user_avatar {
                     img {
                       border-radius: 50%;
-                      width: 45px;
-                      height: 45px;
+                      width: 40px;
+                      height: 40px;
                       object-fit: cover;
                     }
                   }
                   .post_user_name {
-                    font-size: 20px;
+                    font-size: 15px;
                     margin-left: 10px;
-                    padding-top: 15px;    
+                    padding-top: 20px;    
                   }
                 }
                 .post_date {
-                  padding-top: 15px;
+                  padding-top: 20px;
+                  time{
+                    font-size: 15px;
+                  }
                 }
               }            
             }

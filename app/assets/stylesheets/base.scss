@@ -33,7 +33,7 @@ a{
 // ヘッダー
 header {
   .header_wrapper {
-    height: 80px;
+    height: 90px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -47,6 +47,7 @@ header {
     .header-right{
       display: flex;
       align-items: center;
+      justify-content: space-around;
       position: relative;
       .pulldown_lists {
         position: absolute;
@@ -62,12 +63,9 @@ header {
           display: block;
         }
       }
-      .fa{
-        font-size: 25px;
-      }
       .nav_icon {
         margin-left: 20px;
-        font-size: 20px;
+        font-size: 25px;
         cursor: pointer;
       }
       img {

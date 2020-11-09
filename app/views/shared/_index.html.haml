@@ -5,8 +5,7 @@
       -# 服一覧
       - if post.class.name == "PostC"
         .post_item_list
-          .post_image
-            = link_to image_tag(post.image),post_c_path(post)
+          = link_to image_tag(post.image),post_c_path(post),class: "post_image"
           .post_main 
             .post_title
               = post.title
@@ -35,8 +34,7 @@
       -# 本一覧
       - if post.class.name == "PostB"
         .post_item_list
-          .post_image
-            = link_to image_tag(post.image),post_b_path(post)
+          = link_to image_tag(post.image),post_b_path(post),class: "post_image"
           .post_main 
             .post_title
               = post.title
@@ -64,8 +62,7 @@
       -# 雑貨一覧
       - if post.class.name == "PostG"
         .post_item_list
-          .post_image
-            = link_to image_tag(post.image),post_g_path(post)
+          = link_to image_tag(post.image),post_g_path(post),class: "post_image" 
           .post_main 
             .post_title
               = post.title
