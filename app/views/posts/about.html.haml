@@ -1,0 +1,17 @@
+= render partial: 'shared/header'
+
+.about_wrapper
+  .about_inner
+    .about_container
+      = image_tag "login_page.png",class: "about_image"
+      .about_box
+        .login_content 
+          あなたの
+          %span 好き
+          をキロクしよう
+        .login_content 
+          = link_to "ログイン", new_user_session_path
+        .login_content
+          = link_to "新規登録", new_user_registration_path
+
+= render partial: 'shared/footer'

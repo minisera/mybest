@@ -12,4 +12,8 @@ class PostsController < ApplicationController
     @post_c_ranks = PostC.find(LikeC.group(:post_c_id).order("count(post_c_id) desc").pluck(:post_c_id))
   end
 
+  def about
+    
+  end
+
 end

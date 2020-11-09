@@ -30,7 +30,7 @@
                   = post.user.name
               .post_date
                 %time(datetime="#{post.created_at}")= "#{time_ago_in_words(post.created_at)}前"
-      
+        
       -# 本一覧
       - if post.class.name == "PostB"
         .post_item_list
@@ -57,7 +57,8 @@
                   = link_to image_tag(post.user.profile_image),user_path(post.user)
                 .post_user_name 
                   = post.user.name
-              .post_date 1日前
+              .post_date
+                %time(datetime="#{post.created_at}")= "#{time_ago_in_words(post.created_at)}前" 
 
       -# 雑貨一覧
       - if post.class.name == "PostG"
@@ -85,4 +86,5 @@
                   = link_to image_tag(post.user.profile_image),user_path(post.user)
                 .post_user_name 
                   = post.user.name
-              .post_date 1日前
+              .post_date
+                %time(datetime="#{post.created_at}")= "#{time_ago_in_words(post.created_at)}前"

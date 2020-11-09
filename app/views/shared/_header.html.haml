@@ -1,8 +1,8 @@
 %header
   .header_wrapper
     .header_left
-      = link_to root_path,class: "header-left" do
-        = fa_icon "cube"
+      = link_to posts_path,class: "header-left" do
+        = image_tag "login_page.png",class: "logo_image"
         Mybest
     .header-right
       - if user_signed_in?

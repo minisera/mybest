@@ -7,6 +7,8 @@ Rails.application.routes.draw do
 
   resource :posts,only: :index do
     get :trend_index, on: :member
+    get :about,on: :member
+    get :index, on: :member
   end
 
   resources :users,only: [:show,:edit,:update] do
@@ -33,5 +35,5 @@ Rails.application.routes.draw do
 
   resources :tags,only: [:index]
   
-  root to: "posts#index"
+  root to: "posts#about"
 end

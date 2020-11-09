@@ -24,7 +24,7 @@
         }
         .user_edits{
           a.user_edit{
-            font-size: 16px;
+            font-size: 15px;
             text-align: center;
             padding: 5px 10px;
             border-radius: 10px;
@@ -33,7 +33,7 @@
           }
         }
         a.follow_btn {
-          font-size: 16px;
+          font-size: 15px;
           text-align: center;
           padding: 5px 10px;
           border-radius: 10px;
@@ -53,12 +53,13 @@
 }
 
 
-.container_wrapper{
-  width: 960px;
+.profile_wrapper {
   margin: 0 auto;
-  padding: 50px 40px 100px;
+  max-width: 960px;
+  padding: 0 40px;
   .post_tags {
     display: flex;
+    margin: 30px;
     padding: 0 25px;
     .post_tag_mybest {
       margin-right: 40px;
@@ -71,70 +72,16 @@
       font-size: 30px;
     }
   }
-  .container{
-    .index_wrapper {
-      .index_container{
-        padding: 0 25px;
-        .posts_title {
-          font-size: 50px;
-          margin-top: 20px;
-        }
-        .clothes_index {
-          .posts_index {
-            display: flex;
-            flex-wrap: wrap;
-            align-items: center;
-            .post_item_list {
-              padding: 20px 16px;
-              margin-top: 25px;
-              border-radius: 15px;;
-              height: 400px;
-              .post_image {
-                display: flex;
-                justify-content: center;
-                img {
-                  width: 230px;
-                  height: 230px;
-                  object-fit: cover;
-                  border-radius: 15px;
-                }
-              }
-              .post_main {
-                .post_title {
-                  font-size: 20px;
-                  margin-top: 4px;
-                }
-                .post_favorite {
-                  margin-top: 8px;
-                }
-                .post_info{
-                  margin-top: 8px;
-                  display: flex;
-                  justify-content: space-between;
-                  .post_user {
-                    display: flex;
-                    .user_avatar {
-                      img {
-                        border-radius: 50%;
-                        width: 50px;
-                        height: 50px;
-                        object-fit: cover;
-                      }
-                    }
-                    .post_user_name {
-                      font-size: 20px;
-                      margin-left: 10px;    
-                    }
-                  }
-                }            
-              }
-            }
-          }
-        }
-      }
+  .mypage_container {
+    .no_pick_message {
+      font-size: 20px;
+      padding: 20px 0;
     }
   }
 }
+
+
+
 
 
 

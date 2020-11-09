@@ -30,6 +30,48 @@ a{
   padding:12px; font-weight:850;
 }
 
+// トップページ
+.about_wrapper {
+  background-color: ghostwhite;
+  .about_inner {
+    max-width: 960px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: calc(100vh - 90px);
+    .about_container {
+      display: flex;
+      .about_box {
+        margin-left: 50px;
+        .login_content {
+          font-size: 20px;
+          text-align: center;
+          span {
+            font-size: 25px;
+          }
+          a {
+            font-size: 25px;
+            text-align: center;
+            padding: 5px 10px;
+            border-radius: 10px;
+            background-color: #aaa;
+            color: #FFFFFF;
+            margin-top: 20px;
+            display: inline-block;
+          }
+        }
+      }
+      .about_image {
+        width: 80px;
+        height: 80px;
+        margin: auto 0;
+      }
+    }
+  }
+}
+
+
 // ヘッダー
 header {
   .header_wrapper {
@@ -43,6 +85,10 @@ header {
     background-color: #FFFFFF;
     .header-left{
       font-size: 30px;
+      .logo_image {
+        width: 30px;
+        height: 30px;
+      }
     }
     .header-right{
       display: flex;
@@ -57,10 +103,11 @@ header {
         background-color: #aaa;
         border-radius: 10px;
         display: none;
-        width: 180px;
+        width: 150px;
         .pulldown_list {
           color: white;
           display: block;
+          font-size: 15px;
         }
       }
       .nav_icon {
@@ -89,7 +136,11 @@ header {
   margin: 0 auto;
   padding: 0 40px;
   background-color: #FFFFFF;
-  .title {
+  a {
     font-size: 30px;
+    img.logo_image {
+      width: 30px;
+      height: 30px;
+    }
   }
 }
