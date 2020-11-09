@@ -17,7 +17,7 @@
     .filed_name どこのブランド？
     = f.text_field :brand,autofocus: true, autoocmplete: "brand"
   .filed
-    .filed_nameどこで出会った？
+    .filed_name どこで出会った？
     = f.text_field :place,autofocus: true, autoocmplete: "place"
 .form_right
   .filed
@@ -27,7 +27,7 @@
     .filed_name お気に入りのポイントは？
     = f.text_area :evidence,autofocus: true, autoocmplete: "evidence"
   .filed
-    .filed_name タグ
+    .filed_name タグ（","で区切ってください）
     = f.text_field :tag_list,value: f.object.tag_list.join(',')
   .actions
     = f.submit "お気に入りをキロクする"

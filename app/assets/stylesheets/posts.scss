@@ -30,6 +30,18 @@
               cursor: pointer;
             }
           }
+          .search_tags {
+            a {
+              display: inline-block;
+              font-size: 16px;
+              text-align: center;
+              padding: 5px 10px;
+              border-radius: 10px;
+              background-color: #aaa;
+              color: #eeeeee;
+              margin-bottom: 10px;
+            }
+          }
         }      
       }
       .main_container{
@@ -38,59 +50,57 @@
         .posts_title {
           font-size: 50px;
         }
-        .clothes_index {
-          .posts_index {
-            display: flex;
-            flex-wrap: wrap;
-            align-items: center;
-            .post_item_list {
-              padding: 20px 16px;
-              margin-top: 25px;
-              border-radius: 15px;;
-              .post_image {
+        .posts_index {
+          display: flex;
+          flex-wrap: wrap;
+          align-items: center;
+          .post_item_list {
+            padding: 20px 16px;
+            margin-top: 25px;
+            border-radius: 15px;;
+            .post_image {
+              display: flex;
+              justify-content: center;
+              img {
+                width: 180px;
+                height: 180px;
+                object-fit: cover;
+                border-radius: 15px;
+              }
+            }
+            .post_main {
+              .post_title {
+                font-size: 20px;
+                margin-top: 4px;
+                padding-left: 8px;
+              }
+              a {
+                padding-left: 8px;
+              }
+              .post_info{
+                margin-top: 8px;
                 display: flex;
-                justify-content: center;
-                img {
-                  width: 180px;
-                  height: 180px;
-                  object-fit: cover;
-                  border-radius: 15px;
-                }
-              }
-              .post_main {
-                .post_title {
-                  font-size: 20px;
-                  margin-top: 4px;
-                  padding-left: 8px;
-                }
-                a {
-                  padding-left: 8px;
-                }
-                .post_info{
-                  margin-top: 8px;
+                justify-content: space-between;
+                .post_user {
                   display: flex;
-                  justify-content: space-between;
-                  .post_user {
-                    display: flex;
-                    .user_avatar {
-                      img {
-                        border-radius: 50%;
-                        width: 45px;
-                        height: 45px;
-                        object-fit: cover;
-                      }
-                    }
-                    .post_user_name {
-                      font-size: 20px;
-                      margin-left: 10px;
-                      padding-top: 15px;    
+                  .user_avatar {
+                    img {
+                      border-radius: 50%;
+                      width: 45px;
+                      height: 45px;
+                      object-fit: cover;
                     }
                   }
-                  .post_date {
-                    padding-top: 15px;
+                  .post_user_name {
+                    font-size: 20px;
+                    margin-left: 10px;
+                    padding-top: 15px;    
                   }
-                }            
-              }
+                }
+                .post_date {
+                  padding-top: 15px;
+                }
+              }            
             }
           }
         }
