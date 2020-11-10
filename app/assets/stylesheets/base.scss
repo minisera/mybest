@@ -144,3 +144,19 @@ header {
     }
   }
 }
+
+.pulldown_lists {
+  position: absolute;
+  right: 0px;
+  margin-top: 0px 10px;
+  padding: 10px;
+  background-color: #aaa;
+  border-radius: 10px;
+  display: none;
+  width: 150px;
+  .pulldown_list {
+    color: white;
+    display: block;
+    font-size: 15px;
+  }
+}

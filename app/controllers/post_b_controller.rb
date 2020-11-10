@@ -26,6 +26,8 @@ class PostBController < ApplicationController
   end
 
   def show
+    @comment = CommentB.new
+    @comments = @post.comment_bs.includes(:user)
   end
 
   def destroy

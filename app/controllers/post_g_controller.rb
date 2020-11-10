@@ -26,6 +26,8 @@ class PostGController < ApplicationController
   end
 
   def show
+    @comment = CommentG.new
+    @comments = @post.comment_gs.includes(:user)
   end
 
   def destroy

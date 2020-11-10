@@ -21,16 +21,19 @@ Rails.application.routes.draw do
   resources :post_c do
     resource :like_c,only: [:create,:destroy]
     resource :pick_c,only: [:create,:destroy]
+    resource :comment_cs,only: [:create,:destroy]
   end
   
   resources :post_b do
     resource :like_b,only: [:create,:destroy]
     resource :pick_b,only: [:create,:destroy]
+    resource :comment_bs,only: [:create,:destroy]
   end
-
+  
   resources :post_g do
     resource :like_g,only: [:create,:destroy]
     resource :pick_g,only: [:create,:destroy]
+    resource :comment_gs,only: [:create,:destroy]
   end
 
   resources :tags,only: [:index]

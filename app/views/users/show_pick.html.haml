@@ -33,25 +33,22 @@
       = link_to "Mybest",user_path(@user),class: "post_tag_mybest"
       = link_to "Pick",show_pick_user_path(@user),class: "post_tag_pick"
     .mypage_container
+    - if @user.pick_post_cs.present? || @user.pick_post_bs.present? || @user.pick_post_gs.present?
       -# 服一覧
       .posts_title Clothes
       - if @user.pick_post_cs.present?
         = render partial: "shared/index",locals: { posts: @user.pick_post_cs}
-      - else
-        .no_pick_message Pickした投稿がありません。
       
       -# 本一覧
       .posts_title Books
       - if @user.pick_post_bs.present?
         = render partial: "shared/index",locals: { posts: @user.pick_post_bs}
-      - else
-        .no_pick_message Pickした投稿がありません。
 
       -# 雑貨一覧
       .posts_title Goods
       - if @user.pick_post_gs.present?
         = render partial: "shared/index",locals: { posts: @user.pick_post_gs}
-      - else
-        .no_pick_message Pickした投稿がありません。
+    - else
+      .none_message まだPickした投稿はありません。
 
 = render partial: 'shared/footer'

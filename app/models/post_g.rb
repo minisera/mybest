@@ -4,6 +4,7 @@ class PostG < ApplicationRecord
   has_one_attached :image
   has_many :like_gs
   has_many :pick_gs
+  has_many :comment_gs
 
   with_options  presence: true do
     validates :image

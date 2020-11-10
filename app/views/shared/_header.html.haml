@@ -6,9 +6,6 @@
         Mybest
     .header-right
       - if user_signed_in?
-        .nav_icon  
-          =link_to "#" do
-            = fa_icon "bell"
         .nav_icon
           = fa_icon "edit",id: "edit_list"
           .pulldown_lists#pulldown_edit
@@ -22,7 +19,7 @@
             = link_to "サインアウト", destroy_user_session_path, method: "delete",class: "pulldown_list" 
             
       - else   
-        .login_icon
+        .nav_icon
           = link_to "ログイン", new_user_session_path
-        .signup_icon
+        .nav_icon
           = link_to "新規登録", new_user_registration_path
