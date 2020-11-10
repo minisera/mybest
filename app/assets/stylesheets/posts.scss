@@ -45,6 +45,9 @@
               background-color: #aaa;
               color: #FFFFFF;
               margin-bottom: 10px;
+              &:hover {
+                background-color: #c0c0c0;
+              }
             }
           }
           .search_tags {
@@ -61,6 +64,9 @@
               background-color: #aaa;
               color: #eeeeee;
               margin-bottom: 10px;
+              &:hover {
+                background-color: #c0c0c0;
+              }
             }
           }
         }      
