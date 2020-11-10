@@ -7,6 +7,7 @@ class User < ApplicationRecord
   has_many :post_cs
   has_many :post_bs
   has_many :post_gs
+  has_many :comment_cs
   has_many :like_cs
   has_many :like_bs
   has_many :like_gs
@@ -23,6 +24,8 @@ class User < ApplicationRecord
   has_many :passive_relationships, class_name: "Relationship", foreign_key: :follower_id
   has_many :followers, through: :passive_relationships, source: :following
   
+
+
   validates :name,presence: true
   
   def default_image

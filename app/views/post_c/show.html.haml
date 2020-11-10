@@ -6,7 +6,7 @@
       .top_container_title
         = @post.title
       .top_container_info
-        %time= l @post.created_at
+        %time="投稿日時：#{l @post.created_at}"
         .post_user
           = link_to image_tag(@post.user.profile_image),user_path(@post.user),class: "user_image"
           .user_name
@@ -42,37 +42,52 @@
           %p
             %span= fa_icon "thumbs-up"
             = @post.like_cs.count
-        .post_place
+        .post_place_brand
           .form_title
-            = fa_icon "globe"
+            = fa_icon "angle-right"
             出会った場所
           .form_content
             = @post.place
-        .post_brand
+        .post_place_brand
           .form_title
-            = fa_icon "bookmark"
+            = fa_icon "angle-right"
             ブランド
           .form_content
             = @post.brand
-        .post_story
+        .post_story_evidence
           .form_title
-            = fa_icon "map"
+            = fa_icon "angle-right"
             出会いのストーリ−
           .form_text
             = @post.story
-        .post_evidence
+        .post_story_evidence
           .form_title
             = fa_icon "star"
             お気に入りのポイント
           .form_text
             = @post.evidence
-        .comment コメントする
-        = link_to "この人のマイページに行く",user_path(@post.user)
+        .comment_container
+          - if @comments.present?
+            .comment_box_bundle
+              - @comments.reverse_each do | comment |
+                .comment_box
+                  = link_to image_tag(comment.user.profile_image),user_path(comment.user),class: "comment_box_avatar"
+                  .comment_box_main
+                    .comment_box_header
+                      .comment_box_user=comment.user.name
+                      %time.comment_box_date(datetime="#{comment.created_at}")= "#{time_ago_in_words(comment.created_at)}前"
+                      - if current_user == comment.user
+                        = link_to "削除する", post_c_comment_cs_path(comment.id),method: :delete,class: "comment_destroy"
+                    .comment_box_body
+                      %p=comment.text
+          - if user_signed_in?
+            = form_with model: [@post, @comment],method: :post, local: true,class: "comment_form" do | f |
+              = f.text_area :text,placeholder: "テキストを入力"
+              = f.submit "投稿する",class: "comment_btn"
+        = link_to "この人のマイページに行く",user_path(@post.user),class: "bottom_nav"
         - if current_user
-          .post_edit
-            = link_to "お気に入りを編集する",edit_post_c_path(@post.id)
-          .post_destroy
-            = link_to 'お気に入りを削除する',post_c_path(@post),method: :delete,data: { confirm: "本当に削除しますか？"}
+          = link_to "お気に入りを編集する",edit_post_c_path(@post.id),class: "bottom_nav"
+          = link_to 'お気に入りを削除する',post_c_path(@post),method: :delete,data: { confirm: "本当に削除しますか？"},class: "bottom_nav"
 
 
 = render partial: 'shared/footer'

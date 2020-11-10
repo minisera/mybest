@@ -21,6 +21,7 @@ Rails.application.routes.draw do
   resources :post_c do
     resource :like_c,only: [:create,:destroy]
     resource :pick_c,only: [:create,:destroy]
+    resource :comment_cs,only: [:create,:destroy]
   end
   
   resources :post_b do

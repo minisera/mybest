@@ -4,6 +4,7 @@ class PostC < ApplicationRecord
   has_one_attached :image
   has_many :like_cs
   has_many :pick_cs
+  has_many :comment_cs
 
   with_options  presence: true do
     validates :image

@@ -26,6 +26,8 @@ class PostCController < ApplicationController
   end
 
   def show
+    @comment = CommentC.new
+    @comments = @post.comment_cs.includes(:user)
   end
 
   def destroy
