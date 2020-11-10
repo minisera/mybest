@@ -138,6 +138,20 @@
   }
 }
 
+// ページネーション
+
+.pagination {
+  margin-top: 10px;
+  text-align: center;
+  display: block;
+  .page,.next,.last,.first,.prev {
+    border: solid #aaa 1px;
+    font-size: 15px;
+    padding: 10px;
+  }
+}
+
+
 // 新規投稿ページ、投稿編集ページ
 
 .new_wrapper {

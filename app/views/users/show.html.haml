@@ -33,16 +33,22 @@
       = link_to "Mybest",user_path(@user),class: "post_tag_mybest"
       = link_to "Pick",show_pick_user_path(@user),class: "post_tag_pick"
     .mypage_container
+    - if @user.post_cs.present? || @user.post_bs.present? || @user.post_gs.present?
       -# 服一覧
-      .posts_title Clothes
-      = render partial: "shared/index",locals: { posts: @user.post_cs}
+      - if @user.post_cs.present?
+        .posts_title Clothes
+        = render partial: "shared/index",locals: { posts: @user.post_cs}
       
       -# 本一覧
-      .posts_title Books
-      = render partial: "shared/index",locals: { posts: @user.post_bs}
+      - if @user.post_bs.present?
+        .posts_title Books
+        = render partial: "shared/index",locals: { posts: @user.post_bs}
 
       -# 雑貨一覧
-      .posts_title Goods
-      = render partial: "shared/index",locals: { posts: @user.post_gs}
-          
+      - if @user.post_gs.present?
+        .posts_title Goods
+        = render partial: "shared/index",locals: { posts: @user.post_gs}
+    - else
+      .none_message まだ投稿したお気に入りはありません。
+
 = render partial: 'shared/footer'

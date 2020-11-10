@@ -30,9 +30,12 @@
             border-radius: 10px;
             background-color: #aaa;
             color: #eeeeee;
+            &:hover {
+              background-color: #c0c0c0;
+            }
           }
         }
-        a.follow_btn {
+        .follow_btn {
           font-size: 15px;
           text-align: center;
           padding: 5px 10px;
@@ -40,6 +43,9 @@
           background-color: #aaa;
           color: #eeeeee;
           height: 35px;
+          &:hover {
+            background-color: #c0c0c0;
+          }
         }
       }
       .user_follows {
@@ -76,6 +82,9 @@
     .no_pick_message {
       font-size: 20px;
       padding: 20px 0;
+      .none_message {
+        font-size: 20px;
+      }
     }
   }
 }

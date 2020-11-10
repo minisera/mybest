@@ -5,39 +5,21 @@
     .container
       .search_wrapper
         .search_container
-          .search_tabs
-            = link_to "トレンド一覧",trend_index_posts_path,class: "search_tab"
-            = link_to "新着一覧",root_path,class: "search_tab"
-          .search_tags
-            .tag_title ▶ clothes
-            - if @tag_cs.present?
-              - @tag_cs.each do |tag|
-                = link_to "#{tag.name}(#{tag.taggings_count})",tags_path(tag: tag.name)
-            - else
-              %p 登録されているタグはありません
-            .tag_title ▶ Books
-            - if @tag_bs.present?
-              - @tag_bs.each do |tag|
-                = link_to "#{tag.name}(#{tag.taggings_count})",tags_path(tag: tag.name)
-            - else
-              %p 登録されているタグはありません
-            .tag_title ▶ Goods
-            - if @tag_gs.present?
-              - @tag_gs.each do |tag|
-                = link_to "#{tag.name}(#{tag.taggings_count})",tags_path(tag: tag.name)
-            - else
-              %p 登録されているタグはありません
+          = render partial: "shared/tags",locals: {tag_cs: @tag_cs,tag_bs: @tag_bs,tag_gs: @tag_gs}
       .main_container
         -# 服一覧
         .posts_title Clothes
         = render partial: "shared/index",locals: { posts: @post_cs}
+        = paginate @post_cs
         
         -# 本一覧
         .posts_title Books
         = render partial: "shared/index",locals: { posts: @post_bs}
+        = paginate @post_bs
 
         -# 雑貨一覧
         .posts_title Goods
         = render partial: "shared/index",locals: { posts: @post_gs}
+        = paginate @post_gs
 
 = render partial: 'shared/footer'
