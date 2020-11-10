@@ -5,7 +5,7 @@ class CommentCsController < ApplicationController
   end
   
   def destroy
-    comment = CommentC.find(params[:post_c_id])
+    comment = CommentC.find(params[:post_b_id])
     comment.destroy
     redirect_back(fallback_location: root_path)
   end

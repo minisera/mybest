@@ -4,6 +4,7 @@ class PostB < ApplicationRecord
   has_one_attached :image
   has_many :like_bs
   has_many :pick_bs
+  has_many :comment_bs
 
   with_options  presence: true do
     validates :image

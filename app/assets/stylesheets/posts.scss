@@ -328,6 +328,9 @@ label {
       background-color: #aaa;
       color: #eeeeee;
       margin-top: 10px;
+      &:hover {
+        background-color: #c0c0c0;
+      }
     }
   }
 }
@@ -369,6 +372,9 @@ label {
             border-radius: 10px;
             background-color: #aaa;
             color: #eeeeee;
+            &:hover {
+              background-color: #c0c0c0;
+            }
           }
         }
         .comment_box_body {
@@ -398,6 +404,9 @@ label {
       padding: 8px;
       border: 2px solid #aaa;
       border-radius: 4px;
+      &:hover {
+        background-color: #c0c0c0;
+      }
     }
   }
 }
