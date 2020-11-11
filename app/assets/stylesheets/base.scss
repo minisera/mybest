@@ -25,12 +25,27 @@ div,input {
 }
 
 // エラーメッセージ
-.error_alert {
-  color:#262626; 
+.error_alert { 
   background:#FFEBE8;
   text-align: center;
   border:2px solid #990000;
-  padding:12px; font-weight:850;
+  padding:8px;
+  margin:0 10px;
+  font-weight:850;
+  font-size: 15px;
+
+}
+
+// フラッシュメッセージ
+.notice {
+  background-color: 		#adff2f;
+  color: #32cd32;
+  padding: 5px 20px;
+}
+.alert {
+  background-color: #ffc0cb;
+  color: #ff6347;
+  padding: 5px 20px;
 }
 
 // トップページ

@@ -1,7 +1,7 @@
 // 投稿一覧ページ
 .wrapper {
   background-color: #EEEEEE;
-  padding: 40px 0;
+  padding: 50px 0 100px 0;
   .mid_wrapper{
     max-width: 960px;
     margin: 0 auto;
@@ -280,7 +280,7 @@ label {
         justify-content: center;
         align-items: center;
         .user_name {
-          font-size: 20px;
+          font-size: 15px;
         }
         .user_image {
           padding-right: 10px;
@@ -356,6 +356,14 @@ label {
 
 // コメント欄
 .comment_container {
+  .no_comment_message {
+    margin-top: 10px;
+  }
+  .comment_container_title {
+    font-size: 15px;
+    border-bottom: solid 2px #aaa;
+    padding:20px 0 10px 0;
+  }
   .comment_box_bundle {
     .comment_box {
       display: flex;
@@ -374,13 +382,14 @@ label {
         width: 100%;
         .comment_box_header {
           display: flex;
+          align-items: center;
           .comment_box_user {
             font-size: 15px;
           }
           .comment_box_date {
             font-size: 12px;
             color: gray;
-            margin: auto 10px;
+            margin: 0 8px;
           }
           .comment_destroy {
             margin: 0 0 0 auto;
@@ -410,7 +419,6 @@ label {
       height: 100px;
       border: 2px solid #aaa;
       border-radius: 4px;
-      margin: 8px 0;
       outline: none;
       padding: 8px;
       transition: 0.3s;

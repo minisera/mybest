@@ -10,7 +10,7 @@ class PostBsController < ApplicationController
   def create
     @post = PostB.new(post_params)
     if @post.save
-      redirect_to user_url(current_user)
+      redirect_to user_url(current_user),notice: "お気に入りを登録しました"
     else
       render :new
     end
@@ -20,8 +20,8 @@ class PostBsController < ApplicationController
   end
   
   def update
-    if @post.update(postc_params)
-      redirect_to user_url(current_user)
+    if @post.update(post_params)
+      redirect_to user_url(current_user),notice: "お気に入りを編集しました"
     else
       render :edit
     end
@@ -34,7 +34,7 @@ class PostBsController < ApplicationController
 
   def destroy
     @post.destroy
-    redirect_to user_url(current_user)
+    redirect_to user_url(current_user),notice: "お気に入りを削除しました"
   end
 
 
