@@ -1,6 +1,6 @@
 class PostBController < ApplicationController
   before_action :set_post,only: [:edit,:update,:show,:destroy]
-
+  before_action :authenticate_user!,only: [:edit,:new]
   def new
     @post = PostB.new
   end

@@ -11,7 +11,10 @@
         = f.file_field :image,id: "post_image",class: "hidden"
     #image_preview
       .post_image_custom
-        = image_tag "/assets/no_image.png",class: "post_image_pre"           
+        - if post.image.present?
+          = image_tag post.image,class: "post_image_pre"
+        - else
+          = image_tag "/assets/no_image.png",class: "post_image_pre"           
     
   .filed
     .filed_name どこのブランド？

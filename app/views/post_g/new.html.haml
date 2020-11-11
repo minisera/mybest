@@ -14,9 +14,9 @@
           本当にキロクしますか？
     - if current_user.post_gs.size < 3
       = form_with model: @post,url: post_g_index_path, method: :post,local: true do |f|
-        = render partial: "shared/form",locals:{f: f} 
+        = render partial: "shared/form",locals:{f: f, post: @post} 
     - else
       = form_with model: @post,url: post_g_index_path, method: :post,data: { confirm: "本当にキロクしますか？" },local: true do |f|
-        = render partial: "shared/form",locals:{f: f} 
+        = render partial: "shared/form",locals:{f: f, post: @post} 
 
 = render partial: 'shared/footer'

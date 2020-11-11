@@ -1,5 +1,6 @@
 class PostCController < ApplicationController
   before_action :set_post,only: [:edit,:update,:show,:destroy]
+  before_action :authenticate_user!,only: [:edit,:new]
 
   def new
     @post = PostC.new
