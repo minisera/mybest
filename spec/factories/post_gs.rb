@@ -1,5 +1,5 @@
 FactoryBot.define do
-  factory :post_c do
+  factory :post_g do
     title         {Faker::Name.initials}
     place         {Faker::Lorem.sentence}
     brand         {Faker::Lorem.sentence}

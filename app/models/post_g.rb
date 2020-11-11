@@ -11,8 +11,8 @@ class PostG < ApplicationRecord
     validates :title
     validates :place
     validates :brand
-    validates :story
-    validates :evidence
+    validates :story,length: {in: 30..200}
+    validates :evidence,length: {in: 30..200}
   end
 
   validate :limit_post_g,on: :create
