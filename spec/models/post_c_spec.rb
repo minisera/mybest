@@ -6,7 +6,7 @@ RSpec.describe PostC, type: :model do
     @post_c.image = fixture_file_upload('public/image/output-image.png')
   end
 
-  describe '投稿管理機能' do
+  describe '新規投稿機能、投稿編集機能' do
     context '新規投稿がうまくいくとき' do
       it "全て情報に不備がなければ登録できる" do
         expect(@post_c).to be_valid
@@ -41,4 +41,10 @@ RSpec.describe PostC, type: :model do
       end
     end
   end
+  describe "投稿編集機能" do
+    context "編集がうまくいく時" do
+      
+    end
+    context "編集がうまく行かない時" do
+    end
 end

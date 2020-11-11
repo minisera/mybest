@@ -2,17 +2,17 @@ class PostC < ApplicationRecord
   acts_as_taggable_on :tags
   belongs_to :user
   has_one_attached :image
-  has_many :like_cs
-  has_many :pick_cs
-  has_many :comment_cs
+  has_many :like_cs,dependent: :destroy
+  has_many :pick_cs,dependent: :destroy
+  has_many :comment_cs,dependent: :destroy
 
   with_options  presence: true do
     validates :image
     validates :title
     validates :place
     validates :brand
-    validates :story
-    validates :evidence
+    validates :story,length: {in: 30..200}
+    validates :evidence,length: {in: 30..200}
   end
 
   validate :limit_post_c,on: :create

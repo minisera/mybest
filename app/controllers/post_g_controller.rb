@@ -1,6 +1,7 @@
 class PostGController < ApplicationController
   before_action :set_post,only: [:edit,:update,:show,:destroy]
-  before_action :authenticate_user!,only: [:edit,:new]
+  before_action :authenticate_user!,except: [:show]
+  before_action :move_to_index, only: :edit
 
   def new
     @post = PostG.new
@@ -45,5 +46,10 @@ private
 
   def set_post
     @post = PostG.find(params[:id])
+  end
+
+  def move_to_index
+    @post = PostG.find(params[:id])
+    redirect_to posts_url unless current_user == @post.user
   end
 end

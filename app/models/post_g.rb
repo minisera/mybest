@@ -2,9 +2,9 @@ class PostG < ApplicationRecord
   acts_as_taggable_on :tags
   belongs_to :user
   has_one_attached :image
-  has_many :like_gs
-  has_many :pick_gs
-  has_many :comment_gs
+  has_many :like_gs,dependent: :destroy
+  has_many :pick_gs,dependent: :destroy
+  has_many :comment_gs,dependent: :destroy
 
   with_options  presence: true do
     validates :image

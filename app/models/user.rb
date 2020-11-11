@@ -4,20 +4,24 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
   :recoverable, :rememberable, :validatable
   has_one_attached :profile_image
-  has_many :post_cs
-  has_many :post_bs
-  has_many :post_gs
-  has_many :comment_cs
-  has_many :comment_bs
-  has_many :comment_gs
-  has_many :like_cs
-  has_many :like_bs
-  has_many :like_gs
-  has_many :pick_cs
+  # 投稿に対するリレーション
+  has_many :post_cs,dependent: :destroy
+  has_many :post_bs,dependent: :destroy
+  has_many :post_gs,dependent: :destroy
+  # コメントに対するリレーション
+  has_many :comment_cs,dependent: :destroy
+  has_many :comment_bs,dependent: :destroy
+  has_many :comment_gs,dependent: :destroy
+  # いいねに対するリレーション
+  has_many :like_cs,dependent: :destroy
+  has_many :like_bs,dependent: :destroy
+  has_many :like_gs,dependent: :destroy
+  # Pickに対するリレーション
+  has_many :pick_cs,dependent: :destroy
   has_many :pick_post_cs, through: :pick_cs, source: :post_c
-  has_many :pick_bs
+  has_many :pick_bs,dependent: :destroy
   has_many :pick_post_bs, through: :pick_bs, source: :post_b
-  has_many :pick_gs
+  has_many :pick_gs,dependent: :destroy
   has_many :pick_post_gs, through: :pick_gs, source: :post_g
   # 自分がフォローした側
   has_many :active_relationships,class_name: "Relationship",foreign_key: :following_id
@@ -26,7 +30,6 @@ class User < ApplicationRecord
   has_many :passive_relationships, class_name: "Relationship", foreign_key: :follower_id
   has_many :followers, through: :passive_relationships, source: :following
   
-
 
   validates :name,presence: true
   

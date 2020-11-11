@@ -48,7 +48,7 @@
         = render partial: "shared/comment",locals: {post: post,comment: comment,comments: comments}
         
         = link_to "この人のマイページに行く",user_path(post.user),class: "bottom_nav"
-        - if current_user
+        - if current_user == post.user
           - if post.class.name == "PostC"
             = link_to "お気に入りを編集する",edit_post_c_path(post.id),class: "bottom_nav"
             = link_to 'お気に入りを削除する',post_c_path(post),method: :delete,data: { confirm: "本当に削除しますか？"},class: "bottom_nav"
