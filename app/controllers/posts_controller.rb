@@ -1,4 +1,6 @@
 class PostsController < ApplicationController
+  before_action :authenticate_user!,except: [:about]
+
   def index
     @post_cs = PostC.includes(:user).order("created_at DESC").page(params[:page]).per(9)
     @post_bs = PostB.includes(:user).order("created_at DESC").page(params[:page]).per(9)

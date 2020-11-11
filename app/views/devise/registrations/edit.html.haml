@@ -7,16 +7,15 @@
     = form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f|
       = render "devise/shared/error_messages", resource: resource
       .field
-        = f.email_field :email, autofocus: true, autocomplete: "email",placeholder: "Current Email"
+        = f.email_field :email,placeholder: "現在のEメール"
       .field
-        = f.password_field :password, autocomplete: "new-password",placeholder: " New Email"
+        = f.password_field :password,placeholder: "新しいパスワード"
       .field
-        = f.password_field :password_confirmation, autocomplete: "new-password",placeholder: "New Password"
+        = f.password_field :password_confirmation, autocomplete: "new-password",placeholder: "新しいパスワード（確認）"
       .field
-        = f.password_field :current_password, autocomplete: "current-password",placeholder: "Current Password"
+        = f.password_field :current_password, autocomplete: "current-password",placeholder: "現在のパスワード"
       .actions
-        = f.submit "Update"
-    .cancel_my_account
-      #{button_to "Cancel my account", registration_path(resource_name), data: { confirm: "本当にアカウントを削除しますか？" }, method: :delete}
+        = f.submit "更新する"
+    = link_to "アカウントを削除する",registration_path(resource_name), data: { confirm: "本当にアカウントを削除しますか？" }, method: :delete,class: "cancel_my_account"
 
 = render partial: 'shared/footer'

@@ -2,11 +2,11 @@
 - if post.class.name == "PostC"
   - if user_signed_in?
     - if post.picked_by?(current_user)
-      = link_to post_c_pick_c_path(post.id),method: :delete do
+      = link_to post_c_pick_cs_path(post.id),method: :delete do
         %span= fa_icon "get-pocket alredy_icon"
         = post.pick_cs.count 
     - else
-      = link_to post_c_pick_c_path(post.id),method: :post do
+      = link_to post_c_pick_cs_path(post.id),method: :post do
         %span= fa_icon "get-pocket yet_icon"
         = post.pick_cs.count
   - else
@@ -18,11 +18,11 @@
 - if post.class.name == "PostB"
   - if user_signed_in?
     - if post.picked_by?(current_user)
-      = link_to post_b_pick_b_path(post.id),method: :delete do
+      = link_to post_b_pick_bs_path(post.id),method: :delete do
         %span= fa_icon "get-pocket alredy_icon"
         = post.pick_bs.count 
     - else
-      = link_to post_b_pick_b_path(post.id),method: :post do
+      = link_to post_b_pick_bs_path(post.id),method: :post do
         %span= fa_icon "get-pocket yet_icon"
         = post.pick_bs.count
   - else
@@ -34,11 +34,11 @@
 - if post.class.name == "PostG"
   - if user_signed_in?
     - if post.picked_by?(current_user)
-      = link_to post_g_pick_g_path(post.id),method: :delete do
+      = link_to post_g_pick_gs_path(post.id),method: :delete do
         %span= fa_icon "get-pocket alredy_icon"
         = post.pick_gs.count 
     - else
-      = link_to post_g_pick_g_path(post.id),method: :post do
+      = link_to post_g_pick_gs_path(post.id),method: :post do
         %span= fa_icon "get-pocket yet_icon"
         = post.pick_gs.count
   - else

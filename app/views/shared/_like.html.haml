@@ -2,11 +2,11 @@
 - if post.class.name == "PostC"
   - if user_signed_in?
     - if post.liked_by?(current_user)
-      = link_to post_c_like_c_path(post.id),method: :delete do
+      = link_to post_c_like_cs_path(post.id),method: :delete do
         %span= fa_icon "thumbs-up alredy_icon"
         = post.like_cs.count 
     - else
-      = link_to post_c_like_c_path(post.id),method: :post do
+      = link_to post_c_like_cs_path(post.id),method: :post do
         %span= fa_icon "thumbs-up yet_icon"
         = post.like_cs.count
   - else
@@ -18,11 +18,11 @@
 - if post.class.name == "PostB"
   - if user_signed_in?
     - if post.liked_by?(current_user)
-      = link_to post_b_like_b_path(post.id),method: :delete do
+      = link_to post_b_like_bs_path(post.id),method: :delete do
         %span= fa_icon "thumbs-up alredy_icon"
         = post.like_bs.count 
     - else
-      = link_to post_b_like_b_path(post.id),method: :post do
+      = link_to post_b_like_bs_path(post.id),method: :post do
         %span= fa_icon "thumbs-up yet_icon"
         = post.like_bs.count
   - else
@@ -34,11 +34,11 @@
 - if post.class.name == "PostG"
   - if user_signed_in?
     - if post.liked_by?(current_user)
-      = link_to post_g_like_g_path(post.id),method: :delete do
+      = link_to post_g_like_gs_path(post.id),method: :delete do
         %span= fa_icon "thumbs-up alredy_icon"
         = post.like_gs.count 
     - else
-      = link_to post_g_like_g_path(post.id),method: :post do
+      = link_to post_g_like_gs_path(post.id),method: :post do
         %span= fa_icon "thumbs-up yet_icon"
         = post.like_gs.count
   - else

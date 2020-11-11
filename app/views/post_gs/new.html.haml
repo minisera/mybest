@@ -1,0 +1,22 @@
+= render 'shared/header'
+
+.new_wrapper
+  .new_form
+    .new_messages
+      - if current_user.post_gs.size < 3
+        .message1 あなたのお気に入りをキロクしよう
+        .message2
+          = "雑貨はあと#{3 - current_user.post_gs.size}つ登録できます"
+      - else 
+        .message1
+          上限に達しました。
+        .message2
+          本当にキロクしますか？
+    - if current_user.post_gs.size < 3
+      = form_with model: @post, method: :post,local: true do |f|
+        = render partial: "shared/form",locals:{f: f, post: @post} 
+    - else
+      = form_with model: @post, method: :post,data: { confirm: "本当にキロクしますか？" },local: true do |f|
+        = render partial: "shared/form",locals:{f: f, post: @post} 
+
+= render partial: 'shared/footer'
