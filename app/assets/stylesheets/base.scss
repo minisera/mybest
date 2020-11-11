@@ -6,16 +6,19 @@
 
 // aタグ統一
 a{
-  color: #333333;
+  color:#555;;
   text-decoration: none;
   cursor: pointer;
   &:active{
-    color: #333333;
+    color: #555;
     text-decoration: none;
     cursor: pointer;
   }
 }
-
+// div文字色変更
+div,input {
+  color: #555;
+}
 // .hidden ＝ 隠す
 .hidden {
   display: none;

@@ -24,10 +24,10 @@ class User < ApplicationRecord
   has_many :pick_gs,dependent: :destroy
   has_many :pick_post_gs, through: :pick_gs, source: :post_g
   # 自分がフォローした側
-  has_many :active_relationships,class_name: "Relationship",foreign_key: :following_id
+  has_many :active_relationships,class_name: "Relationship",foreign_key: :following_id,dependent: :destroy
   has_many :followings, through: :active_relationships, source: :follower
   # 自分がフォローされた側
-  has_many :passive_relationships, class_name: "Relationship", foreign_key: :follower_id
+  has_many :passive_relationships, class_name: "Relationship", foreign_key: :follower_id,dependent: :destroy
   has_many :followers, through: :passive_relationships, source: :following
   
 

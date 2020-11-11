@@ -13,12 +13,9 @@
         .message2
           本当にキロクしますか？
 
-    -# 投稿可能な場合
     - if current_user.post_cs.size < 6
       = form_with model: @post,url: post_c_index_path, method: :post,local: true do |f|
         = render partial: "shared/form",locals:{f: f, post: @post} 
-
-    -# 投稿不能な場合
     - else
       = form_with model: @post, url: post_c_index_path,method: :post,data: { confirm: "本当にキロクしますか？" },local: true do |f|
         = render partial: "shared/form",locals:{f: f, post: @post} 
