@@ -3,8 +3,8 @@ FactoryBot.define do
     title         {Faker::Name.initials}
     place         {Faker::Lorem.sentence}
     brand         {Faker::Lorem.sentence}
-    story         {Faker::Lorem.sentence}
-    evidence      {Faker::Lorem.sentence}
+    story         {"ああああああああああああああああああああああああああああああ"}
+    evidence      {"ああああああああああああああああああああああああああああああ"}
     association :user
   end
 end

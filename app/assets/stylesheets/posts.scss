@@ -1,26 +1,7 @@
-// トップページ
-.about_wrapper {
-  background-color: ghostwhite;
-  height: calc(100vh - 90px);
-  .about_inner {
-    max-width: 960px;
-    margin: 0 auto;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    .about_container {
-      .about_image {
-        width: 40px;
-        height: 40px;
-      }
-    }
-  }
-}
-
 // 投稿一覧ページ
 .wrapper {
   background-color: #EEEEEE;
-  padding: 40px 0;
+  padding: 50px 0 100px 0;
   .mid_wrapper{
     max-width: 960px;
     margin: 0 auto;
@@ -33,9 +14,13 @@
           padding:20px 16px;
           margin: 76px 0;
           border-radius: 10px;
-          height: 500px;
           background-color: #FFFFFF;
           .search_tabs {
+            .search_tab_title {
+              font-size: 17px;
+              text-align: center;
+              margin-bottom: 10px;
+            }
             .search_tab {
               display: block;
               font-size: 15px;
@@ -84,6 +69,7 @@
   padding-left: 20px;
   border-bottom: solid 2px #aaa;
   color: #555;
+  margin-bottom: 20px;
 }
 .posts_index {
   display: flex;
@@ -163,13 +149,12 @@
     padding: 0 40px;
     width: 960px;
     .new_messages {
-      .message1 {
+      .message {
         font-size: 30px;
         text-align: center;
-      }
-      .message2 {
-        font-size: 30px;
-        text-align: center;
+        span {
+          font-size: 35px;
+        }
       }
     }
     form {
@@ -183,6 +168,18 @@
           padding-top: 20px;
           .file_form {
             display: flex;
+          }
+          input {
+            border: 2px solid #aaa;
+            border-radius: 4px;
+            margin: 8px 0;
+            outline: none;
+            padding: 8px;
+            transition: 0.3s;
+            &:focus {
+              border-color: dodgerBlue;
+              box-shadow: 0 0 8px 0 dodgerBlue;
+            }
           }
           textarea {
             width: 400px;
@@ -205,7 +202,11 @@
         input {
           padding: 8px;
           border: 2px solid #aaa;
-          border-radius: 4px;         
+          border-radius: 4px;    
+          &:hover {
+            background-color: #c0c0c0;
+            cursor: pointer;
+          }     
         }
       }
     }
@@ -255,6 +256,10 @@ label {
   background-color: #aaa;
   padding: 8px;
   display: inline-block;
+  &:hover {
+    background-color: #c0c0c0;
+    cursor: pointer;
+  }
 }
 
 // 投稿詳細ページ
@@ -280,7 +285,7 @@ label {
         justify-content: center;
         align-items: center;
         .user_name {
-          font-size: 20px;
+          font-size: 15px;
         }
         .user_image {
           padding-right: 10px;
@@ -356,6 +361,14 @@ label {
 
 // コメント欄
 .comment_container {
+  .no_comment_message {
+    margin-top: 10px;
+  }
+  .comment_container_title {
+    font-size: 15px;
+    border-bottom: solid 2px #aaa;
+    padding:20px 0 10px 0;
+  }
   .comment_box_bundle {
     .comment_box {
       display: flex;
@@ -374,13 +387,14 @@ label {
         width: 100%;
         .comment_box_header {
           display: flex;
+          align-items: center;
           .comment_box_user {
             font-size: 15px;
           }
           .comment_box_date {
             font-size: 12px;
             color: gray;
-            margin: auto 10px;
+            margin: 0 8px;
           }
           .comment_destroy {
             margin: 0 0 0 auto;
@@ -410,7 +424,6 @@ label {
       height: 100px;
       border: 2px solid #aaa;
       border-radius: 4px;
-      margin: 8px 0;
       outline: none;
       padding: 8px;
       transition: 0.3s;
@@ -425,6 +438,7 @@ label {
       border-radius: 4px;
       &:hover {
         background-color: #c0c0c0;
+        cursor: pointer;
       }
     }
   }

@@ -25,17 +25,32 @@ div,input {
 }
 
 // エラーメッセージ
-.error_alert {
-  color:#262626; 
+.error_alert { 
   background:#FFEBE8;
   text-align: center;
   border:2px solid #990000;
-  padding:12px; font-weight:850;
+  padding:8px;
+  margin:0 10px;
+  font-weight:850;
+  font-size: 15px;
+
+}
+
+// フラッシュメッセージ
+.notice {
+  background-color: 		#adff2f;
+  color: #32cd32;
+  padding: 5px 20px;
+}
+.alert {
+  background-color: #ffc0cb;
+  color: #ff6347;
+  padding: 5px 20px;
 }
 
 // トップページ
 .about_wrapper {
-  background-color: ghostwhite;
+  background-color: #EEEEEE;
   .about_inner {
     max-width: 960px;
     margin: 0 auto;
@@ -48,13 +63,13 @@ div,input {
       .about_box {
         margin-left: 50px;
         .login_content {
-          font-size: 20px;
+          font-size: 15px;
           text-align: center;
           span {
             font-size: 25px;
           }
           a {
-            font-size: 25px;
+            font-size: 15px;
             text-align: center;
             padding: 5px 10px;
             border-radius: 10px;
@@ -62,6 +77,9 @@ div,input {
             color: #FFFFFF;
             margin-top: 20px;
             display: inline-block;
+            &:hover {
+              background-color: #c0c0c0;
+            }
           }
         }
       }
@@ -111,11 +129,14 @@ header {
           color: white;
           display: block;
           font-size: 15px;
+          &:hover {
+            background-color: #c0c0c0;
+          }
         }
       }
       .nav_icon {
         margin-left: 20px;
-        font-size: 25px;
+        font-size: 20px;
         cursor: pointer;
       }
       img {

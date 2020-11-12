@@ -1,8 +1,8 @@
 .form_left
   = render "shared/error_messages",model: f.object
   .filed
-    .filed_name 名前は？（タイトル、商品名など）
-    = f.text_field :title,autofocus: true, autoocmplete: "title"
+    .filed_name 名前は？
+    = f.text_field :title,autofocus: true, placeholder: "タイトル、商品名など"
   .field
     .file_form
       .filed_name どんな見た目？
@@ -18,19 +18,19 @@
     
   .filed
     .filed_name どこのブランド？
-    = f.text_field :brand,autofocus: true, autoocmplete: "brand"
+    = f.text_field :brand, placeholder: "例：UNIQLO"
   .filed
     .filed_name どこで出会った？
-    = f.text_field :place,autofocus: true, autoocmplete: "place"
+    = f.text_field :place, placeholder: "例：UNIQLO渋谷店"
 .form_right
   .filed
     .filed_name 出会うまでのストーリーは？
-    = f.text_area :story,autofocus: true, autoocmplete: "story"
+    = f.text_area :story,placeholder:"30〜200文字で入力"
   .filed
     .filed_name お気に入りのポイントは？
-    = f.text_area :evidence,autofocus: true, autoocmplete: "evidence"
+    = f.text_area :evidence,placeholder:"30〜200文字で入力"
   .filed
-    .filed_name タグ（","で区切ってください）
-    = f.text_field :tag_list,value: f.object.tag_list.join(',')
+    .filed_name タグ
+    = f.text_field :tag_list,value: f.object.tag_list.join(','), placeholder: "”,”で区切って入力"
   .actions
     = f.submit "お気に入りをキロクする"

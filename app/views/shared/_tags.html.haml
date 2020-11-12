@@ -1,6 +1,7 @@
 .search_tabs
+  .search_tab_title ＜ 検索フォーム ＞
   = link_to "トレンド一覧",trend_index_posts_path,class: "search_tab"
-  = link_to "新着一覧",root_path,class: "search_tab"
+  = link_to "新着一覧",posts_path,class: "search_tab"
 .search_tags
   .tag_title ▶ clothes
   - if tag_cs.present?

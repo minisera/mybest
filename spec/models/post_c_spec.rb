@@ -34,17 +34,22 @@ RSpec.describe PostC, type: :model do
         @post_c.valid?
         expect(@post_c.errors.full_messages).to include("出会うまでのストーリーを入力してください")
       end
+      it "storyが30文字以下では登録できない" do
+        @post_c.story = "aaa"
+        @post_c.valid?
+        expect(@post_c.errors.full_messages).to include("出会うまでのストーリーは30文字以上で入力してください")
+      end
       it "evidenceが空だと登録できない" do
         @post_c.evidence = ""
         @post_c.valid?
         expect(@post_c.errors.full_messages).to include("お気に入りのポイントを入力してください")
       end
+      it "evidenceが30文字以下では登録できない" do
+        @post_c.evidence = "aaa"
+        @post_c.valid?
+        expect(@post_c.errors.full_messages).to include("お気に入りのポイントは30文字以上で入力してください")
+      end
     end
   end
-  describe "投稿編集機能" do
-    context "編集がうまくいく時" do
-      
-    end
-    context "編集がうまく行かない時" do
-    end
+
 end

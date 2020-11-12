@@ -2,8 +2,6 @@
 
 .login_wrapper
   .login_container
-    .login_icon
-      = fa_icon "user"
     .user_profile_image
     #image_preview
       .user_image_custom
@@ -16,7 +14,7 @@
       .field
         = f.text_area :profile,placeholder: " Profile"
       .actions
-        = f.submit "Update"
+        = f.submit "更新する"
 
 
 = render partial: 'shared/footer'

@@ -7,13 +7,13 @@
       -# ログイン時のエラー文
       = render "devise/shared/error_messages", resource: resource
       .field
-        = f.text_field :name, autofocus: true, autocomplete: "name",placeholder: "Name" 
+        = f.text_field :name,placeholder: "名前" 
       .field
-        = f.email_field :email, autofocus: true, autocomplete: "email",placeholder: "Email"
+        = f.email_field :email, placeholder: "Eメール"
       .field
-        = f.password_field :password, autocomplete: "new-password",placeholder: "New Password"
+        = f.password_field :password, placeholder: "パスワード"
       .field
-        = f.password_field :password_confirmation, autocomplete: "new-password",placeholder: "Password Confirmation"
+        = f.password_field :password_confirmation, placeholder: "パスワード（確認）"
       .actions
         = f.submit "Sign up"
       = render "devise/shared/links"
