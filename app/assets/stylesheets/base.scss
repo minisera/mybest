@@ -129,6 +129,9 @@ header {
           color: white;
           display: block;
           font-size: 15px;
+          &:hover {
+            background-color: #c0c0c0;
+          }
         }
       }
       .nav_icon {

@@ -4,13 +4,15 @@
   .new_form
     .new_messages
       - if current_user.post_cs.size < 6
-        .message1 あなたのお気に入りをキロクしよう
-        .message2
-          = "衣類はあと#{6 - current_user.post_cs.size}つ登録できます"
+        .message あなたのお気に入りをキロクしよう
+        .message
+          衣類はあと
+          %span= 3 - current_user.post_cs.size
+          つ登録できます
       - else 
-        .message1
+        .message
           上限に達しました。
-        .message2
+        .message
           本当にキロクしますか？
 
     - if current_user.post_cs.size < 6

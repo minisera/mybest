@@ -1,37 +1,12 @@
 = render 'shared/header'
 
-.profile_top
-  .profile_container
-    - if @user.profile_image.attached?
-      = image_tag @user.profile_image,class: "user_profile_image"
-    .profile_main
-      .profile_name_edit
-        .user_name= @user.name
-        - if current_user == @user
-          .user_edits
-            = link_to '設定',edit_user_registration_path,class: "user_edit"
-            = link_to 'プロフィール編集',edit_user_path(current_user),class: "user_edit"
-        - if current_user != @user
-          - if @user.followed_by?(current_user)
-            = link_to "フォロー中",user_relationships_path(@user.id),method: :delete,class: "follow_btn"
-          - else  
-            = link_to "フォローする",user_relationships_path(@user.id),method: :create,class: "follow_btn"
-      .user_profile
-        = @user.profile
-      .user_follows
-        .user_follow
-          = link_to follows_user_path(@user) do
-            = @user.followings.count
-            %span フォロー中
-        .user_follow
-          = link_to followers_user_path(@user) do
-            = @user.followers.count
-            %span フォロワー
+= render partial: "shared/show_user",locals: {user: @user}
+
 .wrapper
   .profile_wrapper
     .post_tags
-      = link_to "Mybest",user_path(@user),class: "post_tag_mybest"
-      = link_to "Pick",show_pick_user_path(@user),class: "post_tag_pick"
+      = link_to "Mybest",user_path(@user),class: "post_tag"
+      = link_to "Pick",show_pick_user_path(@user),class: "post_tag"
     .mypage_container
     - if @user.post_cs.present? || @user.post_bs.present? || @user.post_gs.present?
       -# 服一覧
@@ -51,4 +26,4 @@
     - else
       .none_message まだ投稿したお気に入りはありません。
 
-= render partial: 'shared/footer'
+= render'shared/footer'

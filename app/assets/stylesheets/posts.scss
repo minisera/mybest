@@ -16,6 +16,11 @@
           border-radius: 10px;
           background-color: #FFFFFF;
           .search_tabs {
+            .search_tab_title {
+              font-size: 17px;
+              text-align: center;
+              margin-bottom: 10px;
+            }
             .search_tab {
               display: block;
               font-size: 15px;
@@ -64,6 +69,7 @@
   padding-left: 20px;
   border-bottom: solid 2px #aaa;
   color: #555;
+  margin-bottom: 20px;
 }
 .posts_index {
   display: flex;
@@ -143,13 +149,12 @@
     padding: 0 40px;
     width: 960px;
     .new_messages {
-      .message1 {
+      .message {
         font-size: 30px;
         text-align: center;
-      }
-      .message2 {
-        font-size: 30px;
-        text-align: center;
+        span {
+          font-size: 35px;
+        }
       }
     }
     form {

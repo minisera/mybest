@@ -49,6 +49,7 @@
         }
       }
       .user_follows {
+        margin-top: 8px;
         display: flex;
         .user_follow {
           padding-right: 20px;
@@ -67,15 +68,13 @@
     display: flex;
     margin: 30px;
     padding: 0 25px;
-    .post_tag_mybest {
+    .post_tag {
       margin-right: 40px;
       font-size: 30px;
       display: block;
-      border-bottom: black solid 2px;
-    }
-    .post_tag_pick {
-      margin-right: 40px;
-      font-size: 30px;
+      &:hover{
+        color: #c0c0c0;
+      }
     }
   }
   .mypage_container {
@@ -245,18 +244,26 @@
   }
   .follow_tabs {
     display: flex;
-    .follow_tab {
+    .follow_tab1,.follower_tab2{
       padding: 30px 0 ;
       font-size: 25px;
       width: 50%;
       text-align: center;
+      border-bottom: solid 2px #555;
+    }
+    .follow_tab2,.follower_tab1 {
+      padding: 30px 0 ;
+      font-size: 25px;
+      width: 50%;
+      text-align: center;
+      border-bottom: solid 2px #aaa;
     }
   }
   .follow_lists {
     .user_box {
       padding: 20px;
-      border-top: solid 2px #aaa;
       border-bottom: solid 2px #aaa;
+      font-size: 20px;
       .user_box_content {
         display: flex;
         width: 100%;
