@@ -3,7 +3,6 @@ require 'rails_helper'
 RSpec.describe PostB, type: :model do
   before do
     @post_b = FactoryBot.build(:post_b)
-    @post_b.image = fixture_file_upload('public/image/output-image.png')
   end
 
   describe '新規投稿機能、投稿編集機能' do
