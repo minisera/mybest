@@ -5,8 +5,8 @@
 .wrapper
   .profile_wrapper
     .post_tags
-      = link_to "Mybest",user_path(@user),class: "post_tag"
-      = link_to "Pick",show_pick_user_path(@user),class: "post_tag"
+      = link_to "あなたのお気に入り",user_path(@user),class: "post_tag"
+      = link_to "Pickしたお気に入り",show_pick_user_path(@user),class: "post_tag"
     .mypage_container
     - if @user.pick_post_cs.present? || @user.pick_post_bs.present? || @user.pick_post_gs.present?
       -# 服一覧

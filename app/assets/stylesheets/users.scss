@@ -66,14 +66,15 @@
   padding: 0 40px;
   .post_tags {
     display: flex;
-    margin: 30px;
-    padding: 0 25px;
+    margin: 20px;
     .post_tag {
       margin-right: 40px;
-      font-size: 30px;
+      font-size: 20px;
       display: block;
+      border-bottom: #555 solid 2px;
       &:hover{
         color: #c0c0c0;
+        border-bottom: #c0c0c0 solid 2px;
       }
     }
   }
@@ -157,9 +158,10 @@
           border: 0 solid;
           border-bottom: 1px solid;
           background-color:#EEEEEE;  
+          color: #555;
           &:hover {
             cursor: pointer;
-            color: #0c0c0c;
+            color: #c0c0c0;
           }       
         }
       }
