@@ -1,24 +1,13 @@
-# README
+# Mybest
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# :globe_with_meridians: URL
 
-Things you may want to cover:
+# 制作の背景
 
-* Ruby version
+# アプリを利用するメリット
+# 工夫した点
+# 機能一覧
+# 使用技術
+# インフラ構成図
+# ER図
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
