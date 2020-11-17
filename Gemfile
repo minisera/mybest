@@ -75,3 +75,4 @@ gem 'rails-i18n'
 gem 'acts-as-taggable-on', '~> 6.0'
 gem 'jquery-ui-rails'
 gem 'kaminari'
+gem "aws-sdk-s3", require: false
