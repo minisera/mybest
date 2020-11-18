@@ -9,7 +9,7 @@
 # 機能一覧
 # 使用技術
 # インフラ構成図
-![インフラ構成図](<img width="1117" alt="スクリーンショット 2020-11-18 9 46 01" src="https://user-images.githubusercontent.com/67394974/99468297-95772480-2983-11eb-91ce-457eaf8764f2.png">)
+![インフラ構成図](https://user-images.githubusercontent.com/67394974/99468671-644b2400-2984-11eb-96c0-4ef957441b7a.png)
 
 # ER図
 
