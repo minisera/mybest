@@ -15,7 +15,7 @@ URL: https://mybst.info/
 そんな私ですが、1年前はいわゆる汚部屋の住人でした。  
 しかし今は生活にミニマリズムを取り入れ、自分の好きな物に囲まれて過ごしています。  
 【現在の自分の部屋】
-<img width="800" src="https://user-images.githubusercontent.com/67394974/99642781-37cffe80-2a8f-11eb-96b9-2311c79bf22c.jpeg">  
+<img width="800" src="https://user-images.githubusercontent.com/67394974/99733961-55d84600-2b05-11eb-99a7-45dc39efd0c3.jpeg">
 
 断捨離ができなかった頃の自分の思考は以下の通りでした。  
 
@@ -107,7 +107,8 @@ __それは、「何を残すか」ということを決めていなかったか
 * Nginx、Unicorn、MariaDB
 
 # :cloud:インフラ構成図  
-![インフラ構成図](https://user-images.githubusercontent.com/67394974/99468671-644b2400-2984-11eb-96c0-4ef957441b7a.png)
+<img width="800" alt="スクリーンショット 2020-11-20 7 49 43" src="https://user-images.githubusercontent.com/67394974/99733802-1578c800-2b05-11eb-9aed-a9fee6f7546c.png">
+
 
 # :scroll:ER図
 
