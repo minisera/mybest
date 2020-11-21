@@ -57,6 +57,7 @@ URL: https://mybst.info/
 
 <img width="400" alt="スクリーンショット 2020-11-19 16 28 36" src="https://user-images.githubusercontent.com/67394974/99635901-056dd380-2a86-11eb-9bae-9d6ff9a6d8dd.png">  <img width="400" alt="スクリーンショット 2020-11-19 16 29 41" src="https://user-images.githubusercontent.com/67394974/99636315-9c3a9000-2a86-11eb-9620-bc58b3af4d12.png">
 
+<img width="800" alt="スクリーンショット 2020-11-21 12 20 10" src="https://user-images.githubusercontent.com/67394974/99866371-1f2d2900-2bf4-11eb-9b22-582a6b5027d8.png">
 
 # :green_book:機能一覧
 ### ユーザー管理機能
