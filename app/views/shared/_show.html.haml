@@ -27,9 +27,14 @@
           .form_content
             = post.place
         .post_place_brand
-          .form_title
-            = fa_icon "angle-right"
-            ブランド
+          - if post.class.name == ("PostC" || "PostG")
+            .form_title
+              = fa_icon "angle-right"
+              ブランド
+          - else
+            .form_title
+              = fa_icon "angle-right"
+              著者
           .form_content
             = post.brand
         .post_story_evidence

@@ -8,7 +8,7 @@ class PostG < ApplicationRecord
 
   with_options  presence: true do
     validates :image
-    validates :title
+    validates :title,length: {maximum: 10}
     validates :place
     validates :brand
     validates :story,length: {in: 30..200}
@@ -18,7 +18,7 @@ class PostG < ApplicationRecord
   validate :limit_post_g,on: :create
 
   def limit_post_g
-    if user && user.post_cs.size >= 10
+    if user && user.post_cs.size > 10
       errors.add(:user, "登録の制限数を超えました")
     end
   end
