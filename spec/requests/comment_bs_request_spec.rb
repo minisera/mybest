@@ -1,5 +1,4 @@
 require 'rails_helper'
 
-RSpec.describe "CommentBs", type: :request do
-
+RSpec.describe 'CommentBs', type: :request do
 end

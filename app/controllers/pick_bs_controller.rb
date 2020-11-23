@@ -4,8 +4,9 @@ class PickBsController < ApplicationController
     pick.save
     redirect_back(fallback_location: root_path)
   end
+
   def destroy
-    pick = PickB.find_by(post_b_id: params[:post_b_id],user_id: current_user.id)
+    pick = PickB.find_by(post_b_id: params[:post_b_id], user_id: current_user.id)
     pick.destroy
     redirect_back(fallback_location: root_path)
   end

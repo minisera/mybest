@@ -4,8 +4,9 @@ class PickGsController < ApplicationController
     pick.save
     redirect_back(fallback_location: root_path)
   end
+
   def destroy
-    pick = PickG.find_by(post_g_id: params[:post_g_id],user_id: current_user.id)
+    pick = PickG.find_by(post_g_id: params[:post_g_id], user_id: current_user.id)
     pick.destroy
     redirect_back(fallback_location: root_path)
   end

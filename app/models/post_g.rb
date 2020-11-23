@@ -2,27 +2,25 @@ class PostG < ApplicationRecord
   acts_as_taggable_on :tags
   belongs_to :user
   has_one_attached :image
-  has_many :like_gs,dependent: :destroy
-  has_many :pick_gs,dependent: :destroy
-  has_many :comment_gs,dependent: :destroy
+  has_many :like_gs, dependent: :destroy
+  has_many :pick_gs, dependent: :destroy
+  has_many :comment_gs, dependent: :destroy
 
-  with_options  presence: true do
+  with_options presence: true do
     validates :image
-    validates :title,length: {maximum: 10}
+    validates :title, length: { maximum: 10 }
     validates :place
     validates :brand
-    validates :story,length: {in: 30..200}
-    validates :evidence,length: {in: 30..200}
+    validates :story, length: { in: 30..200 }
+    validates :evidence, length: { in: 30..200 }
   end
 
-  validate :limit_post_g,on: :create
+  validate :limit_post_g, on: :create
 
   def limit_post_g
-    if user && user.post_cs.size > 10
-      errors.add(:user, "登録の制限数を超えました")
-    end
+    errors.add(:user, '登録の制限数を超えました') if user && user.post_cs.size > 10
   end
-  
+
   def liked_by?(user)
     like_gs.where(user_id: user.id).exists?
   end

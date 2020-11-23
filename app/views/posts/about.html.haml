@@ -13,5 +13,27 @@
           = link_to "ログイン", new_user_session_path
         .login_content
           = link_to "新規登録", new_user_registration_path
-
+.about_wrapper_sec
+  .about_inner
+    .about_container_sec
+      .about_header - Mybestの特徴 -
+      .about_boxs
+        .about_box
+          .about_box_image
+            = image_tag "top_1.jpg",class: "about_box_image"
+          .about_box_title 1. 判断軸が見つかる
+          .about_box_content
+            本サービスは投稿数に制限があります。「何が必要なのか」を自分に問いながら投稿しましょう。
+        .about_box
+          .about_box_image
+            = image_tag "top_2.jpg",class: "about_box_image"
+          .about_box_title 2. 共有できる
+          .about_box_content
+            選び抜かれたモノは、あなたの価値観を反映しています。近い価値観の人と交流してみましょう。
+        .about_box
+          .about_box_image
+            = image_tag "top_3.jpg",class: "about_box_image"
+          .about_box_title 3. モノが好きになる
+          .about_box_content
+            モノの判断軸がついた時、あなたは本当の意味でモノが好きになっているはずです。
 = render partial: 'shared/footer'

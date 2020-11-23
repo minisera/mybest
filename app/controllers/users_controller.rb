@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
-  before_action :set_user,only: [:show,:show_pick,:follows,:followers]
-  
+  before_action :set_user, only: [:show, :show_pick, :follows, :followers]
+
   def show
   end
 
@@ -20,7 +20,7 @@ class UsersController < ApplicationController
   def follows
     @users = @user.followings
   end
-  
+
   def followers
     @users = @user.followers
   end
@@ -28,11 +28,12 @@ class UsersController < ApplicationController
   def show_pick
   end
 
-private
+  private
+
   def user_params
-    params.require(:user).permit(:name,:profile_image,:profile)
+    params.require(:user).permit(:name, :profile_image, :profile)
   end
-  
+
   def set_user
     @user = User.find(params[:id])
   end

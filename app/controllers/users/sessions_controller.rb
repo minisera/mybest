@@ -4,10 +4,10 @@ class Users::SessionsController < Devise::SessionsController
     sign_in user
     redirect_to posts_url, notice: 'ゲストユーザーとしてログインしました。'
   end
-  
+
   protected
 
-  def after_sign_in_path_for(resource)
+  def after_sign_in_path_for(_resource)
     posts_url
   end
 end

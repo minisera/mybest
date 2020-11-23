@@ -1,6 +1,6 @@
 class PostGsController < ApplicationController
-  before_action :set_post,only: [:edit,:update,:show,:destroy]
-  before_action :authenticate_user!,except: [:show]
+  before_action :set_post, only: [:edit, :update, :show, :destroy]
+  before_action :authenticate_user!, except: [:show]
   before_action :move_to_index, only: :edit
 
   def new
@@ -10,7 +10,7 @@ class PostGsController < ApplicationController
   def create
     @post = PostG.new(post_params)
     if @post.save
-      redirect_to user_url(current_user),notice: "お気に入りを登録しました"
+      redirect_to user_url(current_user), notice: 'お気に入りを登録しました'
     else
       render :new
     end
@@ -18,10 +18,10 @@ class PostGsController < ApplicationController
 
   def edit
   end
-  
+
   def update
     if @post.update(post_params)
-      redirect_to user_url(current_user),notice: "お気に入りを編集しました"
+      redirect_to user_url(current_user), notice: 'お気に入りを編集しました'
     else
       render :edit
     end
@@ -34,14 +34,13 @@ class PostGsController < ApplicationController
 
   def destroy
     @post.destroy
-    redirect_to user_url(current_user),notice: "お気に入りを削除しました"
+    redirect_to user_url(current_user), notice: 'お気に入りを削除しました'
   end
 
-
-private
+  private
 
   def post_params
-    params.require(:post_g).permit(:title,:image,:place,:brand,:story,:evidence,:tag_list).merge(user_id: current_user.id)
+    params.require(:post_g).permit(:title, :image, :place, :brand, :story, :evidence, :tag_list).merge(user_id: current_user.id)
   end
 
   def set_post

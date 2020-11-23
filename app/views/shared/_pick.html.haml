@@ -10,9 +10,8 @@
         %span= fa_icon "get-pocket yet_icon"
         = post.pick_cs.count
   - else
-    %p
-      %span= fa_icon "thumbs-up"
-      = post.pick_cs.count
+    %span= fa_icon "get-pocket"
+    = post.pick_cs.count
 
 -# 本の投稿に対しての「Pick」
 - if post.class.name == "PostB"
@@ -26,9 +25,8 @@
         %span= fa_icon "get-pocket yet_icon"
         = post.pick_bs.count
   - else
-    %p
-      %span= fa_icon "thumbs-up"
-      = post.pick_bs.count
+    %span= fa_icon "tget-pocket"
+    = post.pick_bs.count
 
 -# 雑貨の投稿に対しての「Pick」
 - if post.class.name == "PostG"
@@ -42,6 +40,5 @@
         %span= fa_icon "get-pocket yet_icon"
         = post.pick_gs.count
   - else
-    %p
-      %span= fa_icon "thumbs-up"
-      = post.pick_gs.count
+    %span= fa_icon "get-pocket"
+    = post.pick_gs.count

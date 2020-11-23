@@ -3,7 +3,7 @@ class CommentBsController < ApplicationController
     @comment = CommentB.create(comment_params)
     redirect_back(fallback_location: root_path)
   end
-  
+
   def destroy
     comment = CommentB.find(params[:post_b_id])
     comment.destroy
@@ -11,6 +11,7 @@ class CommentBsController < ApplicationController
   end
 
   private
+
   def comment_params
     params.require(:comment_b).permit(:text).merge(user_id: current_user.id, post_b_id: params[:post_b_id])
   end

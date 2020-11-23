@@ -10,9 +10,8 @@
         %span= fa_icon "thumbs-up yet_icon"
         = post.like_cs.count
   - else
-    %p
-      %span= fa_icon "thumbs-up"
-      = post.like_cs.count
+    %span= fa_icon "thumbs-up"
+    = post.like_cs.count
 
 -# 本の投稿に対しての「いいね」
 - if post.class.name == "PostB"
@@ -26,9 +25,8 @@
         %span= fa_icon "thumbs-up yet_icon"
         = post.like_bs.count
   - else
-    %p
-      %span= fa_icon "thumbs-up"
-      = post.like_bs.count
+    %span= fa_icon "thumbs-up"
+    = post.like_bs.count
 
 -# 雑貨の投稿に対しての「いいね」
 - if post.class.name == "PostG"
@@ -42,6 +40,5 @@
         %span= fa_icon "thumbs-up yet_icon"
         = post.like_gs.count
   - else
-    %p
-      %span= fa_icon "thumbs-up"
-      = post.like_gs.count
+    %span= fa_icon "thumbs-up"
+    = post.like_gs.count

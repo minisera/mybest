@@ -1,6 +1,4 @@
 require 'rails_helper'
 
-RSpec.describe "PickCs", type: :request do
-
-
+RSpec.describe 'PickCs', type: :request do
 end
