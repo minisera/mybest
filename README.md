@@ -103,7 +103,7 @@ URL: https://mybst.info/
 
 ### テスト
 * RSpec
-* EactoryBot
+* FactoryBot
 * Faker
 
 ### 開発環境
