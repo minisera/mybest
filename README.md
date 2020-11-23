@@ -1,9 +1,10 @@
 # :raised_hands: Mybest
 Mybestは**モノに対する判断軸**を見つけるための、所有物の管理、共有するサービスです。  
 衣類、本、雑貨の3種類を登録できますが、登録数はそれぞれ制限があります。  
-登録する過程で自分と対話し、**モノに対する判断軸**を見つける旅に出ましょう！  
+登録する過程で自分と対話し、**モノに対する判断軸**を見つける旅に出ましょう！
 
-<img width="800" alt="スクリーンショット 2020-11-19 17 04 43" src="https://user-images.githubusercontent.com/67394974/99638355-719e0680-2a89-11eb-85db-b1d8462cf843.png">
+<img width="800" alt="スクリーンショット 2020-11-23 19 30 47" src="https://user-images.githubusercontent.com/67394974/99952253-b0ea9100-2dc2-11eb-902a-175c775d9bed.png">
+
 
 # :globe_with_meridians: URL
 URL: https://mybst.info/
