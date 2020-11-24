@@ -3,13 +3,13 @@ class PickGsController < ApplicationController
     pick = current_user.pick_gs.build(post_g_id: params[:post_g_id])
     pick.save
     redirect_back(fallback_location: root_path)
-    flash[:notice] = "投稿を「Pick」しました"
+    flash[:notice] = '投稿を「Pick」しました'
   end
 
   def destroy
     pick = PickG.find_by(post_g_id: params[:post_g_id], user_id: current_user.id)
     pick.destroy
     redirect_back(fallback_location: root_path)
-    flash[:notice] = "投稿を「Pick」から外しました"
+    flash[:notice] = '投稿を「Pick」から外しました'
   end
 end

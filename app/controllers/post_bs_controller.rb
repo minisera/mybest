@@ -1,8 +1,8 @@
 class PostBsController < ApplicationController
   before_action :set_post, only: [:edit, :update, :show, :destroy]
-  before_action :authenticate_user!, except: [:show,:index]
+  before_action :authenticate_user!, except: [:show, :index]
   before_action :move_to_index, only: :edit
-  before_action :set_tag,only: :index
+  before_action :set_tag, only: :index
 
   def new
     @post = PostB.new
@@ -55,7 +55,7 @@ class PostBsController < ApplicationController
   def move_to_index
     @post = PostB.find(params[:id])
     redirect_to posts_url unless current_user == @post.user
-    flash[:alert] = "他人の投稿は編集できません"
+    flash[:alert] = '他人の投稿は編集できません'
   end
 
   def set_tag

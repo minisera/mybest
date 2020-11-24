@@ -8,7 +8,7 @@ class UsersController < ApplicationController
   def edit
     @user = User.find(params[:id])
     redirect_to posts_url unless current_user == @user
-    flash[:alert] = "他人の情報は編集できません"
+    flash[:alert] = '他人の情報は編集できません'
   end
 
   def update

@@ -2,14 +2,14 @@ class CommentBsController < ApplicationController
   def create
     @comment = CommentB.create(comment_params)
     redirect_back(fallback_location: root_path)
-    flash[:notice] = "投稿にコメントしました"
+    flash[:notice] = '投稿にコメントしました'
   end
 
   def destroy
     comment = CommentB.find(params[:post_b_id])
     comment.destroy
     redirect_back(fallback_location: root_path)
-    flash[:notice] = "コメントを削除しました"
+    flash[:notice] = 'コメントを削除しました'
   end
 
   private
