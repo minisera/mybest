@@ -56,7 +56,7 @@ URL: https://mybst.info/
 * 「**直感的なわかりやすさ・使いやすさ**」 を重視し、一つ一つの機能やデザインに細部までこだわりました。
 * **ミニマリズム感**を意識するために、色は3色以内で余白を取ったデザインにしました。
 
-<img width="400" alt="スクリーンショット 2020-11-19 16 28 36" src="https://user-images.githubusercontent.com/67394974/99635901-056dd380-2a86-11eb-9bae-9d6ff9a6d8dd.png">  <img width="400" alt="スクリーンショット 2020-11-19 16 29 41" src="https://user-images.githubusercontent.com/67394974/99636315-9c3a9000-2a86-11eb-9620-bc58b3af4d12.png">
+<img width="400" alt="スクリーンショット 2020-11-24 13 14 12" src="https://user-images.githubusercontent.com/67394974/100047964-11c3a900-2e57-11eb-9f3b-c27aced23cff.png">   <img width="400" alt="スクリーンショット 2020-11-19 16 29 41" src="https://user-images.githubusercontent.com/67394974/99636315-9c3a9000-2a86-11eb-9620-bc58b3af4d12.png">
 
 <img width="400" alt="スクリーンショット 2020-11-21 12 20 10" src="https://user-images.githubusercontent.com/67394974/99899081-cb9d0700-2ce9-11eb-97ae-09dc0d541e3f.png">
 
