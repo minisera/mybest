@@ -1,15 +1,17 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show, :show_pick, :follows, :followers]
+  before_action :set_user
+  before_action :authenticate_user!, only: [:edit]
 
   def show
   end
 
   def edit
-    @user = User.find(current_user.id)
+    @user = User.find(params[:id])
+    redirect_to posts_url unless current_user == @user
+    flash[:alert] = "他人の情報は編集できません"
   end
 
   def update
-    @user = User.find(current_user.id)
     if @user.update(user_params)
       redirect_to user_url(current_user)
     else

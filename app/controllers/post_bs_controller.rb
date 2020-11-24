@@ -1,7 +1,8 @@
 class PostBsController < ApplicationController
   before_action :set_post, only: [:edit, :update, :show, :destroy]
-  before_action :authenticate_user!, except: [:show]
+  before_action :authenticate_user!, except: [:show,:index]
   before_action :move_to_index, only: :edit
+  before_action :set_tag,only: :index
 
   def new
     @post = PostB.new
@@ -37,6 +38,10 @@ class PostBsController < ApplicationController
     redirect_to user_url(current_user), notice: 'お気に入りを削除しました'
   end
 
+  def index
+    @post = PostB.includes(:user).order('created_at DESC').page(params[:page]).per(18)
+  end
+
   private
 
   def post_params
@@ -50,5 +55,12 @@ class PostBsController < ApplicationController
   def move_to_index
     @post = PostB.find(params[:id])
     redirect_to posts_url unless current_user == @post.user
+    flash[:alert] = "他人の投稿は編集できません"
+  end
+
+  def set_tag
+    @tag_cs = PostC.tag_counts_on(:tags).most_used(10)
+    @tag_bs = PostB.tag_counts_on(:tags).most_used(10)
+    @tag_gs = PostG.tag_counts_on(:tags).most_used(10)
   end
 end

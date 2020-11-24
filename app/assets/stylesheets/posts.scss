@@ -2,6 +2,7 @@
 .wrapper {
   background-color: #EEEEEE;
   padding: 50px 0 100px 0;
+  min-height: calc(100vh - 240px);
   .mid_wrapper{
     max-width: 960px;
     margin: 0 auto;
@@ -72,6 +73,22 @@
   color: #555;
   margin-bottom: 20px;
 }
+.posts_link {
+  display: flex;
+  justify-content: center;
+  margin: 20px 0 ;
+  a {
+    font-size: 20px;
+    text-align: center;
+    padding: 10px 20px;
+    border-radius: 10px;
+    background-color: #aaa;
+    color: #eeeeee;
+    &:hover {
+      background-color: #c0c0c0;
+    }
+  }
+}
 .posts_index {
   display: flex;
   flex-wrap: wrap;
@@ -129,7 +146,7 @@
 // ページネーション
 
 .pagination {
-  margin-top: 10px;
+  margin-top: 50px;
   text-align: center;
   display: block;
   .page,.next,.last,.first,.prev {
@@ -142,12 +159,11 @@
 
 // 新規投稿ページ、投稿編集ページ
 
-.new_wrapper {
+.wrapper {
   background-color: #EEEEEE;
   padding: 40px 0 ;
   .new_form {
     margin: 0 auto;
-    padding: 0 40px;
     width: 960px;
     .new_messages {
       .message {
@@ -163,13 +179,12 @@
       display: flex;
       align-items: center;
       .form_right {  
-        padding-left: 50px;
         width: 50%;
+        border-left: solid;
+        border-color: #aaa;
         .filed {
           padding-top: 20px;
-          .file_form {
-            display: flex;
-          }
+          text-align: center;
           input {
             border: 2px solid #aaa;
             border-radius: 4px;
@@ -177,6 +192,7 @@
             outline: none;
             padding: 8px;
             transition: 0.3s;
+            width: 300px;
             &:focus {
               border-color: dodgerBlue;
               box-shadow: 0 0 8px 0 dodgerBlue;
@@ -184,7 +200,7 @@
           }
           textarea {
             width: 400px;
-            height: 150px;
+            height: 180px;
             border: 2px solid #aaa;
             border-radius: 4px;
             margin: 8px 0;
@@ -200,6 +216,7 @@
       }
       .actions {
         padding-top: 40px;
+        text-align: center;
         input {
           padding: 8px;
           border: 2px solid #aaa;
@@ -212,12 +229,13 @@
       }
     }
     .form_left {
-      border-right: solid;
-      border-color: #aaa;
       width: 50%;
       .filed {
         padding-top: 20px;
+        margin-bottom: 20px;
+        text-align: center;
         input {
+          width: 300px;
           border: 2px solid #aaa;
           border-radius: 4px;
           margin: 8px 0;
@@ -237,12 +255,15 @@
 .filed_name {
   font-size: 20px;
   padding-top: 10px;
+  text-align: center;
 }
 
 // 投稿新規登録および編集時のプレビュー画像
 
 #image_preview {
   .post_image_custom {
+    display: flex;
+    justify-content: center;
     .post_image_pre {
       width: 200px;
       height: 200px;
@@ -251,15 +272,19 @@
     }    
   }
 }
-label {
-  border-radius: 4px;
-  margin: 8px 0;
-  background-color: #aaa;
-  padding: 8px;
-  display: inline-block;
-  &:hover {
-    background-color: #c0c0c0;
-    cursor: pointer;
+.label_wrapper {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 10px;
+  label {
+    border-radius: 4px;
+    margin: 8px 0;
+    background-color: #aaa;
+    padding: 8px;
+    &:hover {
+      background-color: #c0c0c0;
+      cursor: pointer;
+    }
   }
 }
 

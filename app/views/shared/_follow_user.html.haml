@@ -21,13 +21,14 @@
                   = user.name
                 .user_box_profile
                   = user.profile
-              - if user.followed_by?(current_user)
-                = link_to user_relationships_path(user),method: :delete,class: "user_box_content_followed" do
-                  = fa_icon "user-plus"
-                  %span フォロー中
-              - else
-                = link_to user_relationships_path(user),method: :post,class: "user_box_content_following" do
-                  = fa_icon "user-plus"
-                  %span フォロー
+              - unless current_user == user
+                - if user.followed_by?(current_user)
+                  = link_to user_relationships_path(user),method: :delete,class: "user_box_content_followed" do
+                    = fa_icon "user-plus"
+                    %span フォロー中
+                - else
+                  = link_to user_relationships_path(user),method: :post,class: "user_box_content_following" do
+                    = fa_icon "user-plus"
+                    %span フォロー
       - else
         .user_box フォローユーザーはいません。

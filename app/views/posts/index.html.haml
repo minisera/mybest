@@ -12,16 +12,20 @@
         -# 服一覧
         .posts_title Clothes
         = render partial: "shared/index",locals: { posts: @post_cs}
-        = paginate @post_cs
+        .posts_link
+          = link_to "衣類一覧",post_cs_path
         
         -# 本一覧
         .posts_title Books
         = render partial: "shared/index",locals: { posts: @post_bs}
-        = paginate @post_bs
-
+        .posts_link
+          = link_to "本一覧",post_bs_path,class: "posts_link"
+        
         -# 雑貨一覧
         .posts_title Goods
         = render partial: "shared/index",locals: { posts: @post_gs}
-        = paginate @post_gs
+        .posts_link
+          = link_to "雑貨一覧",post_gs_path,class: "posts_link"
+        
 
 = render partial: 'shared/footer'

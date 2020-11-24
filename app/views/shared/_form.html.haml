@@ -4,8 +4,8 @@
     .filed_name 名前は？(10文字以内)
     = f.text_field :title,autofocus: true, placeholder: "タイトル、商品名など"
   .field
-    .file_form
-      .filed_name どんな見た目？
+    .filed_name どんな見た目？
+    .label_wrapper
       %label(for="post_image")
         ファイルを選択
         = f.file_field :image,id: "post_image",class: "hidden"

@@ -1,13 +1,13 @@
 = render 'shared/header'
 
-.new_wrapper
+.wrapper
   .new_form
     .new_messages
       - if current_user.post_cs.size < 6
         .message あなたのお気に入りをキロクしよう
         .message
           衣類はあと
-          %span= 3 - current_user.post_cs.size
+          %span= 6 - current_user.post_cs.size
           つ登録できます
       - else 
         .message

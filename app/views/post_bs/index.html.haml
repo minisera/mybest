@@ -1,0 +1,17 @@
+= render partial: 'shared/header'
+
+.wrapper
+  .mid_wrapper
+    .container
+      .search_wrapper
+        .search_container
+          -# タグ一覧
+          = render partial: "shared/tags",locals: {tag_cs: @tag_cs,tag_bs: @tag_bs,tag_gs: @tag_gs}
+          
+      .main_container
+        -# 本一覧
+        .posts_title Books
+        = render partial: "shared/index",locals: { posts: @post}
+        = paginate @post
+
+= render partial: 'shared/footer'
