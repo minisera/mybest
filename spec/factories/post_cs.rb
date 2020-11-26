@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :post_c do
-    title         { Faker::Name.initials }
+    title         { Faker::Name.initials(10) }
     place         { Faker::Lorem.sentence }
     brand         { Faker::Lorem.sentence }
     story         { 'ああああああああああああああああああああああああああああああ' }
