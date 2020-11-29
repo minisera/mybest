@@ -8,17 +8,17 @@ class PostG < ApplicationRecord
 
   with_options presence: true do
     validates :image
-    validates :title, length: { maximum: 10 }
+    validates :title, length: { maximum: 12 }
     validates :place
     validates :brand
     validates :story, length: { in: 30..200 }
     validates :evidence, length: { in: 30..200 }
   end
 
-  validate :limit_post_g, on: :create
+  validate :limit_post, on: :create
 
-  def limit_post_g
-    errors.add(:user, '登録の制限数を超えました') if user && user.post_cs.size > 10
+  def limit_post
+    errors.add(:user, 'の登録制限数を超えました') if user && user.post_gs.size > 9
   end
 
   def liked_by?(user)

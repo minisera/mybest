@@ -2,52 +2,77 @@ require 'rails_helper'
 
 RSpec.describe PostC, type: :model do
   before do
-    @post_c = FactoryBot.build(:post_c)
+    @post = FactoryBot.build(:post_c)
   end
 
   describe '新規投稿機能、投稿編集機能' do
     context '新規投稿がうまくいくとき' do
       it '全て情報に不備がなければ登録できる' do
-        expect(@post_c).to be_valid
+        expect(@post).to be_valid
       end
     end
 
     context '新規投稿がうまくいかないとき' do
       it 'titleが空だと登録できない' do
-        @post_c.title = ''
-        @post_c.valid?
-        expect(@post_c.errors.full_messages).to include('タイトルを入力してください')
+        @post.title = ''
+        @post.valid?
+        expect(@post.errors.full_messages).to include('タイトルを入力してください')
       end
+      it 'titleが13字以上だと登録できない' do
+        @post.title = 'あああああああああああああ'
+        @post.valid?
+        expect(@post.errors.full_messages).to include('タイトルは12文字以内で入力してください')
+      end
+
       it 'placeが空だと登録できない' do
-        @post_c.place = ''
-        @post_c.valid?
-        expect(@post_c.errors.full_messages).to include('出会った場所を入力してください')
+        @post.place = ''
+        @post.valid?
+        expect(@post.errors.full_messages).to include('出会った場所を入力してください')
       end
       it 'brandが空だと登録できない' do
-        @post_c.brand = ''
-        @post_c.valid?
-        expect(@post_c.errors.full_messages).to include('ブランドを入力してください')
+        @post.brand = ''
+        @post.valid?
+        expect(@post.errors.full_messages).to include('ブランドを入力してください')
       end
       it 'storyが空だと登録できない' do
-        @post_c.story = ''
-        @post_c.valid?
-        expect(@post_c.errors.full_messages).to include('出会うまでのストーリーを入力してください')
+        @post.story = ''
+        @post.valid?
+        expect(@post.errors.full_messages).to include('出会うまでのストーリーを入力してください')
       end
-      it 'storyが30文字以下では登録できない' do
-        @post_c.story = 'aaa'
-        @post_c.valid?
-        expect(@post_c.errors.full_messages).to include('出会うまでのストーリーは30文字以上で入力してください')
+      it 'storyが29文字以下では登録できない' do
+        @post.story = 'aaa'
+        @post.valid?
+        expect(@post.errors.full_messages).to include('出会うまでのストーリーは30文字以上で入力してください')
+      end
+      it 'storyが201文字以上では登録できない' do
+        @post.story = 'あああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああ'
+        @post.valid?
+        expect(@post.errors.full_messages).to include('出会うまでのストーリーは200文字以内で入力してください')
       end
       it 'evidenceが空だと登録できない' do
-        @post_c.evidence = ''
-        @post_c.valid?
-        expect(@post_c.errors.full_messages).to include('お気に入りのポイントを入力してください')
+        @post.evidence = ''
+        @post.valid?
+        expect(@post.errors.full_messages).to include('お気に入りのポイントを入力してください')
       end
-      it 'evidenceが30文字以下では登録できない' do
-        @post_c.evidence = 'aaa'
-        @post_c.valid?
-        expect(@post_c.errors.full_messages).to include('お気に入りのポイントは30文字以上で入力してください')
+      it 'evidenceが29文字以下では登録できない' do
+        @post.evidence = 'aaa'
+        @post.valid?
+        expect(@post.errors.full_messages).to include('お気に入りのポイントは30文字以上で入力してください')
       end
+      it 'evidenceが201文字以上では登録できない' do
+        @post.evidence = 'あああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああ'
+        @post.valid?
+        expect(@post.errors.full_messages).to include('お気に入りのポイントは200文字以内で入力してください')
+      end
+      # it '登録数が10を超えると登録できない' do
+      #   @post.save
+      #   9.times.do
+      #     post = FactoryBot.build(:post_c)
+      #     post.save
+      #   end
+      #   @post.valid?
+      #   expect(@post.errors.full_messages).to include("ユーザーの登録制限数を超えました")
+      # end
     end
   end
 end

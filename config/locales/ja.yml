@@ -224,6 +224,7 @@ ja:
           brand: ブランド
           story: 出会うまでのストーリー
           evidence: お気に入りのポイント
+          user: ユーザー
       post_b:
           title: タイトル
           place: 出会った場所
@@ -231,6 +232,7 @@ ja:
           brand: ブランド
           story: 出会うまでのストーリー
           evidence: お気に入りのポイント
+          user: ユーザー
       post_g:
           title: タイトル
           place: 出会った場所
@@ -238,3 +240,4 @@ ja:
           brand: ブランド
           story: 出会うまでのストーリー
           evidence: お気に入りのポイント
+          user: ユーザー
