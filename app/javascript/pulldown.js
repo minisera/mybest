@@ -41,23 +41,4 @@ window.addEventListener("load",function(){
       pullDownEdit.removeAttribute("style", "display:block;")
     }
   })
-
-  // コメント編集アイコン
-  // const pullDownButtonComment = document.getElementsByClassName("comment_list")
-  // const pullDownComment = document.getElementsByClassName("pulldown_comment")
-
-  // pullDownButtonComment.addEventListener("mouseover",function(){
-  //   this.setAttribute("style", "color:#aaa;")
-  // })
-  // pullDownButtonComment.addEventListener("mouseout",function(){
-  //   this.setAttribute("style", "color:black;")
-  // })
-
-  // pullDownButtonComment.addEventListener("click",function(){
-  //   if (pullDownComment.getAttribute("style") == "display:block;") {
-  //     pullDownComment.removeAttribute("style", "display:block;");
-  //   } else {
-  //     pullDownComment.setAttribute("style", "display:block;")
-  //   }
-  // })
 })

@@ -179,6 +179,11 @@ header {
         margin-left: 20px;
         font-size: 20px;
         cursor: pointer;
+        a {
+          &:hover {
+            color: #c0c0c0;
+          }
+        }
       }
       img {
         width: 42px;
@@ -190,6 +195,7 @@ header {
     }
   }
 }
+
 
 // フッター
 

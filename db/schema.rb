@@ -12,7 +12,7 @@
 
 ActiveRecord::Schema.define(version: 2020_11_10_074956) do
 
-  create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
+  create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
     t.bigint "record_id", null: false
@@ -22,7 +22,7 @@ ActiveRecord::Schema.define(version: 2020_11_10_074956) do
     t.index ["record_type", "record_id", "name", "blob_id"], name: "index_active_storage_attachments_uniqueness", unique: true
   end
 
-  create_table "active_storage_blobs", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
+  create_table "active_storage_blobs", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "key", null: false
     t.string "filename", null: false
     t.string "content_type"
@@ -33,7 +33,7 @@ ActiveRecord::Schema.define(version: 2020_11_10_074956) do
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
   end
 
-  create_table "comment_bs", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
+  create_table "comment_bs", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "user_id"
     t.bigint "post_b_id"
     t.text "text"
@@ -43,7 +43,7 @@ ActiveRecord::Schema.define(version: 2020_11_10_074956) do
     t.index ["user_id"], name: "index_comment_bs_on_user_id"
   end
 
-  create_table "comment_cs", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
+  create_table "comment_cs", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "user_id"
     t.bigint "post_c_id"
     t.text "text"
@@ -53,7 +53,7 @@ ActiveRecord::Schema.define(version: 2020_11_10_074956) do
     t.index ["user_id"], name: "index_comment_cs_on_user_id"
   end
 
-  create_table "comment_gs", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
+  create_table "comment_gs", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "user_id"
     t.bigint "post_g_id"
     t.text "text"
@@ -63,7 +63,7 @@ ActiveRecord::Schema.define(version: 2020_11_10_074956) do
     t.index ["user_id"], name: "index_comment_gs_on_user_id"
   end
 
-  create_table "like_bs", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
+  create_table "like_bs", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "user_id"
     t.bigint "post_b_id"
     t.datetime "created_at", precision: 6, null: false
@@ -72,7 +72,7 @@ ActiveRecord::Schema.define(version: 2020_11_10_074956) do
     t.index ["user_id"], name: "index_like_bs_on_user_id"
   end
 
-  create_table "like_cs", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
+  create_table "like_cs", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "user_id"
     t.bigint "post_c_id"
     t.datetime "created_at", precision: 6, null: false
@@ -81,7 +81,7 @@ ActiveRecord::Schema.define(version: 2020_11_10_074956) do
     t.index ["user_id"], name: "index_like_cs_on_user_id"
   end
 
-  create_table "like_gs", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
+  create_table "like_gs", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "user_id"
     t.bigint "post_g_id"
     t.datetime "created_at", precision: 6, null: false
@@ -90,7 +90,7 @@ ActiveRecord::Schema.define(version: 2020_11_10_074956) do
     t.index ["user_id"], name: "index_like_gs_on_user_id"
   end
 
-  create_table "pick_bs", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
+  create_table "pick_bs", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "user_id"
     t.bigint "post_b_id"
     t.datetime "created_at", precision: 6, null: false
@@ -99,7 +99,7 @@ ActiveRecord::Schema.define(version: 2020_11_10_074956) do
     t.index ["user_id"], name: "index_pick_bs_on_user_id"
   end
 
-  create_table "pick_cs", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
+  create_table "pick_cs", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "user_id"
     t.bigint "post_c_id"
     t.datetime "created_at", precision: 6, null: false
@@ -108,7 +108,7 @@ ActiveRecord::Schema.define(version: 2020_11_10_074956) do
     t.index ["user_id"], name: "index_pick_cs_on_user_id"
   end
 
-  create_table "pick_gs", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
+  create_table "pick_gs", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "user_id"
     t.bigint "post_g_id"
     t.datetime "created_at", precision: 6, null: false
@@ -117,7 +117,7 @@ ActiveRecord::Schema.define(version: 2020_11_10_074956) do
     t.index ["user_id"], name: "index_pick_gs_on_user_id"
   end
 
-  create_table "post_bs", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
+  create_table "post_bs", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "user_id"
     t.string "title", null: false
     t.string "place", null: false
@@ -129,7 +129,7 @@ ActiveRecord::Schema.define(version: 2020_11_10_074956) do
     t.index ["user_id"], name: "index_post_bs_on_user_id"
   end
 
-  create_table "post_cs", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
+  create_table "post_cs", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "user_id"
     t.string "title", null: false
     t.string "place", null: false
@@ -141,7 +141,7 @@ ActiveRecord::Schema.define(version: 2020_11_10_074956) do
     t.index ["user_id"], name: "index_post_cs_on_user_id"
   end
 
-  create_table "post_gs", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
+  create_table "post_gs", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "user_id"
     t.string "title", null: false
     t.string "place", null: false
@@ -153,7 +153,7 @@ ActiveRecord::Schema.define(version: 2020_11_10_074956) do
     t.index ["user_id"], name: "index_post_gs_on_user_id"
   end
 
-  create_table "relationships", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
+  create_table "relationships", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "follower_id"
     t.bigint "following_id"
     t.datetime "created_at", precision: 6, null: false
@@ -163,7 +163,7 @@ ActiveRecord::Schema.define(version: 2020_11_10_074956) do
     t.index ["following_id"], name: "index_relationships_on_following_id"
   end
 
-  create_table "taggings", id: :integer, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
+  create_table "taggings", id: :integer, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "tag_id"
     t.string "taggable_type"
     t.integer "taggable_id"
@@ -181,7 +181,7 @@ ActiveRecord::Schema.define(version: 2020_11_10_074956) do
     t.index ["tagger_id"], name: "index_taggings_on_tagger_id"
   end
 
-  create_table "tags", id: :integer, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
+  create_table "tags", id: :integer, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", collation: "utf8_bin"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -189,7 +189,7 @@ ActiveRecord::Schema.define(version: 2020_11_10_074956) do
     t.index ["name"], name: "index_tags_on_name", unique: true
   end
 
-  create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
+  create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
     t.text "profile"
     t.string "email", default: "", null: false
