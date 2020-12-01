@@ -1,8 +1,16 @@
 class CommentCsController < ApplicationController
   def create
-    @comment = CommentC.create(comment_params)
+    @comment = CommentC.new(comment_params)
+    @comment.save
     redirect_back(fallback_location: root_path)
-    flash[:notice] = '投稿にコメントしました'
+    
+    #   respond_to do | format |
+    #     format.json
+    #   end
+    # else
+    #   # render post_c_path(@comment.post_c.id)
+    # # flash[:notice] = '投稿にコメントしました'
+    # end
   end
 
   def destroy
