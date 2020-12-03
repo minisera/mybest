@@ -1,16 +1,17 @@
-- comments.each do | comment |
-  %div{class: "comment_box",id: "comment_#{comment.id}"}
-    = link_to image_tag(comment.user.profile_image),user_path(comment.user),class: "comment_box_avatar"
-    .comment_box_main
-      .comment_box_header
-        .comment_box_user=comment.user.name
-        %time.comment_box_date(datetime="#{comment.created_at}")= "#{time_ago_in_words(comment.created_at)}前"
-        - if current_user.id == comment.user.id
-          - if comment.class.name == "CommentC"
-            = link_to "削除する", post_c_comment_cs_path(comment.id),method: :delete,class: "comment_destroy"
-          - if comment.class.name == "CommentB"
-            = link_to "削除する", post_b_comment_bs_path(comment.id),method: :delete,class: "comment_destroy"
-          - if comment.class.name == "CommentG"
-            = link_to "削除する", post_g_comment_gs_path(comment.id),method: :delete,class: "comment_destroy"
-      .comment_box_body
-        %p=comment.text
+#comment_area.comment_box_bundle
+  - comments.each do | comment |
+    %div{class: "comment_box",id: "comment_#{comment.id}"}
+      = link_to image_tag(comment.user.profile_image),user_path(comment.user),class: "comment_box_avatar"
+      .comment_box_main
+        .comment_box_header
+          .comment_box_user=comment.user.name
+          %time.comment_box_date(datetime="#{comment.created_at}")= "#{time_ago_in_words(comment.created_at)}前"
+          - if current_user.id == comment.user.id
+            - if comment.class.name == "CommentC"
+              = link_to "削除する", post_c_comment_cs_path(comment.id),method: :delete,class: "comment_destroy"
+            - if comment.class.name == "CommentB"
+              = link_to "削除する", post_b_comment_bs_path(comment.id),method: :delete,class: "comment_destroy"
+            - if comment.class.name == "CommentG"
+              = link_to "削除する", post_g_comment_gs_path(comment.id),method: :delete,class: "comment_destroy"
+        .comment_box_body
+          %p=comment.text

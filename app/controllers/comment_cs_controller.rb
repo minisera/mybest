@@ -6,7 +6,6 @@ class CommentCsController < ApplicationController
     respond_to do |format|
       if @comment.save
         format.js
-        flash[:notice] = 'コメントを投稿しました'
       end
     end
   end
