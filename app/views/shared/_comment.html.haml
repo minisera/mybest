@@ -1,5 +1,9 @@
 .comment_container
-  #comment_area
-    = render "shared/comment_area",{comments: comments}
+  .comment_container_title コメント一覧
+  - if comments.present?
+    #comment_area.comment_box_bundle
+      = render "shared/comment_area",{comments: comments}
+  - else
+    .no_comment_message 投稿者さんにコメントをしてみよう！
   #comment_form
     = render "shared/comment_form",{comment: comment,post: post}
