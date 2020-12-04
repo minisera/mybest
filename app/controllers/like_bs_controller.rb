@@ -1,9 +1,15 @@
 class LikeBsController < ApplicationController
   def create
-    like = current_user.like_bs.build(post_b_id: params[:post_b_id])
-    like.save
-    redirect_back(fallback_location: root_path)
-    flash[:notice] = '投稿に「いいね」しました'
+    @like = current_user.like_bs.build(post_b_id: params[:post_b_id])
+    respond_to do |format|
+      if @like.save
+        @post = PostB.find(params[:post_b_id])
+        format.js
+      end
+    end
+
+    # redirect_back(fallback_location: root_path)
+    # flash[:notice] = '投稿に「いいね」しました'
   end
 
   def destroy
