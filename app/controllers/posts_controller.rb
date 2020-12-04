@@ -1,4 +1,6 @@
 class PostsController < ApplicationController
+  include CommonActions
+
   before_action :authenticate_user!, except: [:about, :index]
   before_action :set_tag, only: [:index, :trend_index]
 
@@ -17,11 +19,4 @@ class PostsController < ApplicationController
   def about
   end
 
-  private
-
-  def set_tag
-    @tag_cs = PostC.tag_counts_on(:tags).most_used(10)
-    @tag_bs = PostB.tag_counts_on(:tags).most_used(10)
-    @tag_gs = PostG.tag_counts_on(:tags).most_used(10)
-  end
 end

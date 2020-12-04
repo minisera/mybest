@@ -1,4 +1,6 @@
 class PostCsController < ApplicationController
+  include CommonActions
+
   before_action :set_post, only: [:edit, :update, :show, :destroy]
   before_action :authenticate_user!, except: [:show, :index]
   before_action :move_to_index, only: :edit
@@ -10,22 +12,14 @@ class PostCsController < ApplicationController
 
   def create
     @post = PostC.new(post_params)
-    if @post.save
-      redirect_to user_url(current_user), notice: 'お気に入りを登録しました'
-    else
-      render :new
-    end
+    post_save
   end
 
   def edit
   end
 
   def update
-    if @post.update(post_params)
-      redirect_to user_url(current_user), notice: 'お気に入りを編集しました'
-    else
-      render :edit
-    end
+    post_update
   end
 
   def show
@@ -34,8 +28,7 @@ class PostCsController < ApplicationController
   end
 
   def destroy
-    @post.destroy
-    redirect_to user_url(current_user), notice: 'お気に入りを削除しました'
+    post_destroy
   end
 
   def index
@@ -54,13 +47,9 @@ class PostCsController < ApplicationController
 
   def move_to_index
     @post = PostC.find(params[:id])
-    redirect_to posts_url unless current_user == @post.user
-    flash[:alert] = '他人の投稿は編集できません'
-  end
-
-  def set_tag
-    @tag_cs = PostC.tag_counts_on(:tags).most_used(10)
-    @tag_bs = PostB.tag_counts_on(:tags).most_used(10)
-    @tag_gs = PostG.tag_counts_on(:tags).most_used(10)
+    unless current_user == @post.user
+      redirect_to posts_url
+      flash[:alert] = '他人の投稿は編集できません'
+    end
   end
 end
