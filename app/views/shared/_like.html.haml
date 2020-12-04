@@ -2,13 +2,15 @@
 - if post.class.name == "PostC"
   - if user_signed_in?
     - if post.liked_by?(current_user)
-      = link_to post_c_like_cs_path(post.id),method: :delete do
-        %span= fa_icon "thumbs-up alredy_icon"
-        = post.like_cs.count 
+      %div{id: "likes_c_button_#{post.id}"}
+        = link_to post_c_like_cs_path(post.id),method: :delete,remote: true do
+          %span= fa_icon "thumbs-up alredy_icon"
+          = post.like_cs.count 
     - else
-      = link_to post_c_like_cs_path(post.id),method: :post do
-        %span= fa_icon "thumbs-up yet_icon"
-        = post.like_cs.count
+      %div{id: "likes_c_button_#{post.id}"}
+        = link_to post_c_like_cs_path(post.id),method: :post,remote: true do
+          %span= fa_icon "thumbs-up yet_icon"
+          = post.like_cs.count
   - else
     %span= fa_icon "thumbs-up"
     = post.like_cs.count
@@ -17,12 +19,12 @@
 - if post.class.name == "PostB"
   - if user_signed_in?
     - if post.liked_by?(current_user)
-      %div{id: "likes_button_#{post.id}"}
-        = link_to post_b_like_bs_path(post.id),method: :delete do
+      %div{id: "likes_b_button_#{post.id}"}
+        = link_to post_b_like_bs_path(post.id),method: :delete,remote: true do
           %span= fa_icon "thumbs-up alredy_icon"
           = post.like_bs.count 
     - else
-      %div{id: "likes_button_#{post.id}"}
+      %div{id: "likes_b_button_#{post.id}"}
         = link_to post_b_like_bs_path(post.id),method: :post,remote: true do
           %span= fa_icon "thumbs-up yet_icon"
           = post.like_bs.count
@@ -34,13 +36,15 @@
 - if post.class.name == "PostG"
   - if user_signed_in?
     - if post.liked_by?(current_user)
-      = link_to post_g_like_gs_path(post.id),method: :delete do
-        %span= fa_icon "thumbs-up alredy_icon"
-        = post.like_gs.count 
+      %div{id: "likes_g_button_#{post.id}"}
+        = link_to post_g_like_gs_path(post.id),method: :delete,remote: true do
+          %span= fa_icon "thumbs-up alredy_icon"
+          = post.like_gs.count 
     - else
-      = link_to post_g_like_gs_path(post.id),method: :post do
-        %span= fa_icon "thumbs-up yet_icon"
-        = post.like_gs.count
+      %div{id: "likes_g_button_#{post.id}"}
+        = link_to post_g_like_gs_path(post.id),method: :post,remote: true do
+          %span= fa_icon "thumbs-up yet_icon"
+          = post.like_gs.count
   - else
     %span= fa_icon "thumbs-up"
     = post.like_gs.count
