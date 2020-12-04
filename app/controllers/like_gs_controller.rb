@@ -1,15 +1,22 @@
 class LikeGsController < ApplicationController
   def create
     like = current_user.like_gs.build(post_g_id: params[:post_g_id])
-    like.save
-    redirect_back(fallback_location: root_path)
-    flash[:notice] = '投稿に「いいね」しました'
+    respond_to do |format|
+      if like.save
+        @post = PostG.find(params[:post_g_id])
+        format.js
+      end
+    end
   end
 
   def destroy
-    like = LikeC.find_gy(post_g_id: params[:post_g_id], user_id: current_user.id)
-    like.destroy
-    redirect_back(fallback_location: root_path)
-    flash[:notice] = '投稿から「いいね」を外しました'
+    like = LikeG.find_by(post_g_id: params[:post_g_id], user_id: current_user.id)
+    respond_to do |format|
+      if like.destroy
+        @post = PostG.find(params[:post_g_id])
+        format.js
+      end
+    end
   end
+
 end

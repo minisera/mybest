@@ -1,7 +1,7 @@
 class PostsController < ApplicationController
   include CommonActions
 
-  before_action :authenticate_user!, except: [:about, :index]
+  before_action :authenticate_user!, except: [:about, :index, :trend_index]
   before_action :set_tag, only: [:index, :trend_index]
 
   def index
