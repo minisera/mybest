@@ -17,11 +17,11 @@
 - if post.class.name == "PostB"
   - if user_signed_in?
     - if post.picked_by?(current_user)
-      = link_to post_b_pick_bs_path(post.id),method: :delete do
+      = link_to post_b_pick_bs_path(post.id),method: :delete,remote: true do
         %span= fa_icon "get-pocket alredy_icon"
         = post.pick_bs.count 
     - else
-      = link_to post_b_pick_bs_path(post.id),method: :post do
+      = link_to post_b_pick_bs_path(post.id),method: :post,remote: true do
         %span= fa_icon "get-pocket yet_icon"
         = post.pick_bs.count
   - else

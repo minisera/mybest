@@ -18,7 +18,8 @@
       .bottom_container
 
         = render partial: "shared/like",locals: {post: post}
-        = render partial: "shared/pick",locals: {post: post}
+        %div{id: "pick_button_#{post.id}"}
+          = render partial: "shared/pick",locals: {post: post}
 
         .post_place_brand
           .form_title
