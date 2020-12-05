@@ -11,9 +11,9 @@ class PostsController < ApplicationController
   end
 
   def trend_index
-    @post_c_ranks = PostC.find(LikeC.group(:post_c_id).order('count(post_c_id) desc').pluck(:post_c_id))
-    @post_b_ranks = PostB.find(LikeB.group(:post_b_id).order('count(post_b_id) desc').pluck(:post_b_id))
-    @post_g_ranks = PostG.find(LikeG.group(:post_g_id).order('count(post_g_id) desc').pluck(:post_g_id))
+    @post_c_ranks = PostC.find(LikeC.group(:post_c_id).order('count(post_c_id) desc').limit(9).pluck(:post_c_id))
+    @post_b_ranks = PostB.find(LikeB.group(:post_b_id).order('count(post_b_id) desc').limit(9).pluck(:post_b_id))
+    @post_g_ranks = PostG.find(LikeG.group(:post_g_id).order('count(post_g_id) desc').limit(9).pluck(:post_g_id))
   end
 
   def about

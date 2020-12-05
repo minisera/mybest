@@ -3,7 +3,7 @@
 .wrapper
   .new_form
     .new_messages
-      .message1 あなたのお気に入りをアップグレードしよう
+      .message あなたのお気に入りをアップグレードしよう
 
       = form_with model: @post,local: true do |f|
         = render partial: "shared/form",locals:{f: f,post: @post} 

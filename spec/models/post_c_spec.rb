@@ -64,15 +64,6 @@ RSpec.describe PostC, type: :model do
         @post.valid?
         expect(@post.errors.full_messages).to include('お気に入りのポイントは200文字以内で入力してください')
       end
-      # it '登録数が10を超えると登録できない' do
-      #   @post.save
-      #   9.times.do
-      #     post = FactoryBot.build(:post_c)
-      #     post.save
-      #   end
-      #   @post.valid?
-      #   expect(@post.errors.full_messages).to include("ユーザーの登録制限数を超えました")
-      # end
     end
   end
 end
