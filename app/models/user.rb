@@ -44,7 +44,7 @@ class User < ApplicationRecord
       user.name = 'ゲスト'
     end
   end
-
+  #自分がフォローする時、フォローされるユーザーは既にフォローされているか？
   def followed_by?(user)
     passive_relationships.find_by(following_id: user.id).present?
   end
