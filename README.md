@@ -91,9 +91,9 @@ URL: https://mybst.info/
 
 # :orange_book:使用技術
 ### フロントエンド
-* Haml
-* Scss
-* JavaScript
+* HTML(haml)
+* CSS(SCSS)
+* JavaScript(jQuery)
 
 ### バックエンド
 * Ruby 2.6.5
@@ -120,4 +120,5 @@ URL: https://mybst.info/
 
 
 # :scroll:ER図
+課題 ： Postテーブルや付随する中間テーブルの再生産が見られております。今後これらを修正して、コードの可読性を高めたい所存です。
 <img width="800" alt="スクリーンショット 2020-11-20 16 50 22" src="https://user-images.githubusercontent.com/67394974/99774037-a45f0200-2b50-11eb-9115-6fd8319bd5e4.png">
