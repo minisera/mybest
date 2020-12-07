@@ -76,13 +76,13 @@ URL: https://mybst.info/
 * 一覧表示・詳細表示
 * ページネーション（kaminari）
 * タグ付け・タグ検索(acts-as-taggable-on)
-* いいね付け・いいね数に応じてトレンド一覧表示
+* いいね付け(Ajax処理)・いいね数に応じてトレンド一覧表示
 
 ### コメント機能
-* 投稿に対するコメント、コメント削除
+* 投稿に対するコメント、コメント削除(Ajax処理)
 
 ### ピックアップ機能
-* 他人の投稿を保存
+* 他人の投稿を保存(Ajax処理)
 * 保存した投稿をマイページに一覧表示
 
 ### フォロー機能
@@ -91,9 +91,9 @@ URL: https://mybst.info/
 
 # :orange_book:使用技術
 ### フロントエンド
-* Haml
-* Scss
-* JavaScript
+* HTML(haml)
+* CSS(SCSS)
+* JavaScript(jQuery)
 
 ### バックエンド
 * Ruby 2.6.5
@@ -120,4 +120,6 @@ URL: https://mybst.info/
 
 
 # :scroll:ER図
+課題 ： Postテーブルや付随する中間テーブルの再生産が見られております。今後これらを修正して、コードの可読性を高めたい所存です。  
+
 <img width="800" alt="スクリーンショット 2020-11-20 16 50 22" src="https://user-images.githubusercontent.com/67394974/99774037-a45f0200-2b50-11eb-9115-6fd8319bd5e4.png">
