@@ -1,0 +1,2 @@
+class Goods < Post
+end
