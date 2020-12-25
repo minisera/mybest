@@ -1,8 +1,10 @@
 class PostsController < ApplicationController
   include CommonActions
 
-  before_action :authenticate_user!, except: [:about, :index, :trend_index]
+  # before_action :authenticate_user!, except: [:about, :index, :trend_index]
   before_action :set_tag, only: [:index, :trend_index]
+  before_action :set_post_info
+  before_action :post_params
 
   def index
     @post_cs = PostC.includes(:user).order('created_at DESC').limit(9)
@@ -17,6 +19,23 @@ class PostsController < ApplicationController
   end
 
   def about
+  end
+
+  def create
+    const_name = @post_name.gsub(/\b\w/) { |s| s.upcase }
+    # サブクラスごとのオブジェクトを初期化
+    @post = self.class.const_get(const_name)
+    @post.new(post_params)
+    respond_to do |format|
+      if @post.save!
+        ~
+      end
+    end
+  end
+
+  private
+  def post_params
+    params.require(@post_name).permit(:title, :image, :place, :brand, :story, :evidence, :tag_list).merge(user_id: current_user.id)
   end
 
 end

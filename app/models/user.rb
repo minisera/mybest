@@ -6,6 +6,9 @@ class User < ApplicationRecord
   has_one_attached :profile_image
   # 投稿に対するリレーション
   has_many :posts, dependent: :destroy
+  has_many :books, dependent: :destroy
+  has_many :clothes, dependent: :destroy
+  has_many :goods, dependent: :destroy
   # コメントに対するリレーション
   has_many :comments, dependent: :destroy
   # いいねに対するリレーション

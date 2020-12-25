@@ -7,7 +7,7 @@ class CreatePosts < ActiveRecord::Migration[6.0]
       t.string :brand,null: false
       t.text :story,null: false
       t.text :evidence,null: false
-      t.string :type,null: false
+      t.string :type
       t.timestamps
     end
   end
