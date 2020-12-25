@@ -1,8 +1,8 @@
-class PickGsController < ApplicationController
+class LikesController < ApplicationController
   def create
-    pick = current_user.pick_gs.build(post_g_id: params[:post_g_id])
+    like = current_user.like_gs.build(post_g_id: params[:post_g_id])
     respond_to do |format|
-      if pick.save
+      if like.save
         @post = PostG.find(params[:post_g_id])
         format.js
       end
@@ -10,12 +10,13 @@ class PickGsController < ApplicationController
   end
 
   def destroy
-    pick = PickG.find_by(post_g_id: params[:post_g_id], user_id: current_user.id)
+    like = LikeG.find_by(post_g_id: params[:post_g_id], user_id: current_user.id)
     respond_to do |format|
-      if pick.destroy
+      if like.destroy
         @post = PostG.find(params[:post_g_id])
         format.js
       end
     end
   end
+
 end

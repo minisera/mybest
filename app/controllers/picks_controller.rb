@@ -1,4 +1,4 @@
-class PickCsController < ApplicationController
+class PicksController < ApplicationController
   def create
     pick = current_user.pick_cs.build(post_c_id: params[:post_c_id])
     respond_to do |format|

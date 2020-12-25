@@ -23,24 +23,6 @@ Rails.application.routes.draw do
     get :show_pick,on: :member
   end
 
-  # resources :post_cs do
-  #   resource :like_cs,only: [:create,:destroy]
-  #   resource :pick_cs,only: [:create,:destroy]
-  #   resource :comment_cs,only: [:create,:destroy]
-  # end
-  
-  # resources :post_bs do
-  #   resource :like_bs,only: [:create,:destroy]
-  #   resource :pick_bs,only: [:create,:destroy]
-  #   resource :comment_bs,only: [:create,:destroy]
-  # end
-  
-  # resources :post_gs do
-  #   resource :like_gs,only: [:create,:destroy]
-  #   resource :pick_gs,only: [:create,:destroy]
-  #   resource :comment_gs,only: [:create,:destroy]
-  # end
-
   resources :tags,only: [:index]
   
   root to: "posts#about"

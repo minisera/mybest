@@ -1,6 +1,6 @@
 class CommentB < ApplicationRecord
   belongs_to :user
-  belongs_to :post_b
+  belongs_to :post
 
   validates :text, presence: true
 end

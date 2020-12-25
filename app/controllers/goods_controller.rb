@@ -1,4 +1,4 @@
-class PostGsController < ApplicationController
+class GoodsController < PostsController
   include CommonActions
 
   before_action :set_post, only: [:edit, :update, :show, :destroy]

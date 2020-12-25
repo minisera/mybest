@@ -1,4 +1,4 @@
-class PickB < ApplicationRecord
+class Pick < ApplicationRecord
   belongs_to :user
-  belongs_to :post_b
+  belongs_to :post
 end

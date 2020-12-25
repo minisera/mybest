@@ -1,30 +1,31 @@
-class CommentBsController < ApplicationController
+class CommentsController < ApplicationController
   before_action :set_comment, only: :create
 
   def create
-    @comment = CommentB.create(comment_params)
+    @comment = CommentC.new(comment_params)
     respond_to do |format|
       if @comment.save
         format.js
       end
     end
   end
-
+  
   def destroy
-    comment = CommentB.find(params[:post_b_id])
+    comment = CommentC.find(params[:post_c_id])
     comment.destroy
     redirect_back(fallback_location: root_path)
     flash[:notice] = 'コメントを削除しました'
   end
-
+  
   private
-
+  
   def comment_params
-    params.require(:comment_b).permit(:text).merge(user_id: current_user.id, post_b_id: params[:post_b_id])
+    params.require(:comment_c).permit(:text).merge(user_id: current_user.id, post_c_id: params[:post_c_id])
   end
-
+  
   def set_comment
-    @post = PostB.find(params[:post_b_id])
-    @comments = @post.comment_bs.includes(:user)
+    @post = PostC.find(params[:post_c_id])
+    @comments = @post.comment_cs.includes(:user)
   end
+    
 end

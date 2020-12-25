@@ -1,4 +1,4 @@
-class PostBsController < ApplicationController
+class BooksController < PostsController
   include CommonActions
 
   before_action :set_post, only: [:edit, :update, :show, :destroy]
