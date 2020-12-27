@@ -8,7 +8,7 @@
     Clothes
   - if tag_cs.present?
     - tag_cs.each do |tag|
-      = link_to "#{tag.name}(#{tag.taggings_count})",tags_path(tag: tag.name)
+      = link_to "#{tag.name}(#{tag.taggings_count})",tag_index_posts_path(tag: tag.name)
   - else
     %p 登録されているタグはありません
   .tag_title
@@ -16,7 +16,7 @@
     Books
   - if tag_bs.present?
     - tag_bs.each do |tag|
-      = link_to "#{tag.name}(#{tag.taggings_count})",tags_path(tag: tag.name)
+      = link_to "#{tag.name}(#{tag.taggings_count})",tag_index_posts_path(tag: tag.name)
   - else
     %p 登録されているタグはありません
   .tag_title 
@@ -24,6 +24,6 @@
     Goods
   - if tag_gs.present?
     - tag_gs.each do |tag|
-      = link_to "#{tag.name}(#{tag.taggings_count})",tags_path(tag: tag.name)
+      = link_to "#{tag.name}(#{tag.taggings_count})",tag_index_posts_path(tag: tag.name)
   - else
     %p 登録されているタグはありません

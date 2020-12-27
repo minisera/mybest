@@ -1,10 +1,8 @@
 class PostsController < ApplicationController
-  # include CommonActions
-  
   before_action :set_post_info,if: :use_before_action?
   before_action :set_new_post, only: [:new,:create]
   before_action :authenticate_user!, except: [:about, :index, :trend_index]
-  before_action :set_tag, only: [:index, :trend_index]
+  before_action :set_tag, only: [:index, :trend_index,:tag_index]
   before_action :set_post, only: [:show,:edit,:update,:destroy,:move_to_index]
   before_action :move_to_index,only: :edit
 
@@ -22,9 +20,9 @@ class PostsController < ApplicationController
   end
 
   def trend_index
-    @post_c_ranks = PostC.find(LikeC.group(:post_c_id).order('count(post_c_id) desc').limit(9).pluck(:post_c_id))
-    @post_b_ranks = PostB.find(LikeB.group(:post_b_id).order('count(post_b_id) desc').limit(9).pluck(:post_b_id))
-    @post_g_ranks = PostG.find(LikeG.group(:post_g_id).order('count(post_g_id) desc').limit(9).pluck(:post_g_id))
+    # @post_c_ranks = PostC.find(LikeC.group(:post_c_id).order('count(post_c_id) desc').limit(9).pluck(:post_c_id))
+    # @post_b_ranks = PostB.find(LikeB.group(:post_b_id).order('count(post_b_id) desc').limit(9).pluck(:post_b_id))
+    # @post_g_ranks = PostG.find(LikeG.group(:post_g_id).order('count(post_g_id) desc').limit(9).pluck(:post_g_id))
   end
 
   def about
@@ -60,6 +58,11 @@ class PostsController < ApplicationController
   def destroy
     @post.destroy
     redirect_to user_path(current_user)
+  end
+
+  def tag_index
+    @posts = Post.tagged_with(params[:tag])
+    @tag = params[:tag]
   end
   
   private

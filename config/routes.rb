@@ -13,6 +13,7 @@ Rails.application.routes.draw do
     resource :picks,only: [:create,:destroy]
     resource :comments,only: [:create,:destroy]
     get :trend_index, on: :collection
+    get :tag_index, on: :collection
     get :about,on: :collection
   end
 
@@ -26,8 +27,6 @@ Rails.application.routes.draw do
     get :followers, on: :member
     get :show_pick,on: :member
   end
-
-  resources :tags,only: [:index]
   
   root to: "posts#about"
 end
