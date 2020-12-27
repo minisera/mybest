@@ -1,19 +1,19 @@
 class LikesController < ApplicationController
   def create
-    like = current_user.like_gs.build(post_g_id: params[:post_g_id])
+    like = current_user.likes.build(post_id: params[:post_id])
     respond_to do |format|
       if like.save
-        @post = PostG.find(params[:post_g_id])
+        @post = Post.find(params[:post_id])
         format.js
       end
     end
   end
 
   def destroy
-    like = LikeG.find_by(post_g_id: params[:post_g_id], user_id: current_user.id)
+    like = Like.find_by(post_id: params[:post_id], user_id: current_user.id)
     respond_to do |format|
       if like.destroy
-        @post = PostG.find(params[:post_g_id])
+        @post = Post.find(params[:post_id])
         format.js
       end
     end

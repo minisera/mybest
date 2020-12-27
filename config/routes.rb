@@ -7,7 +7,8 @@ Rails.application.routes.draw do
   devise_scope :user do
     post 'users/guest_sign_in', to: 'users/sessions#new_guest'
   end
-
+  root to: "posts#about"
+  
   resources :posts do
     resource :likes,only: [:create,:destroy]
     resource :picks,only: [:create,:destroy]
@@ -28,5 +29,4 @@ Rails.application.routes.draw do
     get :show_pick,on: :member
   end
   
-  root to: "posts#about"
 end
