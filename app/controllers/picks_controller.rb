@@ -1,19 +1,19 @@
 class PicksController < ApplicationController
   def create
-    pick = current_user.pick_cs.build(post_c_id: params[:post_c_id])
+    pick = current_user.picks.build(post_id: params[:post_id])
     respond_to do |format|
       if pick.save
-        @post = PostC.find(params[:post_c_id])
+        @post = Post.find(params[:post_id])
         format.js
       end
     end
   end
 
   def destroy
-    pick = PickC.find_by(post_c_id: params[:post_c_id], user_id: current_user.id)
+    pick = Pick.find_by(post_id: params[:post_id], user_id: current_user.id)
     respond_to do |format|
       if pick.destroy
-        @post = PostC.find(params[:post_c_id])
+        @post = Post.find(params[:post_id])
         format.js
       end
     end
