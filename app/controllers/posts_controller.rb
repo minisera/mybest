@@ -9,7 +9,6 @@ class PostsController < ApplicationController
   def index
     if use_before_action?
       const_name = @post_name.gsub(/\b\w/) { |s| s.upcase }
-      post = self.class.const_get(const_name)
       @posts = Post.where(type: const_name).includes(:user).page(params[:page]).per(18)
     else
       posts = Post.includes(:user)
@@ -18,11 +17,11 @@ class PostsController < ApplicationController
       @posts_g = posts.select{|x| x[:type].include?("Good")} 
     end
   end
-
+  
   def trend_index
-    # @post_c_ranks = PostC.find(LikeC.group(:post_c_id).order('count(post_c_id) desc').limit(9).pluck(:post_c_id))
-    # @post_b_ranks = PostB.find(LikeB.group(:post_b_id).order('count(post_b_id) desc').limit(9).pluck(:post_b_id))
-    # @post_g_ranks = PostG.find(LikeG.group(:post_g_id).order('count(post_g_id) desc').limit(9).pluck(:post_g_id))
+    @post_c_ranks = Post.find(Like.group(:post_id).order('count(post_id) desc').limit(9).pluck(:post_id)).select{|x| x[:type].include?("Clothe")} 
+    @post_b_ranks = Post.find(Like.group(:post_id).order('count(post_id) desc').limit(9).pluck(:post_id)).select{|x| x[:type].include?("Book")} 
+    @post_g_ranks = Post.find(Like.group(:post_id).order('count(post_id) desc').limit(9).pluck(:post_id)).select{|x| x[:type].include?("Good")} 
   end
 
   def about

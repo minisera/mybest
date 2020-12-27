@@ -11,7 +11,7 @@
       .main_container
         -# 雑貨一覧
         .posts_title Goods
-        = render partial: "shared/index",locals: { posts: @post}
-        = paginate @post
+        = render partial: "shared/index",locals: { posts: @posts}
+        = paginate @posts
 
 = render partial: 'shared/footer'
