@@ -5,7 +5,7 @@
     .no_comment_message 投稿者さんにコメントをしてみよう！
   .comment_form
     - if user_signed_in?
-      = form_with model: [post, comment],method: :post, remote: true do | f |
+      = form_with url: post_comments_path(post.id),method: :post, remote: true do | f |
         = f.text_area :text,placeholder: "テキストを入力"
         = f.submit "投稿する",class: "comment_btn"
     - else

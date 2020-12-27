@@ -51,7 +51,7 @@
           .form_text
             = post.evidence
 
-        -# = render partial: "shared/comment",locals: {post: post,comment: comment,comments: comments}
+        = render partial: "shared/comment_form",locals: {post: post,comment: comment,comments: comments}
         
         = link_to "この人のマイページに行く",user_path(post.user),class: "bottom_nav"
         - if current_user == post.user
