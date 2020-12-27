@@ -1,21 +1,18 @@
 class PostsController < ApplicationController
   # include CommonActions
-
-  # before_action :authenticate_user!, except: [:about, :index, :trend_index]
-  # before_action :set_tag, only: [:index, :trend_index]
+  
   before_action :set_post_info,if: :use_before_action?
+  before_action :set_new_post, only: [:new,:create]
+  before_action :authenticate_user!, except: [:about, :index, :trend_index]
+  before_action :set_tag, only: [:index, :trend_index]
+  before_action :set_post, only: [:show,:edit,:update,:destroy,:move_to_index]
+  before_action :move_to_index,only: :edit
 
   def index
-    # @post_cs = PostC.includes(:user).order('created_at DESC').limit(9)
-    # @post_bs = PostB.includes(:user).order('created_at DESC').limit(9)
-    # @post_gs = PostG.includes(:user).order('created_at DESC').limit(9)
-  
     if use_before_action?
       const_name = @post_name.gsub(/\b\w/) { |s| s.upcase }
-      #サブクラスごとのオブジェクトを初期化
       post = self.class.const_get(const_name)
-      @post = post.new
-      @posts = Post.where(type: const_name)
+      @posts = Post.where(type: const_name).includes(:user).page(params[:page]).per(18)
     else
       posts = Post.includes(:user)
       @posts_b = posts.select{|x| x[:type].include?("Book")} 
@@ -34,32 +31,25 @@ class PostsController < ApplicationController
   end
 
   def new
-    const_name = @post_name.gsub(/\b\w/) { |s| s.upcase }
-    post = self.class.const_get(const_name)
-    @post = post.new
+    @post = @post_class.new
   end
-
+  
   def create
-    const_name = @post_name.gsub(/\b\w/) { |s| s.upcase }
-    post = self.class.const_get(const_name)
-    @post = post.new(post_params)
+    @post = @post_class.new(post_params)
     if @post.save
       redirect_to posts_path
     else
       render :new
     end
   end
-
+  
   def show
-    @post = Post.find(params[:id])
   end
-
+  
   def edit
-    @post = Post.find(params[:id])
   end
   
   def update
-    @post = Post.find(params[:id])
     if @post.update(post_params)
       redirect_to user_path(current_user)
     else
@@ -68,18 +58,39 @@ class PostsController < ApplicationController
   end
   
   def destroy
-    @post = Post.find(params[:id])
     @post.destroy
     redirect_to user_path(current_user)
   end
   
   private
+  def use_before_action?
+    false
+  end
   
   def post_params
     params.require(@post_name).permit(:title, :image, :place, :brand, :story, :evidence, :tag_list).merge(user_id: current_user.id)
   end
-
-  def use_before_action?
-    false
+  
+  def move_to_index
+    unless current_user == @post.user
+      redirect_to posts_url
+      flash[:alert] = '他人の投稿は編集できません'
+    end
   end
+  
+  def set_post
+    @post = Post.find(params[:id])
+  end
+  
+  def set_new_post
+    const_name = @post_name.gsub(/\b\w/) { |s| s.upcase }
+    @post_class = self.class.const_get(const_name)
+  end
+
+  def set_tag
+    @tag_cs = Clothe.tag_counts_on(:tags).most_used(10)
+    @tag_bs = Book.tag_counts_on(:tags).most_used(10)
+    @tag_gs = Good.tag_counts_on(:tags).most_used(10)
+  end
+
 end

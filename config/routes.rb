@@ -12,8 +12,8 @@ Rails.application.routes.draw do
     resource :likes,only: [:create,:destroy]
     resource :picks,only: [:create,:destroy]
     resource :comments,only: [:create,:destroy]
-    get :trend_index, on: :member
-    get :about,on: :member
+    get :trend_index, on: :collection
+    get :about,on: :collection
   end
 
   resources :books

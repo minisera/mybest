@@ -14,12 +14,12 @@
           上限に達しました。
         .message
           本当にキロクしますか？
-          
+
     - if current_user.books.size < 3
       = form_with model: @post, method: :post,local: true do |f|
         = render partial: "shared/form",locals:{f: f, post: @post} 
     - else
-      = form_with model: @post, method: :post,data: { confirm: "本当にキロクしますか？  登録数の上限は3個までです。" },local: true do |f|
+      = form_with model: @post,method: :post,data: { confirm: "本当にキロクしますか？  登録数の上限は6個までです。" },local: true do |f|
         = render partial: "shared/form",locals:{f: f, post: @post} 
 
 = render partial: 'shared/footer'
