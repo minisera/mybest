@@ -3,7 +3,6 @@ class UsersController < ApplicationController
   before_action :authenticate_user!, only: [:edit]
 
   def show
-    set_post_by_genre
   end
 
   def edit

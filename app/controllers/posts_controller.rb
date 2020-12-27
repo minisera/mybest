@@ -4,7 +4,6 @@ class PostsController < ApplicationController
   # before_action :authenticate_user!, except: [:about, :index, :trend_index]
   # before_action :set_tag, only: [:index, :trend_index]
   before_action :set_post_info,if: :use_before_action?
-  before_action :post_params,except: [:about,:index]
 
   def index
     # @post_cs = PostC.includes(:user).order('created_at DESC').limit(9)

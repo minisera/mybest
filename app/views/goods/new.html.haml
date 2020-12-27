@@ -3,11 +3,11 @@
 .wrapper
   .new_form
     .new_messages
-      - if current_user.post_gs.size < 3
+      - if current_user.goods.size < 3
         .message あなたのお気に入りをキロクしよう
         .message
           雑貨はあと
-          %span= 3 - current_user.post_gs.size
+          %span= 3 - current_user.goods.size
           つ登録できます
       - else 
         .message
@@ -15,7 +15,7 @@
         .message
           本当にキロクしますか？
 
-    - if current_user.post_gs.size < 3
+    - if current_user.goods.size < 3
       = form_with model: @post, method: :post,local: true do |f|
         = render partial: "shared/form",locals:{f: f, post: @post} 
     - else
