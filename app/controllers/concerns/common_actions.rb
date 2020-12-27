@@ -1,10 +1,10 @@
 module CommonActions
   extend ActiveSupport::Concern
-  def set_tag
-    @tag_cs = PostC.tag_counts_on(:tags).most_used(10)
-    @tag_bs = PostB.tag_counts_on(:tags).most_used(10)
-    @tag_gs = PostG.tag_counts_on(:tags).most_used(10)
-  end
+  # def set_tag
+  #   # @tag_cs = PostC.tag_counts_on(:tags).most_used(10)
+  #   # @tag_bs = PostB.tag_counts_on(:tags).most_used(10)
+  #   # @tag_gs = PostG.tag_counts_on(:tags).most_used(10)
+  # end
 
   def post_update 
     if @post.update(post_params)

@@ -16,6 +16,10 @@ Rails.application.routes.draw do
     get :about,on: :member
   end
 
+  resources :books
+  resources :clothes
+  resources :goods
+
   resources :users,only: [:show,:edit,:update] do
     resource :relationships, only: [:create,:destroy]
     get :follows, on: :member

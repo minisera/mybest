@@ -1,10 +1,10 @@
 class Post < ApplicationRecord
-  acts_as_taggable_on :tags
   belongs_to :user
-  has_one_attached :image
   has_many :likes, dependent: :destroy
   has_many :picks, dependent: :destroy
   has_many :comments, dependent: :destroy
+  acts_as_taggable_on :tags
+  has_one_attached :image
 
   with_options presence: true do
     validates :image

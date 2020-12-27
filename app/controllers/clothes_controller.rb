@@ -48,4 +48,9 @@ class ClothesController < PostsController
       flash[:alert] = '他人の投稿は編集できません'
     end
   end
+
+  def use_before_action?
+    true
+  end
+
 end

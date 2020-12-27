@@ -1,15 +1,28 @@
 class PostsController < ApplicationController
-  include CommonActions
+  # include CommonActions
 
   # before_action :authenticate_user!, except: [:about, :index, :trend_index]
-  before_action :set_tag, only: [:index, :trend_index]
-  before_action :set_post_info
-  before_action :post_params
+  # before_action :set_tag, only: [:index, :trend_index]
+  before_action :set_post_info,if: :use_before_action?
+  before_action :post_params,except: [:about,:index]
 
   def index
-    @post_cs = PostC.includes(:user).order('created_at DESC').limit(9)
-    @post_bs = PostB.includes(:user).order('created_at DESC').limit(9)
-    @post_gs = PostG.includes(:user).order('created_at DESC').limit(9)
+    # @post_cs = PostC.includes(:user).order('created_at DESC').limit(9)
+    # @post_bs = PostB.includes(:user).order('created_at DESC').limit(9)
+    # @post_gs = PostG.includes(:user).order('created_at DESC').limit(9)
+  
+    if use_before_action?
+      const_name = @post_name.gsub(/\b\w/) { |s| s.upcase }
+      #サブクラスごとのオブジェクトを初期化
+      post = self.class.const_get(const_name)
+      @post = post.new
+      @posts = Post.where(type: const_name)
+    else
+      posts = Post.includes(:user)
+      @posts_b = posts.select{|x| x[:type].include?("Book")} 
+      @posts_c = posts.select{|x| x[:type].include?("Clothe")} 
+      @posts_g = posts.select{|x| x[:type].include?("Good")} 
+    end
   end
 
   def trend_index
@@ -21,21 +34,30 @@ class PostsController < ApplicationController
   def about
   end
 
+  def new
+    const_name = @post_name.gsub(/\b\w/) { |s| s.upcase }
+    post = self.class.const_get(const_name)
+    @post = post.new
+  end
+
   def create
     const_name = @post_name.gsub(/\b\w/) { |s| s.upcase }
-    # サブクラスごとのオブジェクトを初期化
-    @post = self.class.const_get(const_name)
-    @post.new(post_params)
-    respond_to do |format|
-      if @post.save!
-        ~
-      end
+    post = self.class.const_get(const_name)
+    @post = post.new(post_params)
+    if @post.save
+      redirect_to posts_path
+    else
+      render :new
     end
   end
 
   private
+  
   def post_params
     params.require(@post_name).permit(:title, :image, :place, :brand, :story, :evidence, :tag_list).merge(user_id: current_user.id)
   end
 
+  def use_before_action?
+    false
+  end
 end
