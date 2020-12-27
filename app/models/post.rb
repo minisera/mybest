@@ -14,13 +14,7 @@ class Post < ApplicationRecord
     validates :story, length: { in: 30..200 }
     validates :evidence, length: { in: 30..200 }
   end
-
-  validate :limit_post, on: :create
-
-  def limit_post
-    errors.add(:user, 'の登録制限数を超えました') if user && user.posts.size > 9
-  end
-
+  
   def liked_by?(user)
     likes.where(user_id: user.id).exists?
   end
