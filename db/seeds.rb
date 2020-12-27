@@ -21,7 +21,7 @@ User.all.each do |user|
             ["黒長袖インナー","無印良品静岡店","無印良品","自分が静電気に悩まされているので、化学繊維が含まれていないインナーを探していました。","一言でいうと最強の下着です。日本中の全紳士はこれを着たほうが良い。全く静電気が無いのはもちろん、とっても温かいです。ヒートテックばかり着ていましたが、それに匹敵するぐらいです。おすすめできます。","test_5"]
           ]
   posts.shuffle.each do |title, place, brand, story, evidence,img|
-  post = user.post_cs.new(
+  post = user.clothes.new(
     {title: title,place: place,brand: brand,story: story,evidence: evidence}
   )
   post.image.attach(io: File.open("./public/image/post_c_image/#{img}.jpg"), filename: "#{img}.jpg", content_type: 'image/jpg')
@@ -37,7 +37,7 @@ User.all.each do |user|
             ["君の膵臓を食べたい","戸田書店焼津店","住野よる","映画をみて原作も気になりました。映画で消化不十分になった分もっと理解したいと思い手にとってみました。","『偶然なんかじゃない。君が選択してきたんだよ』その言葉がすごく残りました。2人のやり取りも、選ばれる言葉も、切ないぐらいに心地よい空気感です。映画も良かったけど、この物語は、改めて本で読んで良かったです。","test_3"]
           ]
   posts.shuffle.each do |title, place, brand, story, evidence,img|
-  post = user.post_bs.new(
+  post = user.books.new(
     {title: title,place: place,brand: brand,story: story,evidence: evidence}
   )
   post.image.attach(io: File.open("./public/image/post_b_image/#{img}.jpg"), filename: "#{img}.jpg", content_type: 'image/jpg')
@@ -53,7 +53,7 @@ User.all.each do |user|
             ["黒バックパック","メルカリ","MOLESKINE","通勤で使用するため耐水性のあるリュックを探していました。また、パソコンが入るようなポッケがあるものを選びました。","四角いフォルムが可愛く、通勤以外にも使っています。耐水性があるため土砂降りの中を傘をささずに行っても大丈夫です。（そのぐらい水を弾くという意味で実際はさしてください）","test_3"]
           ]
   posts.shuffle.each do |title, place, brand, story, evidence,img|
-  post = user.post_gs.new(
+  post = user.goods.new(
     {title: title,place: place,brand: brand,story: story,evidence: evidence}
   )
   post.image.attach(io: File.open("./public/image/post_g_image/#{img}.jpg"), filename: "#{img}.jpg", content_type: 'image/jpg')

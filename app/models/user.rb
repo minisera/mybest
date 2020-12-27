@@ -5,24 +5,17 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   has_one_attached :profile_image
   # 投稿に対するリレーション
-  has_many :post_cs, dependent: :destroy
-  has_many :post_bs, dependent: :destroy
-  has_many :post_gs, dependent: :destroy
+  has_many :posts, dependent: :destroy
+  has_many :books, dependent: :destroy
+  has_many :clothes, dependent: :destroy
+  has_many :goods, dependent: :destroy
   # コメントに対するリレーション
-  has_many :comment_cs, dependent: :destroy
-  has_many :comment_bs, dependent: :destroy
-  has_many :comment_gs, dependent: :destroy
+  has_many :comments, dependent: :destroy
   # いいねに対するリレーション
-  has_many :like_cs, dependent: :destroy
-  has_many :like_bs, dependent: :destroy
-  has_many :like_gs, dependent: :destroy
+  has_many :likes, dependent: :destroy
   # Pickに対するリレーション
-  has_many :pick_cs, dependent: :destroy
-  has_many :pick_post_cs, through: :pick_cs, source: :post_c
-  has_many :pick_bs, dependent: :destroy
-  has_many :pick_post_bs, through: :pick_bs, source: :post_b
-  has_many :pick_gs, dependent: :destroy
-  has_many :pick_post_gs, through: :pick_gs, source: :post_g
+  has_many :picks, dependent: :destroy
+  has_many :pick_posts, through: :picks, source: :post
   # 自分がフォローした側
   has_many :active_relationships, class_name: 'Relationship', foreign_key: :following_id, dependent: :destroy
   has_many :followings, through: :active_relationships, source: :follower

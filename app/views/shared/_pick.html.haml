@@ -1,44 +1,12 @@
--# 衣類の投稿に対しての「Pick」
-- if post.class.name == "PostC"
-  - if user_signed_in?
-    - if post.picked_by?(current_user)
-      = link_to post_c_pick_cs_path(post.id),method: :delete,remote: true do
-        %span= fa_icon "get-pocket alredy_icon"
-        = post.pick_cs.count 
-    - else
-      = link_to post_c_pick_cs_path(post.id),method: :post,remote: true do
-        %span= fa_icon "get-pocket yet_icon"
-        = post.pick_cs.count
+- if user_signed_in?
+  - if post.picked_by?(current_user)
+    = link_to post_picks_path(post.id),method: :delete,remote: true do
+      %span= fa_icon "get-pocket alredy_icon"
+      = post.picks.count 
   - else
-    %span= fa_icon "get-pocket"
-    = post.pick_cs.count
-
--# 本の投稿に対しての「Pick」
-- if post.class.name == "PostB"
-  - if user_signed_in?
-    - if post.picked_by?(current_user)
-      = link_to post_b_pick_bs_path(post.id),method: :delete,remote: true do
-        %span= fa_icon "get-pocket alredy_icon"
-        = post.pick_bs.count 
-    - else
-      = link_to post_b_pick_bs_path(post.id),method: :post,remote: true do
-        %span= fa_icon "get-pocket yet_icon"
-        = post.pick_bs.count
-  - else
-    %span= fa_icon "tget-pocket"
-    = post.pick_bs.count
-
--# 雑貨の投稿に対しての「Pick」
-- if post.class.name == "PostG"
-  - if user_signed_in?
-    - if post.picked_by?(current_user)
-      = link_to post_g_pick_gs_path(post.id),method: :delete,remote: true do
-        %span= fa_icon "get-pocket alredy_icon"
-        = post.pick_gs.count 
-    - else
-      = link_to post_g_pick_gs_path(post.id),method: :post,remote: true do
-        %span= fa_icon "get-pocket yet_icon"
-        = post.pick_gs.count
-  - else
-    %span= fa_icon "get-pocket"
-    = post.pick_gs.count
+    = link_to post_picks_path(post.id),method: :post,remote: true do
+      %span= fa_icon "get-pocket yet_icon"
+      = post.picks.count
+- else
+  %span= fa_icon "get-pocket"
+  = post.picks.count

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_10_074956) do
+ActiveRecord::Schema.define(version: 2020_12_27_061527) do
 
   create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -33,124 +33,45 @@ ActiveRecord::Schema.define(version: 2020_11_10_074956) do
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
   end
 
-  create_table "comment_bs", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "comments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "user_id"
-    t.bigint "post_b_id"
-    t.text "text"
+    t.bigint "post_id"
+    t.text "text", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["post_b_id"], name: "index_comment_bs_on_post_b_id"
-    t.index ["user_id"], name: "index_comment_bs_on_user_id"
+    t.index ["post_id"], name: "index_comments_on_post_id"
+    t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
-  create_table "comment_cs", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "likes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "user_id"
-    t.bigint "post_c_id"
-    t.text "text"
+    t.bigint "post_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["post_c_id"], name: "index_comment_cs_on_post_c_id"
-    t.index ["user_id"], name: "index_comment_cs_on_user_id"
+    t.index ["post_id"], name: "index_likes_on_post_id"
+    t.index ["user_id"], name: "index_likes_on_user_id"
   end
 
-  create_table "comment_gs", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "picks", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "user_id"
-    t.bigint "post_g_id"
-    t.text "text"
+    t.bigint "post_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["post_g_id"], name: "index_comment_gs_on_post_g_id"
-    t.index ["user_id"], name: "index_comment_gs_on_user_id"
+    t.index ["post_id"], name: "index_picks_on_post_id"
+    t.index ["user_id"], name: "index_picks_on_user_id"
   end
 
-  create_table "like_bs", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.bigint "user_id"
-    t.bigint "post_b_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["post_b_id"], name: "index_like_bs_on_post_b_id"
-    t.index ["user_id"], name: "index_like_bs_on_user_id"
-  end
-
-  create_table "like_cs", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.bigint "user_id"
-    t.bigint "post_c_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["post_c_id"], name: "index_like_cs_on_post_c_id"
-    t.index ["user_id"], name: "index_like_cs_on_user_id"
-  end
-
-  create_table "like_gs", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.bigint "user_id"
-    t.bigint "post_g_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["post_g_id"], name: "index_like_gs_on_post_g_id"
-    t.index ["user_id"], name: "index_like_gs_on_user_id"
-  end
-
-  create_table "pick_bs", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.bigint "user_id"
-    t.bigint "post_b_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["post_b_id"], name: "index_pick_bs_on_post_b_id"
-    t.index ["user_id"], name: "index_pick_bs_on_user_id"
-  end
-
-  create_table "pick_cs", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.bigint "user_id"
-    t.bigint "post_c_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["post_c_id"], name: "index_pick_cs_on_post_c_id"
-    t.index ["user_id"], name: "index_pick_cs_on_user_id"
-  end
-
-  create_table "pick_gs", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.bigint "user_id"
-    t.bigint "post_g_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["post_g_id"], name: "index_pick_gs_on_post_g_id"
-    t.index ["user_id"], name: "index_pick_gs_on_user_id"
-  end
-
-  create_table "post_bs", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "posts", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "user_id"
     t.string "title", null: false
     t.string "place", null: false
     t.string "brand", null: false
     t.text "story", null: false
     t.text "evidence", null: false
+    t.string "type"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["user_id"], name: "index_post_bs_on_user_id"
-  end
-
-  create_table "post_cs", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.bigint "user_id"
-    t.string "title", null: false
-    t.string "place", null: false
-    t.string "brand", null: false
-    t.text "story", null: false
-    t.text "evidence", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["user_id"], name: "index_post_cs_on_user_id"
-  end
-
-  create_table "post_gs", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.bigint "user_id"
-    t.string "title", null: false
-    t.string "place", null: false
-    t.string "brand", null: false
-    t.text "story", null: false
-    t.text "evidence", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["user_id"], name: "index_post_gs_on_user_id"
+    t.index ["user_id"], name: "index_posts_on_user_id"
   end
 
   create_table "relationships", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -204,27 +125,13 @@ ActiveRecord::Schema.define(version: 2020_11_10_074956) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
-  add_foreign_key "comment_bs", "post_bs"
-  add_foreign_key "comment_bs", "users"
-  add_foreign_key "comment_cs", "post_cs"
-  add_foreign_key "comment_cs", "users"
-  add_foreign_key "comment_gs", "post_gs"
-  add_foreign_key "comment_gs", "users"
-  add_foreign_key "like_bs", "post_bs"
-  add_foreign_key "like_bs", "users"
-  add_foreign_key "like_cs", "post_cs"
-  add_foreign_key "like_cs", "users"
-  add_foreign_key "like_gs", "post_gs"
-  add_foreign_key "like_gs", "users"
-  add_foreign_key "pick_bs", "post_bs"
-  add_foreign_key "pick_bs", "users"
-  add_foreign_key "pick_cs", "post_cs"
-  add_foreign_key "pick_cs", "users"
-  add_foreign_key "pick_gs", "post_gs"
-  add_foreign_key "pick_gs", "users"
-  add_foreign_key "post_bs", "users"
-  add_foreign_key "post_cs", "users"
-  add_foreign_key "post_gs", "users"
+  add_foreign_key "comments", "posts"
+  add_foreign_key "comments", "users"
+  add_foreign_key "likes", "posts"
+  add_foreign_key "likes", "users"
+  add_foreign_key "picks", "posts"
+  add_foreign_key "picks", "users"
+  add_foreign_key "posts", "users"
   add_foreign_key "relationships", "users", column: "follower_id"
   add_foreign_key "relationships", "users", column: "following_id"
   add_foreign_key "taggings", "tags"

@@ -8,21 +8,21 @@
       = link_to "あなたのお気に入り",user_path(@user),class: "post_tag"
       = link_to "Pickしたお気に入り",show_pick_user_path(@user),class: "post_tag"
     .mypage_container
-    - if @user.post_cs.present? || @user.post_bs.present? || @user.post_gs.present?
+    - if @user.clothes.present? || @user.books.present? || @user.goods.present?
       -# 服一覧
-      - if @user.post_cs.present?
+      - if @user.clothes.present?
         .posts_title Clothes
-        = render partial: "shared/index",locals: { posts: @user.post_cs}
+        = render partial: "shared/index",locals: { posts: @user.clothes}
       
       -# 本一覧
-      - if @user.post_bs.present?
+      - if @user.books.present?
         .posts_title Books
-        = render partial: "shared/index",locals: { posts: @user.post_bs}
+        = render partial: "shared/index",locals: { posts: @user.books}
 
       -# 雑貨一覧
-      - if @user.post_gs.present?
+      - if @user.goods.present?
         .posts_title Goods
-        = render partial: "shared/index",locals: { posts: @user.post_gs}
+        = render partial: "shared/index",locals: { posts: @user.goods}
     - else
       .none_message まだ投稿したお気に入りはありません。
 

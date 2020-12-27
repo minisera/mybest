@@ -8,21 +8,9 @@
       = link_to "あなたのお気に入り",user_path(@user),class: "post_tag"
       = link_to "Pickしたお気に入り",show_pick_user_path(@user),class: "post_tag"
     .mypage_container
-    - if @user.pick_post_cs.present? || @user.pick_post_bs.present? || @user.pick_post_gs.present?
-      -# 服一覧
-      - if @user.pick_post_cs.present?
-        .posts_title Clothes
-        = render partial: "shared/index",locals: { posts: @user.pick_post_cs}
-      
-      -# 本一覧
-      - if @user.pick_post_bs.present?
-        .posts_title Books
-        = render partial: "shared/index",locals: { posts: @user.pick_post_bs}
-
-      -# 雑貨一覧
-      - if @user.pick_post_gs.present?
-        .posts_title Goods
-        = render partial: "shared/index",locals: { posts: @user.pick_post_gs}
+    - if @user.pick_posts.present?
+      .posts_title Picks
+      = render partial: "shared/index",locals: { posts: @user.pick_posts}
     - else
       .none_message まだPickした投稿はありません。
 

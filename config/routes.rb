@@ -7,12 +7,20 @@ Rails.application.routes.draw do
   devise_scope :user do
     post 'users/guest_sign_in', to: 'users/sessions#new_guest'
   end
-
-  resource :posts,only: :index do
-    get :index,on: :member
-    get :trend_index, on: :member
-    get :about,on: :member
+  root to: "posts#about"
+  
+  resources :posts do
+    resource :likes,only: [:create,:destroy]
+    resource :picks,only: [:create,:destroy]
+    resource :comments,only: [:create,:destroy]
+    get :trend_index, on: :collection
+    get :tag_index, on: :collection
+    get :about,on: :collection
   end
+
+  resources :books
+  resources :clothes
+  resources :goods
 
   resources :users,only: [:show,:edit,:update] do
     resource :relationships, only: [:create,:destroy]
@@ -20,26 +28,5 @@ Rails.application.routes.draw do
     get :followers, on: :member
     get :show_pick,on: :member
   end
-
-  resources :post_cs do
-    resource :like_cs,only: [:create,:destroy]
-    resource :pick_cs,only: [:create,:destroy]
-    resource :comment_cs,only: [:create,:destroy]
-  end
   
-  resources :post_bs do
-    resource :like_bs,only: [:create,:destroy]
-    resource :pick_bs,only: [:create,:destroy]
-    resource :comment_bs,only: [:create,:destroy]
-  end
-  
-  resources :post_gs do
-    resource :like_gs,only: [:create,:destroy]
-    resource :pick_gs,only: [:create,:destroy]
-    resource :comment_gs,only: [:create,:destroy]
-  end
-
-  resources :tags,only: [:index]
-  
-  root to: "posts#about"
 end
