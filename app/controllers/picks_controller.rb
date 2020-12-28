@@ -18,5 +18,4 @@ class PicksController < ApplicationController
       end
     end
   end
-  
 end

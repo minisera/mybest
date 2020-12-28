@@ -39,8 +39,8 @@ RSpec.describe 'PoctCsController', type: :request do
       expect(response.body).to include 'コメント一覧'
     end
   end
-  describe "GET #index" do
-    it "indexアクションにリクエストすると正常にレスポンスが返ってくる" do
+  describe 'GET #index' do
+    it 'indexアクションにリクエストすると正常にレスポンスが返ってくる' do
       get post_cs_path
       expect(response.status).to eq 200
     end
@@ -62,8 +62,8 @@ RSpec.describe 'PoctCsController', type: :request do
     end
   end
 
-  describe "GET #index" do
-    it "indexアクションにリクエストすると正常にレスポンスが返ってくる" do
+  describe 'GET #index' do
+    it 'indexアクションにリクエストすると正常にレスポンスが返ってくる' do
       get post_cs_path
       expect(response.status).to eq 200
     end
@@ -85,15 +85,15 @@ RSpec.describe 'PoctCsController', type: :request do
     end
   end
 
-  describe "GET #edit" do
-    it "editアクションにリクエストすると正常にレスポンスが返ってくる" do
+  describe 'GET #edit' do
+    it 'editアクションにリクエストすると正常にレスポンスが返ってくる' do
       get post_cs_path(@post)
       expect(response.status).to eq 200
     end
   end
-  describe "PUT #update" do
-    it "updateアクションにリクエストすると正常にレスポンスが返ってくる" do
-      put post_c_path(@post),params: {title: "新しいタイトル"}
+  describe 'PUT #update' do
+    it 'updateアクションにリクエストすると正常にレスポンスが返ってくる' do
+      put post_c_path(@post), params: { title: '新しいタイトル' }
       expect(@post.reload.title).to eq '新しいタイトル'
     end
   end

@@ -14,7 +14,7 @@ class Post < ApplicationRecord
     validates :story, length: { in: 30..200 }
     validates :evidence, length: { in: 30..200 }
   end
-  
+
   def liked_by?(user)
     likes.where(user_id: user.id).exists?
   end

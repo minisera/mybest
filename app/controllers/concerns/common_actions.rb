@@ -1,7 +1,7 @@
 module CommonActions
   extend ActiveSupport::Concern
 
-  def post_update 
+  def post_update
     if @post.update(post_params)
       redirect_to user_url(current_user), notice: 'お気に入りを編集しました'
     else
