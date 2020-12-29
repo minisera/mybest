@@ -9,9 +9,9 @@ class PostsController < ApplicationController
   def index
     if use_before_action?
       const_name = @post_name.gsub(/\b\w/) { |s| s.upcase }
-      @posts = Post.where(type: const_name).includes(:user).page(params[:page]).per(18)
+      @posts = Post.where(type: const_name).includes(:user).order("created_at DESC").page(params[:page]).per(18)
     else
-      posts = Post.includes(:user)
+      posts = Post.includes(:user).order("created_at DESC")
       sort_post_type(posts)
     end
   end
@@ -51,7 +51,7 @@ class PostsController < ApplicationController
   end
   
   def tag_index
-    @posts = Post.tagged_with(params[:tag])
+    @posts = Post.tagged_with(params[:tag]).order("created_at DESC")
     @tag = params[:tag]
   end
   

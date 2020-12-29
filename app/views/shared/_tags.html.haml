@@ -1,29 +1,31 @@
-.search_tabs
-  .search_tab_title ＜ 検索フォーム ＞
-  = link_to "トレンド一覧",trend_index_posts_path,class: "search_tab"
-  = link_to "新着一覧",posts_path,class: "search_tab"
-.search_tags
-  .tag_title 
-    %spanc= fa_icon "angle-double-right"
-    Clothes
-  - if tag_cs.present?
-    - tag_cs.each do |tag|
-      = link_to "#{tag.name}(#{tag.taggings_count})",tag_index_posts_path(tag: tag.name)
-  - else
-    %p 登録されているタグはありません
-  .tag_title
-    %spanc= fa_icon "angle-double-right"
-    Books
-  - if tag_bs.present?
-    - tag_bs.each do |tag|
-      = link_to "#{tag.name}(#{tag.taggings_count})",tag_index_posts_path(tag: tag.name)
-  - else
-    %p 登録されているタグはありません
-  .tag_title 
-    %spanc= fa_icon "angle-double-right"
-    Goods
-  - if tag_gs.present?
-    - tag_gs.each do |tag|
-      = link_to "#{tag.name}(#{tag.taggings_count})",tag_index_posts_path(tag: tag.name)
-  - else
-    %p 登録されているタグはありません
+.search_wrapper
+  .search_container
+    .search_tabs
+      .search_tab_title ＜ 検索フォーム ＞
+      = link_to "トレンド一覧",trend_index_posts_path,class: "search_tab"
+      = link_to "新着一覧",posts_path,class: "search_tab"
+    .search_tags
+      .tag_title 
+        %spanc= fa_icon "angle-double-right"
+        Clothes
+      - if tag_cs.present?
+        - tag_cs.each do |tag|
+          = link_to "#{tag.name}(#{tag.taggings_count})",tag_index_posts_path(tag: tag.name)
+      - else
+        %p 登録されているタグはありません
+      .tag_title
+        %spanc= fa_icon "angle-double-right"
+        Books
+      - if tag_bs.present?
+        - tag_bs.each do |tag|
+          = link_to "#{tag.name}(#{tag.taggings_count})",tag_index_posts_path(tag: tag.name)
+      - else
+        %p 登録されているタグはありません
+      .tag_title 
+        %spanc= fa_icon "angle-double-right"
+        Goods
+      - if tag_gs.present?
+        - tag_gs.each do |tag|
+          = link_to "#{tag.name}(#{tag.taggings_count})",tag_index_posts_path(tag: tag.name)
+      - else
+        %p 登録されているタグはありません
