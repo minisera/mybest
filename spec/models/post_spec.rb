@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe Post, type: :model do
   before do
-    @post = FactoryBot.build(:post_c)
+    @post = FactoryBot.build(:post)
   end
 
   describe '新規投稿機能、投稿編集機能' do

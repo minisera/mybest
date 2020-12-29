@@ -217,23 +217,7 @@ ja:
         name: 名前
         profile: プロフィール
         profile_image: 画像
-      post_c:
-          title: タイトル
-          place: 出会った場所
-          image: 画像
-          brand: ブランド
-          story: 出会うまでのストーリー
-          evidence: お気に入りのポイント
-          user: ユーザー
-      post_b:
-          title: タイトル
-          place: 出会った場所
-          image: 画像
-          brand: ブランド
-          story: 出会うまでのストーリー
-          evidence: お気に入りのポイント
-          user: ユーザー
-      post_g:
+      post:
           title: タイトル
           place: 出会った場所
           image: 画像
