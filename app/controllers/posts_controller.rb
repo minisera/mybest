@@ -1,7 +1,7 @@
 class PostsController < ApplicationController
   before_action :set_post_info, if: :use_before_action?
   before_action :set_new_post, only: [:new, :create]
-  before_action :authenticate_user!, except: [:about, :index, :trend_index]
+  before_action :authenticate_user!, except: [:about, :index, :trend_index,:show]
   before_action :set_tag, only: [:index, :trend_index, :tag_index]
   before_action :set_post, only: [:show, :edit, :update, :destroy, :move_to_index]
   before_action :move_to_index, only: :edit
