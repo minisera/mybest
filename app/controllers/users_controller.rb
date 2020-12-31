@@ -29,8 +29,6 @@ class UsersController < ApplicationController
     @users = @user.followers
   end
 
-  def show_pick
-  end
 
   private
 

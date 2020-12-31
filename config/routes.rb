@@ -26,7 +26,6 @@ Rails.application.routes.draw do
     resource :relationships, only: [:create,:destroy]
     get :follows, on: :member
     get :followers, on: :member
-    get :show_pick,on: :member
   end
   
 end

@@ -10,6 +10,7 @@ require("jquery")
 require("../new")
 require("../pulldown")
 require("../flash")
+require("../user_show_tab")
 
 window.$ = jQuery;
 

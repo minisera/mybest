@@ -5,25 +5,34 @@
 .wrapper
   .profile_wrapper
     .post_tags
-      = link_to "#{@user.name}さんのお気に入り",user_path(@user),class: "post_tag"
-      = link_to "Pickしたお気に入り",show_pick_user_path(@user),class: "post_tag"
-    .mypage_container
-    - if @user.clothes.present? || @user.books.present? || @user.goods.present?
-      -# 服一覧
-      - if @user.clothes.present?
-        .posts_title Clothes
-        = render partial: "shared/index",locals: { posts: @user.clothes}
-      
-      -# 本一覧
-      - if @user.books.present?
-        .posts_title Books
-        = render partial: "shared/index",locals: { posts: @user.books}
+      %p.post_tag#post_tab #{@user.name}したお気に入り
+      %p.post_tag#pick_tab Pickしたお気に入り
+    
+    .mypage_container.active
+      - if @user.clothes.present? || @user.books.present? || @user.goods.present?
+        -# 服一覧
+        - if @user.clothes.present?
+          .posts_title Clothes
+          = render partial: "shared/index",locals: { posts: @user.clothes}
+        
+        -# 本一覧
+        - if @user.books.present?
+          .posts_title Books
+          = render partial: "shared/index",locals: { posts: @user.books}
 
-      -# 雑貨一覧
-      - if @user.goods.present?
-        .posts_title Goods
-        = render partial: "shared/index",locals: { posts: @user.goods}
-    - else
-      .none_message まだ投稿したお気に入りはありません。
+        -# 雑貨一覧
+        - if @user.goods.present?
+          .posts_title Goods
+          = render partial: "shared/index",locals: { posts: @user.goods}
+      - else
+        .none_message まだ投稿したお気に入りはありません。
+    
+    -# ピックアップ一覧
+    .mypage_container.inactive
+      - if @user.pick_posts.present?
+        .posts_title Picks
+        = render partial: "shared/index",locals: { posts: @user.pick_posts}
+      - else
+        .none_message まだPickした投稿はありません。
 
 = render'shared/footer'
