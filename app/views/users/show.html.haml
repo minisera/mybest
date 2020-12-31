@@ -5,7 +5,7 @@
 .wrapper
   .profile_wrapper
     .post_tags
-      = link_to "あなたのお気に入り",user_path(@user),class: "post_tag"
+      = link_to "#{@user.name}さんのお気に入り",user_path(@user),class: "post_tag"
       = link_to "Pickしたお気に入り",show_pick_user_path(@user),class: "post_tag"
     .mypage_container
     - if @user.clothes.present? || @user.books.present? || @user.goods.present?
