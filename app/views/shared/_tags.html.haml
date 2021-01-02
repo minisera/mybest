@@ -8,7 +8,7 @@
       .tag_title 
         %spanc= fa_icon "angle-double-right"
         Clothes
-      - if tag_cs.present?
+      - unless tag_cs.blank?
         - tag_cs.each do |tag|
           = link_to "#{tag.name}(#{tag.taggings_count})",tag_index_posts_path(tag: tag.name)
       - else
@@ -16,7 +16,7 @@
       .tag_title
         %spanc= fa_icon "angle-double-right"
         Books
-      - if tag_bs.present?
+      - unless tag_bs.blank?
         - tag_bs.each do |tag|
           = link_to "#{tag.name}(#{tag.taggings_count})",tag_index_posts_path(tag: tag.name)
       - else
@@ -24,7 +24,7 @@
       .tag_title 
         %spanc= fa_icon "angle-double-right"
         Goods
-      - if tag_gs.present?
+      - unless tag_gs.blank?
         - tag_gs.each do |tag|
           = link_to "#{tag.name}(#{tag.taggings_count})",tag_index_posts_path(tag: tag.name)
       - else
