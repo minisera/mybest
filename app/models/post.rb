@@ -1,6 +1,7 @@
 class Post < ApplicationRecord
   belongs_to :user
   has_many :likes, dependent: :destroy
+  has_many :like_user,through: :likes,source: :user
   has_many :picks, dependent: :destroy
   has_many :comments, dependent: :destroy
   acts_as_taggable_on :tags
@@ -13,10 +14,6 @@ class Post < ApplicationRecord
     validates :brand
     validates :story, length: { in: 30..200 }
     validates :evidence, length: { in: 30..200 }
-  end
-
-  def liked_by?(user)
-    likes.where(user_id: user.id).exists?
   end
 
   def picked_by?(user)

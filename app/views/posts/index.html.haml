@@ -9,27 +9,27 @@
 
       -# 新着一覧
       .main_container
-        -# -# 服一覧
-        -# .posts_title Clothes
-        -# = render partial: "shared/index",locals: { posts: @posts_c}
-        -# .posts_link
-        -#   = link_to "衣類の一覧へ",clothes_path
+        -# 服一覧
+        .posts_title Clothes
+        = render partial: "shared/index",locals: { posts: @posts_c}
+        .posts_link
+          = link_to "衣類の一覧へ",clothes_path
         
-        -# -# 本一覧
-        -# .posts_title Books
-        -# = render partial: "shared/index",locals: { posts: @posts_b}
-        -# .posts_link
-        -#   = link_to "本の一覧へ",books_path,class: "posts_link"
+        -# 本一覧
+        .posts_title Books
+        = render partial: "shared/index",locals: { posts: @posts_b}
+        .posts_link
+          = link_to "本の一覧へ",books_path,class: "posts_link"
         
-        -# -# 雑貨一覧
-        -# .posts_title Goods
-        -# = render partial: "shared/index",locals: { posts: @posts_g}
-        -# .posts_link
-        -#   = link_to "雑貨の一覧へ",goods_path,class: "posts_link"
-        -# .posts_title Goods
-        = render partial: "shared/index",locals: { posts: @posts}
+        -# 雑貨一覧
+        .posts_title Goods
+        = render partial: "shared/index",locals: { posts: @posts_g}
         .posts_link
           = link_to "雑貨の一覧へ",goods_path,class: "posts_link"
+        -# .posts_title Goods
+        -# = render partial: "shared/index",locals: { posts: @posts}
+        -# .posts_link
+        -#   = link_to "雑貨の一覧へ",goods_path,class: "posts_link"
 
 
       -# -# タグ付けた投稿一覧

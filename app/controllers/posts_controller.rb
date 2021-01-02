@@ -11,8 +11,8 @@ class PostsController < ApplicationController
       const_name = @post_name.gsub(/\b\w/) { |s| s.upcase }
       @posts = Post.where(type: const_name).includes(:user).order("created_at DESC").page(params[:page]).per(18)
     else
-      @posts = Post.includes(:likes,user: {profile_image_attachment: :blob}).with_attached_image.order("created_at DESC")
-      # sort_post_type(posts)
+      posts = Post.includes(:like_user,user: {profile_image_attachment: :blob}).with_attached_image.order("created_at DESC")
+      sort_post_type(posts)
     end
   end
   
