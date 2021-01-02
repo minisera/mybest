@@ -4,13 +4,13 @@
     %div{id: "likes_button_#{post.id}"}
       = link_to post_likes_path(post.id),method: :delete,remote: true do
         %span= fa_icon "thumbs-up alredy_icon"
-        = post.likes.count 
+        = post.likes.size
   - else
     -# ユーザーがいいねしていなかった場合
     %div{id: "likes_button_#{post.id}"}
       = link_to post_likes_path(post.id),method: :post,remote: true do
         %span= fa_icon "thumbs-up yet_icon"
-        = post.likes.count
+        = post.likes.size
 - else
   %span= fa_icon "thumbs-up"
-  = post.likes.count
+  = post.likes.size

@@ -25,4 +25,5 @@ class CommentsController < ApplicationController
     @post = Post.find(params[:post_id])
     @comments = @post.comments
   end
+  
 end

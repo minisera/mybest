@@ -6,7 +6,6 @@ class UsersController < ApplicationController
   end
 
   def edit
-    @user = User.find(params[:id])
     unless current_user == @user
       redirect_to posts_url
       flash[:alert] = '他人の情報は編集できません'
@@ -39,4 +38,5 @@ class UsersController < ApplicationController
   def set_user
     @user = User.find(params[:id])
   end
+  
 end
