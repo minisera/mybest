@@ -1,20 +1,19 @@
 .posts_index
-  - if posts
-    - posts .each do |post|
-      .post_item_list
-        = link_to image_tag(post.image),post_path(post),class: "post_image"
-        .post_main 
-          .post_title
-            = post.title
+  - posts .each do |post|
+    .post_item_list
+      = link_to image_tag(post.image),post_path(post),class: "post_image"
+      .post_main 
+        .post_title
+          = post.title
 
-          -# 投稿内いいね機能
-          = render partial: "shared/like",locals: {post: post}
+        -# 投稿内いいね機能
+        = render partial: "shared/like",locals: {post: post}
 
-          .post_info
-            .post_user
-              .user_avatar
-                = link_to image_tag(post.user.profile_image),user_path(post.user)
-              .post_user_name 
-                = post.user.name
-            .post_date
-              %time(datetime="#{post.created_at}")= "#{time_ago_in_words(post.created_at)}前"
+        .post_info
+          .post_user
+            .user_avatar
+              = link_to image_tag(post.user.profile_image),user_path(post.user)
+            .post_user_name 
+              = post.user.name
+          .post_date
+            %time(datetime="#{post.created_at}")= "#{time_ago_in_words(post.created_at)}前"

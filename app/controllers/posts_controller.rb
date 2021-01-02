@@ -9,7 +9,7 @@ class PostsController < ApplicationController
   def index
     if use_before_action?
       const_name = @post_name.gsub(/\b\w/) { |s| s.upcase }
-      @posts = Post.where(type: const_name).includes(:user).order("created_at DESC").page(params[:page]).per(18)
+      @posts = Post.where(type: const_name).includes(:like_user,user: {profile_image_attachment: :blob}).with_attached_image.order("created_at DESC").page(params[:page]).per(18)
     else
       posts = Post.includes(:like_user,user: {profile_image_attachment: :blob}).with_attached_image.order("created_at DESC")
       sort_post_type(posts)
@@ -51,12 +51,12 @@ class PostsController < ApplicationController
   end
   
   def tag_index
-    @posts = Post.tagged_with(params[:tag]).order("created_at DESC")
+    @posts = Post.includes(:like_user,user: {profile_image_attachment: :blob}).with_attached_image.tagged_with(params[:tag]).order("created_at DESC")
     @tag = params[:tag]
   end
   
   def trend_index
-    posts = Post.includes(:user).sort{|a,b| b.likes.size <=> a.likes.size}
+    posts = Post.includes(:like_user,user: {profile_image_attachment: :blob}).with_attached_image.sort{|a,b| b.likes.size <=> a.likes.size}
     sort_post_type(posts)
   end
   
