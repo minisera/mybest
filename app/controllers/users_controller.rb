@@ -3,7 +3,8 @@ class UsersController < ApplicationController
   before_action :authenticate_user!, only: [:edit]
 
   def show
-    posts = @user.posts.with_attached_image
+    @posts_pick = @user.pick_posts.includes(:like_user).with_attached_image
+    posts = @user.posts.includes(:like_user,user: {profile_image_attachment: :blob}).with_attached_image
     sort_post_type(posts)
   end
 
