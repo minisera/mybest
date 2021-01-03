@@ -9,27 +9,27 @@
       %p.post_tag#pick_tab Pickしたお気に入り
     
     .mypage_container.active
-      - if @user.clothes.present? || @user.books.present? || @user.goods.present?
+      - unless @posts_c.blank? || @posts_b.blank? || @posts_g.blank?
         -# 服一覧
-        - if @user.clothes.present?
+        - unless @posts_c.blank?
           .posts_title Clothes
-          = render partial: "shared/index",locals: { posts: @user.clothes}
+          = render partial: "shared/index",locals: { posts: @posts_c}
         
         -# 本一覧
-        - if @user.books.present?
+        - unless @posts_b.blank?
           .posts_title Books
-          = render partial: "shared/index",locals: { posts: @user.books}
+          = render partial: "shared/index",locals: { posts: @posts_b}
 
         -# 雑貨一覧
-        - if @user.goods.present?
+        - unless @posts_g.blank?
           .posts_title Goods
-          = render partial: "shared/index",locals: { posts: @user.goods}
+          = render partial: "shared/index",locals: { posts: @posts_g}
       - else
         .none_message まだ投稿したお気に入りはありません。
     
     -# ピックアップ一覧
     .mypage_container.inactive
-      - if @user.pick_posts.present?
+      - unless @user.pick_posts.blank?
         .posts_title Picks
         = render partial: "shared/index",locals: { posts: @user.pick_posts}
       - else
