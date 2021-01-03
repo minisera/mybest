@@ -1,10 +1,10 @@
--# = render partial: 'shared/header'
+= render partial: 'shared/header'
 
 .wrapper
   .mid_wrapper
     .container
       -# サーチボックス
-      = render partial: "shared/tags",locals: {tag_cs: @tags_c,tag_bs: @tags_b,tag_gs: @tags_g}
+      = render partial: "shared/tags",locals: {tags: @tags}
       
 
       -# 新着一覧

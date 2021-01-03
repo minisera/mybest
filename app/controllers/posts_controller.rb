@@ -31,7 +31,7 @@ class PostsController < ApplicationController
   
   def show
     @comment = Comment.new
-    @comments = @post.comments.includes(:user)
+    @comments = @post.comments.includes(user: {profile_image_attachment: :blob})
   end
   
   def edit
@@ -90,9 +90,7 @@ private
   end
   
   def set_tag
-    @tags_c = Clothe.tag_counts_on(:tags).most_used(10)
-    @tags_b = Book.tag_counts_on(:tags).most_used(10)
-    @tags_g = Good.tag_counts_on(:tags).most_used(10)
+    @tags = Post.tag_counts_on(:tags).most_used(10)
   end
   
   def sort_post_type(posts)
