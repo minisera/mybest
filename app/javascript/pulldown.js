@@ -40,5 +40,19 @@ window.addEventListener("load",function(){
       pullDownImage.setAttribute("style", "display:block;")
       pullDownEdit.removeAttribute("style", "display:block;")
     }
+  });
+
+  const hamburger = document.querySelector('.hamburger');
+  const glob = document.querySelector('.globalMenuSp');
+
+  hamburger.addEventListener("click",()=>{
+    hamburger.classList.toggle("active");
+
+    if (hamburger.classList.contains("active")){
+      glob.classList.add("active");
+    }
+    else {
+      glob.classList.remove("active");
+      }
   })
-})
+});

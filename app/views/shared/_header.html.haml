@@ -17,6 +17,23 @@
           .pulldown_lists#pulldown_image
             = link_to "マイページ",user_path(current_user),class: "pulldown_list" 
             = link_to "サインアウト", destroy_user_session_path, method: "delete",class: "pulldown_list" 
+        .nav_icon
+          -# = fa_icon "bars"
+          .hamburger
+            %span
+            %span
+            %span
+          
+          %nav.globalMenuSp
+            %ul
+              %li
+                %a
+              %li
+                %a
+              %li
+                %a
+
+
             
       - else   
         .nav_icon
