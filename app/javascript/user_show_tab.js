@@ -1,3 +1,4 @@
+// ユーザー詳細画面のみで使用
 if (document.URL.match( /users/ )) {
   window.addEventListener("load",()=>{
     const pickTab = document.querySelector("#pick_tab");

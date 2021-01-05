@@ -6,11 +6,11 @@
   .field
     .filed_name どんな見た目？
     .label_wrapper
-      %label(for="post_image")
+      %label(for="in_image")
         ファイルを選択
-        = f.file_field :image,id: "post_image",class: "hidden"
+        = f.file_field :image,id: "in_image",class: "hidden"
     #image_preview
-      .post_image_custom
+      .image_custom
         - if post.image.present?
           = image_tag post.image,class: "post_image_pre"
         - else

@@ -20,7 +20,7 @@ window.addEventListener("load",function(){
   pullDownButtonImage.addEventListener("mouseout",function(){
     this.removeAttribute("style", "filter:opacity(50%);")
   })
-  
+
   // 投稿アイコンクリック時投稿リスト出現
   pullDownButtonEdit.addEventListener("click",function(){
     if (pullDownEdit.getAttribute("style") == "display:block;") {
@@ -42,7 +42,4 @@ window.addEventListener("load",function(){
     }
   })
 
-  window.addEventListener("click",()=>{
-    console.log("画面をクリックしました");
-  })
 })

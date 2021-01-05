@@ -226,10 +226,10 @@
 
 // プロフィール編集時のプレビュー画像
 #image_preview {
-  .user_image_custom {
+  .image_custom {
     display: flex;
     justify-content: center;
-    align-items: center;
+    // align-items: center;
     .profile_image_pre {
       width: 150px;
       height: 150px;

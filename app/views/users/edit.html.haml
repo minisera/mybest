@@ -4,13 +4,13 @@
   .login_container
     .user_profile_image
     #image_preview
-      .user_image_custom
+      .image_custom
         = image_tag @user.profile_image,class: "profile_image_pre"
     = form_with model: @user, local: true do |f|
       .field
-        %label(for="user_profile_image")
+        %label(for="in_image")
           プロフィール画像を設定する
-          = f.file_field :profile_image,class: "image_file hidden"
+          = f.file_field :profile_image,class: "image_file hidden",id: "in_image"
       .field
         = f.text_area :profile,placeholder: " Profile"
       .actions
