@@ -41,4 +41,8 @@ window.addEventListener("load",function(){
       pullDownEdit.removeAttribute("style", "display:block;")
     }
   })
+
+  window.addEventListener("click",()=>{
+    console.log("画面をクリックしました");
+  })
 })
