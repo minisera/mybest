@@ -124,7 +124,7 @@ URL: https://mybst.info/
 シングルテーブル継承を行い、中間テーブルの再生産がなくなり、可読性が上がりました。(２０/１２/２７ 更新)  
 
 **新テーブル**  
-<img width="800" alt="スクリーンショット 2020-12-27 17 05 29" src="https://user-images.githubusercontent.com/67394974/103166494-e709ad80-4865-11eb-9ff9-422f963ddd3f.png">
+<img width="800" alt="スクリーンショット 2021-01-06 13 40 38" src="https://user-images.githubusercontent.com/67394974/103729929-dce56d00-5024-11eb-9973-33d989a358d3.png">
 
 
 旧テーブル  
