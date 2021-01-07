@@ -370,6 +370,7 @@
           border-radius: 4px;
           margin: 8px 0;
           padding: 8px;
+          word-wrap: break-word;
         }
       }
     }
@@ -443,6 +444,8 @@
         }
         .comment_box_body {
           margin-top: 10px;
+          max-width: 500px;
+          word-wrap: break-word;
         }
       }
     }

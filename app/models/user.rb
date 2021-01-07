@@ -24,6 +24,7 @@ class User < ApplicationRecord
   has_many :followers, through: :passive_relationships, source: :following
 
   validates :name, presence: true
+  validates :profile,length: { maximum: 200 }
 
   def default_image
     unless profile_image.attached?

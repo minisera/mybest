@@ -62,6 +62,10 @@
           }
         }
       }
+      .user_profile {
+        word-wrap: break-word;
+        max-width: 500px;
+      }
       .user_follows {
         margin-top: 8px;
         display: flex;

@@ -10,8 +10,8 @@ class Post < ApplicationRecord
   with_options presence: true do
     validates :image
     validates :title, length: { maximum: 12 }
-    validates :place
-    validates :brand
+    validates :place, length: { maximum: 10 }
+    validates :brand, length: { maximum: 10 }
     validates :story, length: { in: 30..200 }
     validates :evidence, length: { in: 30..200 }
   end
