@@ -17,10 +17,10 @@
           = image_tag "/image/no_image.png",class: "post_image_pre"           
     
   .filed
-    .filed_name どこのブランド？
+    .filed_name どこのブランド？(10文字以内)
     = f.text_field :brand, placeholder: "ブランド、著者など"
   .filed
-    .filed_name どこで出会った？
+    .filed_name どこで出会った？(10文字以内)
     = f.text_field :place, placeholder: "サイト名、店名など"
 .form_right
   .filed
@@ -31,6 +31,6 @@
     = f.text_area :evidence,placeholder:"30〜200文字で入力",maxlength: "200"
   .filed
     .filed_name タグ
-    = f.text_field :tag_list,value: f.object.tag_list.join(','), placeholder: "”,”で区切って入力"
+    = f.text_field :tag_list,value: f.object.tag_list.join(','), placeholder: "”,”で区切って入力",maxlength: "20"
   .actions
     = f.submit "お気に入りをキロクする"
