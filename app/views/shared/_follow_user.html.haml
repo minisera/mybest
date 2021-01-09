@@ -10,7 +10,7 @@
         = link_to "フォロー中",follows_user_path(user),class: "follow_tab2"
         = link_to "フォロワー",followers_user_path(user),class: "follower_tab2"
     .follow_lists
-      - if users.present?
+      - unless users.blank?
         - users.each do |user|
           .user_box
             .user_box_content
