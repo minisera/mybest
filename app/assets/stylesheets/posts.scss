@@ -46,6 +46,7 @@
             }
             a {
               display: inline-block;
+              max-width: 100%;
               font-size: 15px;
               text-align: center;
               padding: 5px 10px;
@@ -53,6 +54,7 @@
               background-color: #aaa;
               color: #eeeeee;
               margin-bottom: 10px;
+              word-wrap: break-word;
               &:hover {
                 background-color: #c0c0c0;
               }
