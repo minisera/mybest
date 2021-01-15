@@ -7,6 +7,7 @@ class PostsController < ApplicationController
   before_action :set_tag, only: [:index, :trend_index, :tag_index]
   before_action :set_post, only: [:show, :edit, :update, :destroy, :move_to_index]
   before_action :move_to_index, only: :edit
+  before_action :check_guest,only: [:destroy,:update]
 
   def index
     if use_before_action?
@@ -95,4 +96,10 @@ private
     @tags = Post.tag_counts_on(:tags).most_used(10)
   end
   
+  def check_guest
+    if @post.user.email == 'guest@example.com'
+      redirect_to user_path(current_user), alert: 'ゲストユーザーの投稿は削除・編集できません。'
+    end
+  end
+
 end

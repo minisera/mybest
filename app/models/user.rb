@@ -24,7 +24,7 @@ class User < ApplicationRecord
   has_many :followers, through: :passive_relationships, source: :following
 
   CHECKER_JP=/\A[ぁ-んァ-ン一-龥a-zA-Z0-9０-９\、\。\「\」\【\】\（\）\！\？\％\『\』]+\z/
-  validates :name, presence: true,format: {with: CHECKER_JP}
+  validates :name, presence: true,length: { maximum: 10 },format: {with: CHECKER_JP}
   validates :profile,length: { maximum: 200 },format: {with: CHECKER_JP}
 
   def default_image

@@ -1,6 +1,6 @@
 class Comment < ApplicationRecord
   belongs_to :user
   belongs_to :post
-  validates :text, presence: true
-  validates :text, length: { maximum: 500 }
+  CHECKER_JP=/\A[ぁ-んァ-ン一-龥a-zA-Z0-9０-９\、\。\「\」\【\】\（\）\！\？\％\『\』]+\z/
+  validates :text, presence: true,length: { maximum: 500 },format: {with: CHECKER_JP}
 end
