@@ -7,7 +7,7 @@ class Post < ApplicationRecord
   acts_as_taggable_on :tags
   has_one_attached :image
 
-  CHECKER_JP=/\A[ぁ-んァ-ン一-龥a-zA-Z0-9０-９\、\。\「\」\【\】\（\）\！\？\％\『\』\s\ー\-]+\z/
+  CHECKER_JP=/\A[ぁ-んァ-ン一-龥a-zA-Z0-9０-９\、\。\「\」\【\】\（\）\！\？\％\『\』\s\ー\-\・\…]+\z/
 
   with_options presence: true do
     validates :image
