@@ -23,8 +23,9 @@ class User < ApplicationRecord
   has_many :passive_relationships, class_name: 'Relationship', foreign_key: :follower_id, dependent: :destroy
   has_many :followers, through: :passive_relationships, source: :following
 
-  validates :name, presence: true
-  validates :profile,length: { maximum: 200 }
+  CHECKER_JP=/\A[ぁ-んァ-ン一-龥a-zA-Z0-9０-９\、\。\「\」\【\】\（\）\！\？\％\『\』]+\z/
+  validates :name, presence: true,format: {with: CHECKER_JP}
+  validates :profile,length: { maximum: 200 },format: {with: CHECKER_JP}
 
   def default_image
     unless profile_image.attached?
