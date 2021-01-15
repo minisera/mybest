@@ -7,13 +7,13 @@ class Post < ApplicationRecord
   acts_as_taggable_on :tags
   has_one_attached :image
 
-  CHECKER_JP=/\A[ぁ-んァ-ン一-龥a-zA-Z0-9０-９\、\。\「\」\【\】\（\）\！\？\％\『\』]+\z/
+  CHECKER_JP=/\A[ぁ-んァ-ン一-龥a-zA-Z0-9０-９\、\。\「\」\【\】\（\）\！\？\％\『\』\s\ー\-]+\z/
 
   with_options presence: true do
     validates :image
     validates :title, length: { maximum: 12 },format: {with: CHECKER_JP}
-    validates :place, length: { maximum: 10 },format: {with: CHECKER_JP}
-    validates :brand, length: { maximum: 10 },format: {with: CHECKER_JP}
+    validates :place, length: { maximum: 15 },format: {with: CHECKER_JP}
+    validates :brand, length: { maximum: 15 },format: {with: CHECKER_JP}
     validates :story, length: { in: 30..200 },format: {with: CHECKER_JP}
     validates :evidence, length: { in: 30..200 },format: {with: CHECKER_JP}
   end
