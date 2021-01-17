@@ -1,4 +1,5 @@
 class BooksController < PostsController
+
   private
 
   def set_post_info

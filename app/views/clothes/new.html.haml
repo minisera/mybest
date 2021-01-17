@@ -3,6 +3,7 @@
 .wrapper
   .new_form
     .new_messages
+      -# 服の投稿は6まで
       - if current_user.clothes.size < 6
         .message あなたのお気に入りをキロクしよう
         .message

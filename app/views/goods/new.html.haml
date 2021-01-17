@@ -3,6 +3,7 @@
 .wrapper
   .new_form
     .new_messages
+      -# 雑貨の投稿は３まで
       - if current_user.goods.size < 3
         .message あなたのお気に入りをキロクしよう
         .message
