@@ -35,6 +35,7 @@ class PostsController < ApplicationController
   def show
     @comment = Comment.new
     @comments = @post.comments.includes(user: {profile_image_attachment: :blob})
+    @tags = @post.tag_counts_on(:tags)
   end
   
   def edit

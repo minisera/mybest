@@ -10,6 +10,6 @@
         タグ一覧
       - unless tags.blank?
         - tags.each do |tag|
-          = link_to "#{tag.name}(#{tag.taggings_count})",tag_index_posts_path(tag: tag.name)
+          = link_to "# #{tag.name}(#{tag.taggings_count})",tag_index_posts_path(tag: tag.name)
       - else
         %p 登録されているタグはありません

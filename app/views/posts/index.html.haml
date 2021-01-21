@@ -26,40 +26,5 @@
         = render partial: "shared/index",locals: { posts: @posts_g}
         .posts_link
           = link_to "雑貨の一覧へ",goods_path,class: "posts_link"
-        -# .posts_title Goods
-        -# = render partial: "shared/index",locals: { posts: @posts}
-        -# .posts_link
-        -#   = link_to "雑貨の一覧へ",goods_path,class: "posts_link"
-
-
-      -# -# タグ付けた投稿一覧
-      -# .main_container
-      -#   .posts_title #{@tag}に関する投稿
-      -#   - if @posts.present?
-      -#     = render partial: "shared/index",locals: {posts: @posts}
-
-
-      -# -# 人気順一覧
-      -# .main_container
-      -#   -# 服一覧        
-      -#   - if @posts_c.present?
-      -#     .posts_title Clothes
-      -#     = render partial: "shared/index",locals: { posts: @posts_c}
-      -#     .posts_link
-      -#       = link_to "衣類の一覧へ",clothes_path
-      -#   -# 本一覧
-      -#   - if @posts_b.present?
-      -#     .posts_title Books
-      -#     = render partial: "shared/index",locals: { posts: @posts_b}
-      -#     .posts_link
-      -#       = link_to "本の一覧へ",books_path,class: "posts_link"
-
-      -#   -# 雑貨一覧
-      -#   - if @posts_g.present?
-      -#     .posts_title Goods
-      -#     = render partial: "shared/index",locals: { posts: @posts_g}
-      -#     .posts_link
-      -#       = link_to "雑貨の一覧へ",goods_path,class: "posts_link"
-        
 
 = render partial: 'shared/footer'

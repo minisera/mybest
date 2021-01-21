@@ -16,11 +16,13 @@
         = image_tag @post.image
     .bottom_wrapper 
       .bottom_container
-
+        .post_tags
+          - @tags.each do |tag|
+            = link_to "# #{tag.name}",tag_index_posts_path(tag: tag.name)
         = render partial: "shared/like",locals: {post: @post}
         %div{id: "pick_button_#{@post.id}"}
           = render partial: "shared/pick",locals: {post: @post}
-
+        
         .post_place_brand
           .form_title
             = fa_icon "angle-right"

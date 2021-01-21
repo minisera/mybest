@@ -350,6 +350,23 @@
     .bottom_container {
       width: 600px;
       margin: 0 auto;
+      .post_tags {
+        a {
+          display: inline-block;
+          max-width: 100%;
+          font-size: 15px;
+          text-align: center;
+          padding: 5px 10px;
+          border-radius: 10px;
+          background-color: #aaa;
+          color: #eeeeee;
+          margin-bottom: 10px;
+          word-wrap: break-word;
+          &:hover {
+            background-color: #c0c0c0;
+          }
+      }
+    }
       a{
         padding-left: 8px;
       }
