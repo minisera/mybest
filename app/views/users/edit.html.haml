@@ -4,10 +4,11 @@
   .login_container
     - if @user.email == "guest@example.com"
       .no_change_profile ※ ゲストのプロフィールは変更できません。
-    #image_preview
-      .image_custom
-        = image_tag @user.profile_image,class: "profile_image_pre"
     = form_with model: @user, local: true do |f|
+      = render "shared/error_messages",model: f.object
+      #image_preview
+        .image_custom
+          = image_tag @user.profile_image,class: "profile_image_pre"
       .field
         %label(for="in_image")
           プロフィール画像を設定する
