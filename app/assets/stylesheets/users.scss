@@ -1,4 +1,4 @@
-// マイページ
+// マイページ上部
 .profile_top {
   .profile_container {
     padding: 40px;
@@ -77,10 +77,12 @@
   }
 }
 
+// ページ訪問時はPickUpページは隠す
 .inactive {
   display: none;
 }
 
+// マイページ下部（Post一覧）
 .profile_wrapper {
   margin: 0 auto;
   max-width: 960px;
@@ -226,6 +228,14 @@
       background-color: #c0c0c0;
     }
   }
+}
+
+// ゲストユーザーは編集ができないよう注意書き
+.no_change_profile {
+  padding: 10px 20px;
+  margin-bottom: 30px;
+  color: red;
+  border: solid red 2px;
 }
 
 // プロフィール編集時のプレビュー画像

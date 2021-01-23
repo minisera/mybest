@@ -4,7 +4,6 @@ class UsersController < ApplicationController
   before_action :set_user
   before_action :authenticate_user!, only: [:edit]
   before_action :check_guest, only: :update
-
   
   def show
     @posts_pick = @user.pick_posts.includes(:like_user).with_attached_image
