@@ -19,9 +19,11 @@
         .post_tags
           - @tags.each do |tag|
             = link_to "# #{tag.name}",tag_index_posts_path(tag: tag.name)
-        = render partial: "shared/like",locals: {post: @post}
-        %div{id: "pick_button_#{@post.id}"}
-          = render partial: "shared/pick",locals: {post: @post}
+        
+        .post_like_pick
+          = render partial: "shared/like",locals: {post: @post}
+          %div{id: "pick_button_#{@post.id}"}
+            = render partial: "shared/pick",locals: {post: @post}
         
         .post_place_brand
           .form_title

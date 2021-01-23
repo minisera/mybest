@@ -350,6 +350,9 @@
     .bottom_container {
       width: 600px;
       margin: 0 auto;
+      .post_like_pick {
+        display: flex;
+      }
       .post_tags {
         a {
           display: inline-block;
