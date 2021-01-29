@@ -2,12 +2,12 @@ class Users::SessionsController < Devise::SessionsController
   def new_guest
     user = User.guest
     sign_in user
-    redirect_to posts_url, notice: 'ゲストユーザーとしてログインしました。'
+    redirect_to new_clothe_path, notice: 'ゲストユーザーとしてログインしました。'
   end
 
   protected
 
-  def after_sign_in_path_for(_resource)
-    posts_url
+  def after_sign_in_path_for(resource)
+    new_clothe_path
   end
 end
