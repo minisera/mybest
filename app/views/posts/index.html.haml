@@ -10,19 +10,19 @@
       -# 新着一覧
       .main_container
         -# 服一覧
-        .posts_title Clothes
+        .posts_title Clothes -服-
         = render partial: "shared/index",locals: { posts: @posts_c}
         .posts_link
           = link_to "衣類の一覧へ",clothes_path
         
         -# 本一覧
-        .posts_title Books
+        .posts_title Books -本-
         = render partial: "shared/index",locals: { posts: @posts_b}
         .posts_link
           = link_to "本の一覧へ",books_path,class: "posts_link"
         
         -# 雑貨一覧
-        .posts_title Goods
+        .posts_title Goods -雑貨-
         = render partial: "shared/index",locals: { posts: @posts_g}
         .posts_link
           = link_to "雑貨の一覧へ",goods_path,class: "posts_link"

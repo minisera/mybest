@@ -39,17 +39,17 @@
       - unless @posts_c.blank? && @posts_b.blank? && @posts_g.blank?
         -# 服一覧
         - unless @posts_c.blank?
-          .posts_title Clothes
+          .posts_title Clothes -服-
           = render partial: "shared/index",locals: { posts: @posts_c}
         
         -# 本一覧
         - unless @posts_b.blank?
-          .posts_title Books
+          .posts_title Books -本-
           = render partial: "shared/index",locals: { posts: @posts_b}
 
         -# 雑貨一覧
         - unless @posts_g.blank?
-          .posts_title Goods
+          .posts_title Goods -雑貨-
           = render partial: "shared/index",locals: { posts: @posts_g}
       - else
         .none_message まだ投稿したお気に入りはありません。
